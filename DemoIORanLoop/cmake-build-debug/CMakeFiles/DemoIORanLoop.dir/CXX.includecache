@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/PROG2100/CPPSourceCode/DemoIORanLoop/main.cpp
+iostream
+-
+termios.h
+-
+string
+-
+ctime
+-
+sstream
+-
+

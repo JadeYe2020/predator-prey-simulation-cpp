@@ -1,0 +1,11 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/DemoIORanLoop.dir/main.cpp.o"
+  "DemoIORanLoop.exe"
+  "DemoIORanLoop.pdb"
+  "libDemoIORanLoop.dll.a"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/DemoIORanLoop.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

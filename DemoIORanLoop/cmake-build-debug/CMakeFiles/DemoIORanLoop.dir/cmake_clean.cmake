@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/DemoIORanLoop.dir/main.cpp.o"
+  "CMakeFiles/DemoIORanLoop.dir/main.cpp.obj"
   "DemoIORanLoop.exe"
+  "DemoIORanLoop.exe.manifest"
   "DemoIORanLoop.pdb"
   "libDemoIORanLoop.dll.a"
 )

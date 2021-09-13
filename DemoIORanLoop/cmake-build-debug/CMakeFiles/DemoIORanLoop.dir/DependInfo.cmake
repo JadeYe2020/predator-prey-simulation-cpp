@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/c/PROG2100/CPPSourceCode/DemoIORanLoop/main.cpp" "/cygdrive/c/PROG2100/CPPSourceCode/DemoIORanLoop/cmake-build-debug/CMakeFiles/DemoIORanLoop.dir/main.cpp.o"
+  "C:/PROG2100/CPPSourceCode/DemoIORanLoop/main.cpp" "C:/PROG2100/CPPSourceCode/DemoIORanLoop/cmake-build-debug/CMakeFiles/DemoIORanLoop.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

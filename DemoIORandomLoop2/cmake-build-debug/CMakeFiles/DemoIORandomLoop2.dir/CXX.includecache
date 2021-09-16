@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/PROG2100/CPPSourceCode/DemoIORandomLoop2/main.cpp
+iostream
+-
+string
+-
+sstream
+-
+ctime
+-
+conio.h
+-
+

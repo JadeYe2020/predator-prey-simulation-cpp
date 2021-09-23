@@ -65,6 +65,7 @@ void demoFive(){
     price = 42.4363;
     cout << "The price is $" << price << endl;
 
+    //The settings is in a global scope. Needs to be reset at the end.
     cout.unsetf(ios::fixed); //resets cout to default
     cout.unsetf(ios::showpoint);//resets cout to default
 

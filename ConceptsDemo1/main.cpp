@@ -14,9 +14,9 @@ void demoSix();
 void demoSeven();//enum strings
 
 //enumerated constants
-enum {E1,E2,E3};//Demo 1
+enum {E1,E2,E3};//Demo 1    //an enum without a name
 enum week{Mon, Tue, Wed, Thur, Fri, Sat, Sun};//Demo 2
-enum State {Working = 1, Failed = 0, Freezed = 0};//Demo 3
+enum State {Working = 1, Failed = 0, Freezed = 0};//Demo 3  //override the indexed numbers
 enum {P1,P2,P3,};//Demo 7
 string puppies[]={"Doodle","Pug","Beagle"};//Demo 7
 
@@ -32,13 +32,13 @@ int main() {
 }
 void demoOne(){
     cout << "DEMO #1" << endl;
-    cout <<  E1 << endl;
+    cout <<  E1 << endl;    //Index numbers will be printed out.
     cout <<  E2 << endl;
     cout <<  E3 << endl;
 }
 void demoTwo(){
     cout << "DEMO #2" <<endl;
-    enum week day;
+    enum week day;  //can create a variable of a specific enum item.
     day = Wed;
     cout << "Wednesday is the: "<<day<<" day of the week";
 }
@@ -53,10 +53,16 @@ void demoFour(){ //assign name to type definition then use name for declarations
     typedef int* IntPtr;    //make a new alias for a datatype
     IntPtr pointer1,pointer2;
 }
-void demoFive(){
-    cout.setf(ios::fixed);
-    cout.setf(ios::showpoint);
-    cout.precision(2);  //format the string
+void demoFive(){    //Format the stream
+    cout.setf(ios::fixed);  //When floatfield is set to fixed, floating-point values are written
+    // using fixed-point notation: the value is represented with exactly as many digits in the decimal part
+    // as specified by the precision field (precision) and with no exponent part.
+
+    cout.setf(ios::showpoint);  //the decimal point is always written for floating point values
+    // inserted into the stream (even for those whose decimal part is zero).
+    //to match the precision set for the stream
+
+    cout.precision(2);
 
     double price = 22;
     cout << "The price is $" << price << endl;

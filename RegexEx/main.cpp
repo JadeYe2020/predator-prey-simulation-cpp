@@ -16,7 +16,8 @@ int main() {
         if (!cin){  //if no input
             break;
         }
-        if (input == "q"){
+        if (input == "q")   //use double quotes for the string type (single quotes for char type)
+        {
             break;
         }
         if (regex_match(input, exp)){

@@ -56,7 +56,7 @@ void demoFour(){ //assign name to type definition then use name for declarations
 void demoFive(){
     cout.setf(ios::fixed);
     cout.setf(ios::showpoint);
-    cout.precision(2);
+    cout.precision(2);  //format the string
 
     double price = 22;
     cout << "The price is $" << price << endl;

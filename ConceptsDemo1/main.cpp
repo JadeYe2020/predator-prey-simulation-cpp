@@ -50,7 +50,7 @@ void demoThree(){
 }
 void demoFour(){ //assign name to type definition then use name for declarations
     cout << "DEMO #4" << endl;
-    typedef int* IntPtr;
+    typedef int* IntPtr;    //make a new alias for a datatype
     IntPtr pointer1,pointer2;
 }
 void demoFive(){

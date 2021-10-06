@@ -1,0 +1,3 @@
+C:\Users\jayde\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5080.54\bin\cmake\win\bin\cmake.exe -E rm -f CMakeFiles\FileIO.dir/objects.a
+C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ar.exe cr CMakeFiles\FileIO.dir/objects.a @CMakeFiles\FileIO.dir\objects1.rsp
+C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\FileIO.dir/objects.a -Wl,--no-whole-archive -o FileIO.exe -Wl,--out-implib,libFileIO.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\FileIO.dir\linklibs.rsp

@@ -28,12 +28,18 @@ string storeLine(string fileName, int lineNum) {
     if(!fileIn.fail()) {
         int lineCount = 0;
 
-        while (!fileIn.eof() || lineCount < lineNum) {
+        while (!fileIn.eof() && lineCount < lineNum) {
             getline(fileIn, line);
 
             lineCount++;
         }
 
+        fileIn.close();
+
+        if (lineCount < lineNum) {
+            cout << "The file has fewer than " << lineNum << " lines. Nothing will be stored." << endl;
+            return "";
+        }
         return line;
     }
     else {

@@ -6,33 +6,35 @@
 using namespace std;
 
 string askForFilename();
+void printFile(string inFileName);
+int numOfLines(string inFileName);
 string storeLine(string fileName, int lineNum);
 
 int main() {
     string inFileName;
     cout << "First, choose a cpp file to convert." << endl;
-    inFileName = askForFilename();
+    inFileName = askForFilename()+".cpp";
 
     string outFileName;
     cout << "And now, decide what html file you want to save it as." << endl;
-    outFileName = askForFilename();
+    outFileName = askForFilename()+".html";
 
-    ifstream fileIn;
-    string line;
-    fileIn.open(inFileName + ".cpp"); //try to open the file
-    if(!fileIn.fail()) {
-        cout << "The file content shows as below: " << endl;
-        while(!fileIn.eof()){
-            getline(fileIn, line);
-            cout << line << endl;
-        }
-        fileIn.close();
-        cout << "The file has been closed." << endl;
-    }
-    else {
-        cout << "Input file failed to open." << endl;
-    }
+    printFile(inFileName);
+    cout << "The file has " << numOfLines(inFileName) << " of lines." << endl;
 
+//    ofstream  fileOut;
+//    fileOut.open(outFileName+".html", ios::app); //try to open the file to append
+//
+//    if(!fileOut.fail()){
+//        bool lastLine = false;
+//        int lineNum = 1;
+//        while(lastLine) {
+//            fileOut << storeLine(inFileName, lineNum);
+//            lineNum++;
+//        }
+//    }
+//    else
+//        cout << "Output file failed to open." << endl;
 
 //    cout << storeLine(inFileName, 3) << endl;
 
@@ -83,5 +85,42 @@ string storeLine(string fileName, int lineNum) {
     else {
         cout << "Failed to open the file." << endl;
         return "";
+    }
+}
+
+void printFile(string inFileName) {
+    ifstream fileIn;
+    string lineRead;
+    fileIn.open(inFileName); //try to open the file
+    if(!fileIn.fail()) {
+        cout << "The file content shows as below: " << endl;
+        while(!fileIn.eof()){
+            getline(fileIn, lineRead);
+            cout << lineRead << endl;
+        }
+        fileIn.close();
+        cout << "The file has been closed." << endl;
+    }
+    else {
+        cout << "Input file failed to open." << endl;
+    }
+}
+
+int numOfLines(string inFileName) {
+    ifstream fileIn;
+    string line;
+    int lineCount = 0;
+    fileIn.open(inFileName); //try to open the file
+    if(!fileIn.fail()) {
+        while(!fileIn.eof()){
+            getline(fileIn, line);
+            lineCount++;
+        }
+        fileIn.close();
+        return lineCount;
+    }
+    else {
+        cout << "Input file failed to open." << endl;
+        return 0;
     }
 }

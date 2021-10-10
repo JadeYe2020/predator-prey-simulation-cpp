@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <regex>
 
 using namespace std;
 
@@ -12,9 +13,16 @@ int main() {
     cout << "Please enter the file name to convert. e.g. 'c:\\bobFile'" << endl;
     getline(cin, fileName);
 
-    //NEED A REGEX HERE TO VALIDATE
+    //regex pattern for valid filenames (https://www.geeksforgeeks.org/regex-regular-expression-in-c/)
+    regex pattern("[a-zA-Z]:(\\\\[^\\<\\>:\"/\\\\|\\?\\*]+[^\\<\\>:\"/\\\\|\\?\\*\\.])+");
 
-    cout << storeLine(fileName, 3) << endl;
+    if(regex_match(fileName, pattern)) {
+        cout << "Filename is legal" << endl;
+    }
+    else
+        cout << "Filename is invalid." << endl;
+
+//    cout << storeLine(fileName, 3) << endl;
 
     return 0;
 }

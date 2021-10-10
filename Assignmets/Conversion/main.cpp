@@ -11,7 +11,24 @@ string storeLine(string fileName, int lineNum);
 int main() {
     string fileName;
     fileName = askForFilename();
-    cout << "The filename is " << fileName << endl;
+//    cout << "The filename is " << fileName << endl;
+
+    ifstream fileIn;
+    string line;
+    fileIn.open(fileName+".cpp"); //try to open the file
+    if(!fileIn.fail()) {
+        cout << "The file content shows as below: " << endl;
+        while(!fileIn.eof()){
+            getline(fileIn, line);
+            cout << line << endl;
+        }
+        fileIn.close();
+        cout << "The file has been closed." << endl;
+    }
+    else {
+        cout << "Input file failed to open." << endl;
+    }
+
 
 //    cout << storeLine(fileName, 3) << endl;
 

@@ -5,9 +5,20 @@
 
 using namespace std;
 
+string askForFilename();
 string storeLine(string fileName, int lineNum);
 
 int main() {
+    string fileName;
+    fileName = askForFilename();
+    cout << "The filename is " << fileName << endl;
+
+//    cout << storeLine(fileName, 3) << endl;
+
+    return 0;
+}
+
+string askForFilename() {
     string fileName;
 
     cout << "Please enter the file name to convert. e.g. 'c:\\bobFile'" << endl;
@@ -17,15 +28,12 @@ int main() {
     //(https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file)
     regex pattern("[a-zA-Z]:(\\\\[^\\<\\>:\"/\\\\|\\?\\*]+[^\\<\\>:\"/\\\\|\\?\\*\\.])+");
 
-    if(regex_match(fileName, pattern)) {
-        cout << "Filename is legal" << endl;
+    if(!regex_match(fileName, pattern)) {
+        cout << "The file path is not valid." << endl;
+        fileName = askForFilename();
     }
     else
-        cout << "Filename is invalid." << endl;
-
-//    cout << storeLine(fileName, 3) << endl;
-
-    return 0;
+        return fileName;
 }
 
 string storeLine(string fileName, int lineNum) {

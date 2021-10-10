@@ -9,13 +9,17 @@ string askForFilename();
 string storeLine(string fileName, int lineNum);
 
 int main() {
-    string fileName;
-    fileName = askForFilename();
-//    cout << "The filename is " << fileName << endl;
+    string inFileName;
+    cout << "First, choose a cpp file to convert." << endl;
+    inFileName = askForFilename();
+
+    string outFileName;
+    cout << "And now, decide what html file you want to save it as." << endl;
+    outFileName = askForFilename();
 
     ifstream fileIn;
     string line;
-    fileIn.open(fileName+".cpp"); //try to open the file
+    fileIn.open(inFileName + ".cpp"); //try to open the file
     if(!fileIn.fail()) {
         cout << "The file content shows as below: " << endl;
         while(!fileIn.eof()){
@@ -30,7 +34,7 @@ int main() {
     }
 
 
-//    cout << storeLine(fileName, 3) << endl;
+//    cout << storeLine(inFileName, 3) << endl;
 
     return 0;
 }
@@ -38,7 +42,7 @@ int main() {
 string askForFilename() {
     string fileName;
 
-    cout << "Please enter the file name to convert. e.g. 'c:\\bobFile'" << endl;
+    cout << "Please enter the file name. e.g. 'c:\\bobFile'" << endl;
     getline(cin, fileName);
 
     //regex pattern for valid filenames (https://www.geeksforgeeks.org/regex-regular-expression-in-c/)

@@ -14,6 +14,7 @@ int main() {
     getline(cin, fileName);
 
     //regex pattern for valid filenames (https://www.geeksforgeeks.org/regex-regular-expression-in-c/)
+    //(https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file)
     regex pattern("[a-zA-Z]:(\\\\[^\\<\\>:\"/\\\\|\\?\\*]+[^\\<\\>:\"/\\\\|\\?\\*\\.])+");
 
     if(regex_match(fileName, pattern)) {

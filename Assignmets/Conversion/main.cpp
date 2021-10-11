@@ -8,9 +8,6 @@ using namespace std;
 string askForFilename();
 void appendLine(string outFileName, string line);
 string convertAnglebrackets(string line);
-void printFile(string inFileName);
-int numOfLines(string inFileName);
-string storeLine(string fileName, int lineNum);
 
 int main() {
     string inFileName;
@@ -89,70 +86,4 @@ string convertAnglebrackets(string line) {
     converted = regex_replace(converted, pForRight, "&gt;");
 
     return converted;
-}
-
-string storeLine(string fileName, int lineNum) {
-    string line;
-    ifstream fileIn;
-
-    fileIn.open(fileName);
-
-    if(!fileIn.fail()) {
-        int lineCount = 0;
-
-        while (!fileIn.eof() && lineCount < lineNum) {
-            getline(fileIn, line);
-
-            lineCount++;
-        }
-
-        fileIn.close();
-
-        if (lineCount < lineNum) {
-            cout << "The file has fewer than " << lineNum << " lines. Nothing will be stored." << endl;
-            return "";
-        }
-        return line;
-    }
-    else {
-        cout << "Failed to open the file." << endl;
-        return "";
-    }
-}
-
-void printFile(string inFileName) {
-    ifstream fileIn;
-    string lineRead;
-    fileIn.open(inFileName); //try to open the file
-    if(!fileIn.fail()) {
-        cout << "The file content shows as below: " << endl;
-        while(!fileIn.eof()){
-            getline(fileIn, lineRead);
-            cout << lineRead << endl;
-        }
-        fileIn.close();
-        cout << "The file has been closed." << endl;
-    }
-    else {
-        cout << "Input file failed to open." << endl;
-    }
-}
-
-int numOfLines(string inFileName) {
-    ifstream fileIn;
-    string line;
-    int lineCount = 0;
-    fileIn.open(inFileName); //try to open the file
-    if(!fileIn.fail()) {
-        while(!fileIn.eof()){
-            getline(fileIn, line);
-            lineCount++;
-        }
-        fileIn.close();
-        return lineCount;
-    }
-    else {
-        cout << "Input file failed to open." << endl;
-        return 0;
-    }
 }

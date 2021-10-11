@@ -7,6 +7,7 @@ using namespace std;
 
 string askForFilename();
 void appendLine(string outFileName, string line);
+string convertAnglebrackets(string line);
 void printFile(string inFileName);
 int numOfLines(string inFileName);
 string storeLine(string fileName, int lineNum);
@@ -24,13 +25,21 @@ int main() {
     string lineRead;
     fileIn.open(inFileName); //try to open the file
     if(!fileIn.fail()) {
+        //first need to add the first <PRE> tag
+        appendLine(outFileName, "<PRE>");
+
         while(!fileIn.eof()){
             getline(fileIn, lineRead);
+            //convert the line
+            string lineToWrite = convertAnglebrackets(lineRead);
             //copy the line into fileOut
-            appendLine(outFileName, lineRead);
+            appendLine(outFileName, lineToWrite);
         }
         fileIn.close();
-//        cout << "The file has been closed." << endl;
+
+        //lastly, add the end PRE tag.
+        appendLine(outFileName, "</PRE>");
+        cout << "Congratulations! The file has been converted." << endl;
     }
     else {
         cout << "Input file failed to open." << endl;
@@ -67,6 +76,19 @@ void appendLine(string outFileName, string line) {
     }
     else
         cout << "Output file failed to open." << endl;
+}
+
+string convertAnglebrackets(string line) {
+    string converted;
+
+    regex pForLeft("<");
+    regex pForRight(">");
+
+    //https://www.geeksforgeeks.org/regex-regular-expression-in-c/
+    converted = regex_replace(line, pForLeft, "&lt;");
+    converted = regex_replace(converted, pForRight, "&gt;");
+
+    return converted;
 }
 
 string storeLine(string fileName, int lineNum) {

@@ -6,6 +6,7 @@
 using namespace std;
 
 string askForFilename();
+void appendLine(string outFileName, string line);
 void printFile(string inFileName);
 int numOfLines(string inFileName);
 string storeLine(string fileName, int lineNum);
@@ -19,24 +20,21 @@ int main() {
     cout << "And now, decide what html file you want to save it as." << endl;
     outFileName = askForFilename()+".html";
 
-    printFile(inFileName);
-    cout << "The file has " << numOfLines(inFileName) << " of lines." << endl;
-
-//    ofstream  fileOut;
-//    fileOut.open(outFileName+".html", ios::app); //try to open the file to append
-//
-//    if(!fileOut.fail()){
-//        bool lastLine = false;
-//        int lineNum = 1;
-//        while(lastLine) {
-//            fileOut << storeLine(inFileName, lineNum);
-//            lineNum++;
-//        }
-//    }
-//    else
-//        cout << "Output file failed to open." << endl;
-
-//    cout << storeLine(inFileName, 3) << endl;
+    ifstream fileIn;
+    string lineRead;
+    fileIn.open(inFileName); //try to open the file
+    if(!fileIn.fail()) {
+        while(!fileIn.eof()){
+            getline(fileIn, lineRead);
+            //copy the line into fileOut
+            appendLine(outFileName, lineRead);
+        }
+        fileIn.close();
+//        cout << "The file has been closed." << endl;
+    }
+    else {
+        cout << "Input file failed to open." << endl;
+    }
 
     return 0;
 }
@@ -57,6 +55,18 @@ string askForFilename() {
     }
     else
         return fileName;
+}
+
+void appendLine(string outFileName, string line) {
+    ofstream  fileOut;
+    fileOut.open(outFileName, ios::app); //try to open the file to append
+
+    if(!fileOut.fail()){
+        fileOut << line << endl;
+        fileOut.close();
+    }
+    else
+        cout << "Output file failed to open." << endl;
 }
 
 string storeLine(string fileName, int lineNum) {

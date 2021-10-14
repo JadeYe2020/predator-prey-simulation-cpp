@@ -6,6 +6,7 @@
 using namespace std;
 
 string askForFilename();
+void writeNew(string outFileName, string line);
 void appendLine(string outFileName, string line);
 string findAndReplace(string line, string oldStr, string newStr);
 
@@ -22,8 +23,8 @@ int main() {
     string lineRead;
     fileIn.open(inFileName); //try to open the file
     if(!fileIn.fail()) {
-        //first need to add the first <PRE> tag
-        appendLine(outFileName, "<PRE>");
+        //Start writing the out file with the first <PRE> tag
+        writeNew(outFileName, "<PRE>");
 
         while(!fileIn.eof()){
             getline(fileIn, lineRead);
@@ -62,6 +63,18 @@ string askForFilename() {
     }
     else
         return fileName;
+}
+
+void writeNew(string outFileName, string line) {
+    ofstream  fileOut;
+    fileOut.open(outFileName);
+
+    if(!fileOut.fail()){
+        fileOut << line << endl;
+        fileOut.close();
+    }
+    else
+        cout << "Output file failed to open." << endl;
 }
 
 void appendLine(string outFileName, string line) {

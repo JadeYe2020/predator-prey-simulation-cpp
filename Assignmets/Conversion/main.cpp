@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <regex>
+#include <exception>
 
 using namespace std;
 
@@ -21,26 +22,33 @@ int main() {
 
     ifstream fileIn;
     string lineRead;
-    fileIn.open(inFileName); //try to open the file
-    if(!fileIn.fail()) {
-        //Start writing the out file with the first <PRE> tag
-        writeNew(outFileName, "<PRE>");
 
-        while(!fileIn.eof()){
-            getline(fileIn, lineRead);
-            //convert the line
-            string lineToWrite = findAndReplace(lineRead, "<", "&lt;");
-            lineToWrite = findAndReplace(lineToWrite, ">", "&gt;");
-            //copy the line into fileOut
-            appendLine(outFileName, lineToWrite);
+    try
+    {
+        fileIn.open(inFileName); //try to open the file
+        if(!fileIn.fail()) {
+            //Start writing the out file with the first <PRE> tag
+            writeNew(outFileName, "<PRE>");
+
+            while(!fileIn.eof()){
+                getline(fileIn, lineRead);
+                //convert the line
+                string lineToWrite = findAndReplace(lineRead, "<", "&lt;");
+                lineToWrite = findAndReplace(lineToWrite, ">", "&gt;");
+                //copy the line into fileOut
+                appendLine(outFileName, lineToWrite);
+            }
+            fileIn.close();
+
+            //lastly, add the end PRE tag.
+            appendLine(outFileName, "</PRE>");
+            cout << "Congratulations! The file has been converted." << endl;
         }
-        fileIn.close();
-
-        //lastly, add the end PRE tag.
-        appendLine(outFileName, "</PRE>");
-        cout << "Congratulations! The file has been converted." << endl;
+        else {
+            throw exception();
+        }
     }
-    else {
+    catch (exception& e) {
         cout << "Input file failed to open." << endl;
     }
 

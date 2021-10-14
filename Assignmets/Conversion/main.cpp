@@ -7,7 +7,7 @@ using namespace std;
 
 string askForFilename();
 void appendLine(string outFileName, string line);
-string convertAnglebrackets(string line);
+string findAndReplace(string line, string oldStr, string newStr);
 
 int main() {
     string inFileName;
@@ -28,7 +28,8 @@ int main() {
         while(!fileIn.eof()){
             getline(fileIn, lineRead);
             //convert the line
-            string lineToWrite = convertAnglebrackets(lineRead);
+            string lineToWrite = findAndReplace(lineRead, "<", "&lt;");
+            lineToWrite = findAndReplace(lineToWrite, ">", "&gt;");
             //copy the line into fileOut
             appendLine(outFileName, lineToWrite);
         }
@@ -75,15 +76,10 @@ void appendLine(string outFileName, string line) {
         cout << "Output file failed to open." << endl;
 }
 
-string convertAnglebrackets(string line) {
-    string converted;
+string findAndReplace(string line, string oldStr, string newStr)
+{
+    //(https://www.geeksforgeeks.org/regex-regular-expression-in-c/)
+    regex p(oldStr);
 
-    regex pForLeft("<");
-    regex pForRight(">");
-
-    //https://www.geeksforgeeks.org/regex-regular-expression-in-c/
-    converted = regex_replace(line, pForLeft, "&lt;");
-    converted = regex_replace(converted, pForRight, "&gt;");
-
-    return converted;
+    return regex_replace(line, p, newStr);
 }

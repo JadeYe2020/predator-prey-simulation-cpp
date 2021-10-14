@@ -82,6 +82,10 @@ void ProgDefinedDemo(){
     }
     catch (exception& e)
     {
-
+        //Other errors
     }
+    catch (...){
+        //Other errors
+    }
+
 }

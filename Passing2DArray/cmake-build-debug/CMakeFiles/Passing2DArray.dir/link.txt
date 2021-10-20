@@ -1,0 +1,3 @@
+C:\Users\jayde\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5080.54\bin\cmake\win\bin\cmake.exe -E rm -f CMakeFiles\Passing2DArray.dir/objects.a
+C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ar.exe cr CMakeFiles\Passing2DArray.dir/objects.a @CMakeFiles\Passing2DArray.dir\objects1.rsp
+C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\Passing2DArray.dir/objects.a -Wl,--no-whole-archive -o Passing2DArray.exe -Wl,--out-implib,libPassing2DArray.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Passing2DArray.dir\linklibs.rsp

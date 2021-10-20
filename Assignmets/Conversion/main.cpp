@@ -23,12 +23,13 @@ struct MyException : public exception
 int main() {
     string inFileName;
     cout << "First, choose a cpp file to convert." << endl;
-    inFileName = askForFilename()+".cpp";   //append the file type to complete the filename for the user
+    inFileName = askForFilename()+".cpp";   //append the file extension to complete the filename for the user
 
     string outFileName;
     cout << "And now, decide what html file you want to save it as." << endl;
     outFileName = askForFilename()+".html";
 
+    //Instantiate an ifstream object and declare a string variable to store the lines.
     ifstream fileIn;
     string lineRead;
     try
@@ -40,10 +41,11 @@ int main() {
             fileIn.exceptions ( ifstream::failbit | ifstream::badbit );
         }
         else {
+            //if the fileIn opens successfully, then first try to start writing the out file with the first <PRE> tag
             try {
-                //try to start writing the out file with the first <PRE> tag
-                writeNew(outFileName, "<PRE>");
+                writeNew(outFileName, "<PRE>"); //The method will throw an error message when the out file cannot be opened.
 
+                //if the out file opens and gets written successfully, then try to append some lines into it.
                 while(!fileIn.eof()){
                     getline(fileIn, lineRead);
 
@@ -53,6 +55,7 @@ int main() {
 
                     try {
                         //try to copy the line into fileOut
+                        //The method will throw the customized MyException if the out file cannot be opened.
                         appendLine(outFileName, lineToWrite);
                     }//end try (to write the converted lines)
                     catch (MyException& myE) {
@@ -64,11 +67,12 @@ int main() {
                         break;
                     }
                 } //end while
+                //close the fileIn stream and the lines are all copied and appended.
                 fileIn.close();
 
                 try { //lastly, try to add the end PRE tag.
                     appendLine(outFileName, "</PRE>");
-
+                    //Display a message when there's no error.
                     cout << "Congratulations! The file has been converted." << endl;
                 }
                 catch (MyException& myE) {
@@ -104,14 +108,14 @@ string askForFilename() {
     cout << "Please enter the file name. e.g. 'c:\\bobFile'" << endl;
     getline(cin, fileName);
 
-    //regex pattern for valid filenames (https://www.geeksforgeeks.org/regex-regular-expression-in-c/)
-    //(https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file)
+    /* regex pattern for valid filenames (https://www.geeksforgeeks.org/regex-regular-expression-in-c/)
+    (https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file) */
     regex pattern("[a-zA-Z]:(\\\\[^\\<\\>:\"/\\\\|\\?\\*]+[^\\<\\>:\"/\\\\|\\?\\*\\.])+");
 
     if(!regex_match(fileName, pattern)) {
         cout << "The file path is not valid." << endl;
-        //if the filename is apparently illegal, then call the function itself again to ask the user to re-enter another one
-        // until an valid filename is input.
+        /*if the filename is apparently illegal, then call the function itself again to ask the user to re-enter another one
+         until an valid filename is input.*/
         fileName = askForFilename();
     }
     else

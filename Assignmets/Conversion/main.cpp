@@ -36,7 +36,8 @@ int main() {
         fileIn.open(inFileName); //try to open the file
 
         if(fileIn.fail()) {
-            throw exception();
+            //to throw a ifstream failure (https://www.cplusplus.com/reference/ios/ios/exceptions/)
+            fileIn.exceptions ( std::ifstream::failbit | std::ifstream::badbit );
         }
         else {
             try { //try to start writing the out file with the first <PRE> tag
@@ -82,9 +83,12 @@ int main() {
                 cout << "An unknown error happened" << endl;
             }
         }//end else
+    }//end outer try
+    catch (ifstream::failure& fe) {
+        cout << "Input file failed to open." << endl;
     }
     catch (exception& e) {
-        cout << "Input file failed to open." << endl;
+        cout << "An unknown error happened when trying to open the file." << endl;
     }
 
     return 0;

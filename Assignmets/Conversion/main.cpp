@@ -37,7 +37,7 @@ int main() {
 
         if(fileIn.fail()) {
             //to throw a ifstream failure (https://www.cplusplus.com/reference/ios/ios/exceptions/)
-            fileIn.exceptions ( std::ifstream::failbit | std::ifstream::badbit );
+            fileIn.exceptions ( ifstream::failbit | ifstream::badbit );
         }
         else {
             try { //try to start writing the out file with the first <PRE> tag

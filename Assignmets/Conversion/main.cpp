@@ -40,50 +40,53 @@ int main() {
             fileIn.exceptions ( ifstream::failbit | ifstream::badbit );
         }
         else {
-            try { //try to start writing the out file with the first <PRE> tag
+            try {
+                //try to start writing the out file with the first <PRE> tag
                 writeNew(outFileName, "<PRE>");
-            }
-            catch (const char* msg){
+
+                while(!fileIn.eof()){
+                    getline(fileIn, lineRead);
+
+                    //convert the chevrons line by line
+                    string lineToWrite = findAndReplace(lineRead, "<", "&lt;");
+                    lineToWrite = findAndReplace(lineToWrite, ">", "&gt;");
+
+                    try {
+                        //try to copy the line into fileOut
+                        appendLine(outFileName, lineToWrite);
+                    }//end try (to write the converted lines)
+                    catch (MyException& myE) {
+                        cout << myE.what() << endl;
+                        break;
+                    }
+                    catch (exception& e) {
+                        cout << "An unknown error happened" << endl;
+                        break;
+                    }
+                } //end while
+                fileIn.close();
+
+                try { //lastly, try to add the end PRE tag.
+                    appendLine(outFileName, "</PRE>");
+
+                    cout << "Congratulations! The file has been converted." << endl;
+                }
+                catch (MyException& myE) {
+                    cout << myE.what() << endl;
+                }
+                catch (exception& e) {
+                    cout << "An unknown error happened" << endl;
+                }
+            }//end try (to write the first <PRE> tag)
+            catch (const char* msg){    //the string is defined in method writeNew();
                 cout << msg << endl;
             }
             catch (exception& e) {
                 cout << "An unknown error happened" << endl;
             }
 
-            while(!fileIn.eof()){
-                getline(fileIn, lineRead);
-
-                //convert the chevrons line by line
-                string lineToWrite = findAndReplace(lineRead, "<", "&lt;");
-                lineToWrite = findAndReplace(lineToWrite, ">", "&gt;");
-
-                try { //try to copy the line into fileOut
-                    appendLine(outFileName, lineToWrite);
-                }
-                catch (MyException& myE) {
-                    cout << myE.what() << endl;
-                    break;
-                }
-                catch (exception& e) {
-                    cout << "An unknown error happened" << endl;
-                    break;
-                }
-            } //end while
-            fileIn.close();
-
-            try { //lastly, try to add the end PRE tag.
-                appendLine(outFileName, "</PRE>");
-
-                cout << "Congratulations! The file has been converted." << endl;
-            }
-            catch (MyException& myE) {
-                cout << myE.what() << endl;
-            }
-            catch (exception& e) {
-                cout << "An unknown error happened" << endl;
-            }
         }//end else
-    }//end outer try
+    }//end outer try (to open fileIn)
     catch (ifstream::failure& fe) {
         cout << "Input file failed to open." << endl;
     }

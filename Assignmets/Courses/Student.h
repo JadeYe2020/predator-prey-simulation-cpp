@@ -12,29 +12,29 @@ class Student
 {
     private:
         string name;
+    public:
         int numCourses;
         string *courseList;
 
-    public:
         //default constructor
-        Student(void);
+        Student();
         //constructor with 3 args
-
+        Student(string name, int numCourses, string *cArray);
         //copy constructor
-        Student(const Student&);
+        Student(const Student& toBeCopied);
         //assignment operator
-        Student& operator = (const Student&);
+        Student& operator = (const Student& toBeCopied);
         //destructor
-        ~Student(void);
+        ~Student();
 
         //set method
-        string setName(string);
-        //add function
-        void add(string);
+        string setName(string name);
+        //addCourse function
+        void addCourse(string course);
         //reset function
-        void reset(const Student&);
+        void reset();
         //output function
-        friend ostream& operator<< (ostream &output, ComplexNumber &num);
+        friend ostream& operator<< (ostream &output, const Student &st);
 
 }; //end class
 

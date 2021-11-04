@@ -3,4 +3,4 @@ project(Courses)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Courses main.cpp cmake-build-debug/Student.h)
+add_executable(Courses main.cpp Student.h Student.cpp)

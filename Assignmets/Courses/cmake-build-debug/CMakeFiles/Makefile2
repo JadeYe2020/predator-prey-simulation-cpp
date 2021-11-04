@@ -80,12 +80,12 @@ clean: CMakeFiles/Courses.dir/clean
 CMakeFiles/Courses.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Courses.dir\build.make CMakeFiles/Courses.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Courses.dir\build.make CMakeFiles/Courses.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\PROG2100\CPPSourceCode\Assignmets\Courses\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target Courses"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\PROG2100\CPPSourceCode\Assignmets\Courses\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target Courses"
 .PHONY : CMakeFiles/Courses.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Courses.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\PROG2100\CPPSourceCode\Assignmets\Courses\cmake-build-debug\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\PROG2100\CPPSourceCode\Assignmets\Courses\cmake-build-debug\CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Courses.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\PROG2100\CPPSourceCode\Assignmets\Courses\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/Courses.dir/rule

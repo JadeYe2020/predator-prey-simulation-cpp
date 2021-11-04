@@ -19,7 +19,12 @@ class MyString
         //Move constructor
         MyString(MyString&& source);
         //Destructor
-        ~MyString(){cout << "Destructor Fired" << endl; delete []str;};
+        ~MyString()
+        {
+            cout << "Destructor Fired" << endl;
+            if(str != NULL)
+                delete []str;
+        };
 
 }; //end Class MyString
 

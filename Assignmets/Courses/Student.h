@@ -28,7 +28,7 @@ class Student
         ~Student();
 
         //set method
-        string setName(string name);
+        void setName(string name);
         //addCourse function
         void addCourse(string course);
         //reset function

@@ -67,7 +67,7 @@ Student::~Student()
 }
 
 //set method
-string Student::setName(string name)
+void Student::setName(string name)
 {
     this->name = name;
 }

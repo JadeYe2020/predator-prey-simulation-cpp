@@ -9,7 +9,7 @@ using namespace std;
 //default constructor
 Student::Student(): name(""), numCourses(0)
 {
-    cout << "Default Constructor Fired" << endl;
+    cout << "{Default Constructor Fired}" << endl;
     courseList = new string[numCourses]; //declare the array on heap
 };
 
@@ -24,7 +24,7 @@ Student::Student(string name, int numCourses, string *cArray)
 //Copy Constructor
 Student::Student(const Student& toBeCopied)
 {
-    cout << "Copy Constructor Fired" << endl;
+    cout << "{Copy Constructor Fired}" << endl;
     //numCourses value copied and stored.
     numCourses = toBeCopied.numCourses;
     //create an array with the same size.
@@ -41,7 +41,7 @@ Student::Student(const Student& toBeCopied)
 //assignment operator
 Student& Student::operator= (const Student& toBeCopied)
 {
-    cout << "Assignment Operator Called" << endl;
+    cout << "{Assignment Operator Called}" << endl;
     if(numCourses != toBeCopied.numCourses)
     {
         //if the size of the 2 arrays are not equal, delete the one on the left side
@@ -62,7 +62,7 @@ Student& Student::operator= (const Student& toBeCopied)
 //destructor
 Student::~Student()
 {
-    cout << "Destructor Fired" << endl;
+    cout << "{Destructor Fired}" << endl;
     if(courseList != NULL) //non-null test
         delete []courseList;
     courseList = NULL; //assign null
@@ -92,7 +92,7 @@ void Student::addCourse(string course)
     courseList = temp;
     //increment numCourse
     numCourses ++;
-    cout << "Array size has been increased by one." << endl;
+    cout << "{Array size has been increased by one.}" << endl;
 }
 
 //reset function

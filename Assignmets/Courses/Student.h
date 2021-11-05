@@ -4,8 +4,6 @@
 
 #ifndef COURSES_STUDENT_H
 #define COURSES_STUDENT_H
-
-#include <string>
 using namespace std;
 
 class Student

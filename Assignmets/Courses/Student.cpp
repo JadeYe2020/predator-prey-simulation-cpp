@@ -92,7 +92,7 @@ void Student::addCourse(string course)
     courseList = temp;
     //increment numCourse
     numCourses ++;
-    cout << "Array size has been increased by one" << endl;
+    cout << "Array size has been increased by one." << endl;
 }
 
 //reset function

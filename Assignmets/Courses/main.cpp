@@ -34,16 +34,16 @@ int main() {
     //copy the 1st student's course info to create the 2nd student object
     Student st2(st1);
     //Ask for the name
-    cout << "Enter the second student name:";
+    cout << "\nEnter the second student name:";
     getline(cin, nameTwo);
     st2.setName(nameTwo);
 
-    cout << "Reset 1st student's course info: " << endl;
+    cout << "\nReset 1st student's course info." << endl;
     st1.reset();
-    cout << "Current details of student 1: " << endl;
+    cout << "Now the current details of student 1: " << endl;
     cout << st1;
 
-    cout << "Current details of student 2: " << endl;
+    cout << "\nCurrent details of student 2: " << endl;
     cout << st2;
 
 

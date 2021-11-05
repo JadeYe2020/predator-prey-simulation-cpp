@@ -98,6 +98,7 @@ void Student::addCourse(string course)
 //reset function
 void Student::reset()
 {
+    cout << "{Reset method called}" << endl;
     numCourses = 0;
     //delete the courseList
     delete []courseList;
@@ -108,13 +109,14 @@ void Student::reset()
 //output function. overload <<
 ostream& operator<< (ostream &output, const Student &st)
 {
-    string str = "Student Name: " + st.name + "\nEnrolled in " + to_string(st.numCourses) + " course(s): \n";
+    cout << "{<< operator fired}" << endl;
+    string str = "Student Name: " + st.name + "\nNumber of courses: " + to_string(st.numCourses) + "\nCourse List:\n";
     //use a for loop to add the courses into the string
     for(int i=0; i<st.numCourses; i++)
     {
         str += st.courseList[i] + "\n";
     }
-    output << str;
+    output << str << endl;
 
     return output;
 }

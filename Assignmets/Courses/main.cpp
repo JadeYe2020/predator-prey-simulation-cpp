@@ -8,16 +8,17 @@ int main() {
     Student st1; //instantiate 1st student using the default constructor
     string nameOne, nameTwo, nameThree;
 
-    cout << "Enter the first student name:";
+    cout << "Enter student #1's name:";
     getline(cin, nameOne);
     //update the name in the Student object
     st1.setName(nameOne);
 
+    cout << "Enter course names for student #1. Type 'Q' when done." << endl;
     do
     {
         string coursName;
 
-        cout << "Enter a course name (Enter 'Q' to stop adding courses):\n";
+        cout << "Course name:";
         getline(cin, coursName);
 
         if(coursName != "Q")
@@ -29,33 +30,37 @@ int main() {
     } while(true);
 
     //Display the details of 1st student
-    cout << "The course details of student 1: " << endl;
+    cout << "\nStudent #1's information: " << endl;
     cout << st1;
 
+    //Ask for the name of student #2
+    cout << "Enter student #2's name:";
+    getline(cin, nameTwo);
     //copy the 1st student's course info to create the 2nd student object
     Student st2(st1);
-    //Ask for the name
-    cout << "\nEnter the second student name:";
-    getline(cin, nameTwo);
+    //set the name using the input value
     st2.setName(nameTwo);
 
-    cout << "\nReset 1st student's course info." << endl;
+    cout << "Student #2's information - obtained with the copy constructor:" << endl;
+    cout << st2;
+
+    cout << "Student #1's information after being reset: " << endl;
+    //reset st1
     st1.reset();
-    cout << "Now the current details of student 1: " << endl;
     cout << st1;
 
-    cout << "\nCurrent details of student 2: " << endl;
+    cout << "Student #2's information again - an example of a deep copy: " << endl;
     cout << st2;
 
     Student st3; //instantiate the 3rd Student object
     //Ask for the name
-    cout << "\nEnter the third student name:";
+    cout << "Enter the third student name:";
     getline(cin, nameThree);
     st3.setName(nameThree);
 
     //Copy the course info from st2 using the assignment operator
     st3 = st2;
-    cout << "\nCurrent details of student 3: " << endl;
+    cout << "\nStudent #3's information - obtained with the assignment operator:" << endl;
     cout << st3;
 
     return 0;

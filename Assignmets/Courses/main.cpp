@@ -29,6 +29,7 @@ int main() {
     } while(true);
 
     //Display the details of 1st student
+    cout << "The course details of student 1: " << endl;
     cout << st1;
 
     //copy the 1st student's course info to create the 2nd student object
@@ -46,6 +47,16 @@ int main() {
     cout << "\nCurrent details of student 2: " << endl;
     cout << st2;
 
+    Student st3; //instantiate the 3rd Student object
+    //Ask for the name
+    cout << "\nEnter the third student name:";
+    getline(cin, nameThree);
+    st3.setName(nameThree);
+
+    //Copy the course info from st2 using the assignment operator
+    st3 = st2;
+    cout << "\nCurrent details of student 3: " << endl;
+    cout << st3;
 
     return 0;
 }

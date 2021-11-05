@@ -17,7 +17,7 @@ int main() {
     {
         string coursName;
 
-        cout << "Enter a course name (Enter 'Q' to stop adding courses):";
+        cout << "Enter a course name (Enter 'Q' to stop adding courses):\n";
         getline(cin, coursName);
 
         if(coursName != "Q")

@@ -27,13 +27,13 @@ Student::Student(const Student& toBeCopied)
     cout << "Copy Constructor Fired" << endl;
     //numCourses value copied and stored.
     numCourses = toBeCopied.numCourses;
-
-    courseList = toBeCopied.courseList;
-//    //to copy and store each element of the courseList.
-//    for(int i=0; i<numCourses; i++)
-//    {
-//        courseList[i] = toBeCopied.courseList[i];
-//    }
+    //create an array with the same size.
+    courseList = new string[numCourses];
+    //to copy and store each element of the courseList.
+    for(int i=0; i<numCourses; i++)
+    {
+        courseList[i] = toBeCopied.courseList[i];
+    }
     //no name set yet. empty string by default.
     name = "";
 }
@@ -92,7 +92,7 @@ void Student::addCourse(string course)
     courseList = temp;
     //increment numCourse
     numCourses ++;
-    cout << "Array size has been increased by one." << endl;
+    cout << "Array size has been increased by one" << endl;
 }
 
 //reset function

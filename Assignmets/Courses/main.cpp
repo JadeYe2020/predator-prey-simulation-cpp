@@ -43,5 +43,9 @@ int main() {
     cout << "Current details of student 1: " << endl;
     cout << st1;
 
+    cout << "Current details of student 2: " << endl;
+    cout << st2;
+
+
     return 0;
 }

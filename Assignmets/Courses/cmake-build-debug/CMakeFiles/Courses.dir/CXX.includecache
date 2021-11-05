@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-C:/PROG2100/CPPSourceCode/Assignmets/Courses/Student.h
-string
--
-
-C:/PROG2100/CPPSourceCode/Assignmets/Courses/main.cpp
+C:/PROG2100/CPPSourceCode/Assignmets/Courses/Student.cpp
 iostream
 -
 string
 -
 Student.h
 C:/PROG2100/CPPSourceCode/Assignmets/Courses/Student.h
+
+C:/PROG2100/CPPSourceCode/Assignmets/Courses/Student.h
+string
+-
 

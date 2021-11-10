@@ -13,6 +13,7 @@ int main() {
 
         Student st1; //instantiate 1st student using the default constructor
         string nameOne, nameTwo, nameThree;
+        string courseName;
 
         cout << "Enter student #1's name:";
         getline(cin, nameOne);
@@ -22,18 +23,13 @@ int main() {
         cout << "Enter course names for student #1. Type 'Q' when done." << endl;
         do
         {
-            string coursName;
-
             cout << "Course name:";
-            getline(cin, coursName);
+            getline(cin, courseName);
+            //when a valid course name is entered, add it into the Student's courseList.
+            if(courseName != "Q")
+                st1.addCourse(courseName);
 
-            if(coursName != "Q")
-            {
-                st1.addCourse(coursName);
-            }
-            else
-                break;
-        } while(true);
+        } while(courseName != "Q"); //keep asking the user to add new course name until they typed "Q"
 
         //Display the details of 1st student
         cout << "\nStudent #1's information: " << endl;

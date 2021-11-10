@@ -15,24 +15,24 @@ class Student
         string *courseList;
 
         //default constructor
-        Student();
+        Student(void);
         //constructor with 3 args
-        Student(string name, int numCourses, string *cArray);
+        Student(string, int, string*);
         //copy constructor
-        Student(const Student& toBeCopied);
+        Student(const Student&);
         //assignment operator
-        Student& operator = (const Student& toBeCopied);
+        Student& operator = (const Student&);
         //destructor
-        ~Student();
+        ~Student(void);
 
         //set method
-        void setName(string name);
+        void setName(string);
         //addCourse function
-        void addCourse(string course);
+        void addCourse(string);
         //reset function
-        void reset();
+        void reset(void);
         //output function
-        friend ostream& operator<< (ostream &output, const Student &st);
+        friend ostream& operator<< (ostream&, const Student&);
 
 }; //end class
 

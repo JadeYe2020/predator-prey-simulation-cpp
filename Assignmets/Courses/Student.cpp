@@ -27,7 +27,7 @@ Student::Student(const Student& toBeCopied)
     cout << "{Copy Constructor Fired}" << endl;
     //numCourses value copied and stored.
     numCourses = toBeCopied.numCourses;
-    //create an array with the same size.
+    //create the array with the same size.
     courseList = new string[numCourses];
     //to copy and store each element of the courseList.
     for(int i=0; i<numCourses; i++)
@@ -84,7 +84,7 @@ void Student::addCourse(string course)
     {
         temp[i] = courseList[i];
     }
-    //put the new string into the temp array
+    //put the new string into the last space of the temp array
     temp[numCourses] = course;
     //delete the original array
     delete []courseList;
@@ -110,13 +110,15 @@ void Student::reset()
 ostream& operator<< (ostream &output, const Student &st)
 {
     cout << "{<< operator fired}" << endl;
+    //build a string for the student information
     string str = "Student Name: " + st.name + "\nNumber of courses: " + to_string(st.numCourses) + "\nCourse List:\n";
     //use a for loop to add the courses into the string
     for(int i=0; i<st.numCourses; i++)
     {
         str += st.courseList[i] + "\n";
     }
+    //put the string into the output stream
     output << str << endl;
-
+    //return the output stream
     return output;
 }

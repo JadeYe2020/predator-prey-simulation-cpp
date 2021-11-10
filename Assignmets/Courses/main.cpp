@@ -33,7 +33,7 @@ int main() {
 
         //Display the details of 1st student
         cout << "\nStudent #1's information: " << endl;
-        cout << st1;
+        cout << st1; //overloaded << operator method
 
         //Ask for the name of student #2
         cout << "Enter student #2's name:";
@@ -76,7 +76,7 @@ int main() {
         cout << "End testing." << endl;
         cout << "\nEnter 'Y' to restart, or any other key to exit:";
         getline(cin, restart);
-    } while(restart == "Y");
+    } while(restart == "Y"); //keep restarting the testing until the user typed "Y"
 
     return 0;
 }

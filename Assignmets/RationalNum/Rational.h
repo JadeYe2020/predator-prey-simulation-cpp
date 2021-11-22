@@ -24,11 +24,27 @@ class Rational
         //constructor with a string
         Rational(string fraction);
 
-        //overload +
+        //normalization method
+        Rational normalize(int numer, int denomin);
 
+        //operator + overloading
+        Rational operator+ (Rational &rightSide);
+        //operator - overloading
+        Rational operator- (Rational &rightSide);
+        //operator * overloading
+        Rational operator* (Rational &rightSide);
+        //operator / overloading
+        Rational operator/ (Rational &rightSide);
 
+        //operator > overloading
+        bool operator> (Rational &rightSide);
+        //operator < overloading
+        bool operator< (Rational &rightSide);
+        //operator == overloading
+        bool operator== (Rational &rightSide);
+
+        //output operater overloading
+        friend ostream& operator<< (ostream&, Rational rn);
 };
-
-
 
 #endif //RATIONALNUM_RATIONAL_H

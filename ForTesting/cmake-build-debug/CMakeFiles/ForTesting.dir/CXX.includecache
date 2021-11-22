@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/PROG2100/CPPSourceCode/ForTesting/main.cpp
+iostream
+-
+string
+-
+regex
+-
+sstream
+-
+vector
+-
+

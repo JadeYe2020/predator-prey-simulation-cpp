@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/PROG2100/CPPSourceCode/Assignmets/RationalNum/Rational.cpp">
+			<Option target="RationalNum"/>
+		</Unit>
 		<Unit filename="C:/PROG2100/CPPSourceCode/Assignmets/RationalNum/Rational.h">
 			<Option target="RationalNum"/>
 		</Unit>

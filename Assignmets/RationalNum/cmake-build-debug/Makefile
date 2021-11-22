@@ -128,6 +128,30 @@ RationalNum/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\RationalNum.dir\build.make CMakeFiles/RationalNum.dir/build
 .PHONY : RationalNum/fast
 
+Rational.obj: Rational.cpp.obj
+.PHONY : Rational.obj
+
+# target to build an object file
+Rational.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RationalNum.dir\build.make CMakeFiles/RationalNum.dir/Rational.cpp.obj
+.PHONY : Rational.cpp.obj
+
+Rational.i: Rational.cpp.i
+.PHONY : Rational.i
+
+# target to preprocess a source file
+Rational.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RationalNum.dir\build.make CMakeFiles/RationalNum.dir/Rational.cpp.i
+.PHONY : Rational.cpp.i
+
+Rational.s: Rational.cpp.s
+.PHONY : Rational.s
+
+# target to generate assembly for a file
+Rational.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RationalNum.dir\build.make CMakeFiles/RationalNum.dir/Rational.cpp.s
+.PHONY : Rational.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -161,6 +185,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... RationalNum
+	@echo ... Rational.obj
+	@echo ... Rational.i
+	@echo ... Rational.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

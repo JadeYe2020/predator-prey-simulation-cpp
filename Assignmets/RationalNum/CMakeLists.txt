@@ -3,4 +3,4 @@ project(RationalNum)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(RationalNum main.cpp Rational.h)
+add_executable(RationalNum main.cpp Rational.h Rational.cpp)

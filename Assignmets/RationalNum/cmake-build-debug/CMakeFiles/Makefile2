@@ -80,12 +80,12 @@ clean: CMakeFiles/RationalNum.dir/clean
 CMakeFiles/RationalNum.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\RationalNum.dir\build.make CMakeFiles/RationalNum.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\RationalNum.dir\build.make CMakeFiles/RationalNum.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\PROG2100\CPPSourceCode\Assignmets\RationalNum\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target RationalNum"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\PROG2100\CPPSourceCode\Assignmets\RationalNum\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target RationalNum"
 .PHONY : CMakeFiles/RationalNum.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/RationalNum.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\PROG2100\CPPSourceCode\Assignmets\RationalNum\cmake-build-debug\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\PROG2100\CPPSourceCode\Assignmets\RationalNum\cmake-build-debug\CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/RationalNum.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\PROG2100\CPPSourceCode\Assignmets\RationalNum\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/RationalNum.dir/rule

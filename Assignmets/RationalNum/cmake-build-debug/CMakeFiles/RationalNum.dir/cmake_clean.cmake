@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/RationalNum.dir/Rational.cpp.obj"
   "CMakeFiles/RationalNum.dir/main.cpp.obj"
   "RationalNum.exe"
   "RationalNum.exe.manifest"

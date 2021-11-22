@@ -44,7 +44,7 @@ class Rational
         bool operator== (Rational &rightSide);
 
         //output operater overloading
-        friend ostream& operator<< (ostream&, Rational rn);
+        friend ostream& operator<< (ostream &output, Rational &rn);
 };
 
 #endif //RATIONALNUM_RATIONAL_H

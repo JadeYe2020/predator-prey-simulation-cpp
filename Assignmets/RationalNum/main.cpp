@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <regex>
-#include <sstream>
 #include <vector>
 #include "Rational.h"
 using namespace std;

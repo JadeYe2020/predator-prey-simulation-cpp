@@ -11,29 +11,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="042ad7e9-0083-4528-876c-36437c5ac05b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/Rational.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/ForTesting.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignmets/Conversion/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/Conversion/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/CMakeFiles/RationalNum.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/CMakeFiles/RationalNum.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/CMakeFiles/RationalNum.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/CMakeFiles/RationalNum.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/CMakeFiles/RationalNum.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/CMakeFiles/RationalNum.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/CMakeFiles/RationalNum.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/CMakeFiles/RationalNum.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/CMakeFiles/RationalNum.dir/objects1.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/CMakeFiles/RationalNum.dir/objects1.rsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/CMakeFiles/RationalNum.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/CMakeFiles/RationalNum.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/RationalNum.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/RationalNum.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+    <list default="true" id="042ad7e9-0083-4528-876c-36437c5ac05b" name="Changes" comment="Test for splitting function.">
+      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/Rational.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/Rational.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/Rational.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/Rational.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyComplexNum/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../MyComplexNum/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,8 +71,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1637621891293</updated>
-      <workItem from="1637621893199" duration="11000" />
+      <workItem from="1637621893199" duration="678000" />
     </task>
+    <task id="LOCAL-00001" summary="Test for splitting function.">
+      <created>1637621957977</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1637621957977</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,5 +96,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Test for splitting function." />
+    <option name="LAST_COMMIT_MESSAGE" value="Test for splitting function." />
   </component>
 </project>

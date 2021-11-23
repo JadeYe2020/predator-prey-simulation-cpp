@@ -52,6 +52,11 @@ int main() {
         cout << rnMulti;
 
         cout << "\nrn1 / rn2 = ";
+        if (rn2 == rnDefault) { //make sure rn2 is not 0/1, before doing the division calculation
+            cout << "The second rational number equals 0. Cannot perform division. Please enter a new fraction:";
+            frac2 = askForFraction();
+            rn2 = Rational(frac2);
+        }
         Rational rnDiv = rn1 / rn2;
         cout << rnDiv;
 

@@ -6,17 +6,33 @@
 using namespace std;
 
 int main() {
-    string str = "-7/8";
-    string numer, denomin;
+    string restart; //to save user's input about whether to restart again.
 
-    regex token("\/");
-    sregex_token_iterator first{str.begin(), str.end(), token, -1},
-            last;
+    do {
+        cout << "\nRational Class Testing" << endl;
+        cout << "Begin testing." << endl;
 
-    vector<string> fracNum = {first, last};
+        //instantiate a rational num using the default constructor
+        Rational rnDefault;
+        cout << rnDefault;
+        //instantiate a rational num using the constructor with 1 int arg
+        Rational rnOneArg(-7);
+        cout << rnOneArg;
+        //instantiate a rational num using the constructor with 2 args
+        Rational rnTwoArgs(5, -7);
+        cout << rnTwoArgs;
 
-    cout << "1st: " << fracNum[0] << " 2nd: " << fracNum[1];
+//        string frac1, frac2;
+//        cout << "Enter first fraction:";
+//        getline(cin, frac1);
+        //instantiate 1st fraction using the constructor with a string
+//        Rational rn1(frac1);
 
+
+        cout << "End testing." << endl;
+        cout << "\nEnter 'Y' to restart, or any other key to exit:";
+        getline(cin, restart);
+    } while(restart == "Y"); //keep restarting the testing until the user typed "Y"
 
     return 0;
 }

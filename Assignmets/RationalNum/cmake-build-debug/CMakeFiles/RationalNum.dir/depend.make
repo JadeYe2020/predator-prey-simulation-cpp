@@ -5,4 +5,5 @@ CMakeFiles/RationalNum.dir/Rational.cpp.obj: \
  ../Rational.cpp \
  ../Rational.h
 CMakeFiles/RationalNum.dir/main.cpp.obj: \
+ ../Rational.h \
  ../main.cpp

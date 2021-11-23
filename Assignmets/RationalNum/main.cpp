@@ -36,6 +36,13 @@ int main() {
         cout << "The second rational number is: ";
         cout << rn2;
 
+        cout << "\nrn1 + rn2 = ";
+        Rational rnAdd = rn1 + rn2;
+        cout << rnAdd;
+
+        cout << "\nrn1 - rn2 = ";
+        Rational rnSub = rn1 - rn2;
+        cout << rnSub;
 
         cout << "End testing." << endl;
         cout << "\nEnter 'Y' to restart, or any other key to exit:";

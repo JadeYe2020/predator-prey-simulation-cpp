@@ -31,14 +31,8 @@ Rational::Rational(int numer, int denomin) {
     cout << "{Constructor with 2 args Fired}" << endl;
     normalize(numer, denomin);
 
-    if(denomin > 0) {
-        numerator = numer;
-        denominator = denomin;
-    }
-    else {
-        numerator = numer * -1;
-        denominator = denomin * -1;
-    }
+    numerator = numer;
+    denominator = denomin;
 }
 
 //constructor with a string
@@ -51,30 +45,25 @@ Rational::Rational(string fraction) {
     istringstream(fracNum[1]) >> denominator;
 
     normalize(numerator, denominator);
-
-    if(denominator < 0) {
-        numerator *= -1;
-        denominator *= -1;
-    }
 }
 
 //operator + overloading
 Rational Rational::operator+ (Rational &rightSide)
 {
-    this->numerator = this->numerator * rightSide.denominator + rightSide.numerator * this->denominator;
-    this->denominator = this->denominator * rightSide.denominator;
+    int newNumer = this->numerator * rightSide.denominator + rightSide.numerator * this->denominator;
+    int newDenomin = this->denominator * rightSide.denominator;
 
-    normalize(this->numerator, this->denominator);
-    return *this;
+    normalize(newNumer, newDenomin);
+    return Rational(newNumer, newDenomin);
 }
 //operator - overloading
 Rational Rational::operator- (Rational &rightSide)
 {
-    this->numerator = this->numerator * rightSide.denominator - rightSide.numerator * this->denominator;
-    this->denominator = this->denominator * rightSide.denominator;
+    int newNumer = this->numerator * rightSide.denominator - rightSide.numerator * this->denominator;
+    int newDenomin = this->denominator * rightSide.denominator;
 
-    normalize(this->numerator, this->denominator);
-    return *this;
+    normalize(newNumer, newDenomin);
+    return Rational(newNumer, newDenomin);
 }
 //operator * overloading
 Rational Rational::operator* (Rational &rightSide)
@@ -149,4 +138,9 @@ void normalize(int& numer, int& denomin)
     //update the values accordingly
     numer = numer / gcd;
     denomin = denomin / gcd;
+
+    if(denomin < 0) {
+        numer *= -1;
+        denomin *= -1;
+    }
 }

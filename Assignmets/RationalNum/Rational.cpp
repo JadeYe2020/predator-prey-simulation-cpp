@@ -55,7 +55,7 @@ Rational Rational::operator+ (Rational &rightSide)
     int newDenomin = this->denominator * rightSide.denominator;
 
     normalize(newNumer, newDenomin);
-    return Rational(newNumer, newDenomin);
+    return {newNumer, newDenomin};
 }
 //operator - overloading
 Rational Rational::operator- (Rational &rightSide)
@@ -65,7 +65,7 @@ Rational Rational::operator- (Rational &rightSide)
     int newDenomin = this->denominator * rightSide.denominator;
 
     normalize(newNumer, newDenomin);
-    return Rational(newNumer, newDenomin);
+    return {newNumer, newDenomin};
 }
 //operator * overloading
 Rational Rational::operator* (Rational &rightSide)
@@ -75,7 +75,7 @@ Rational Rational::operator* (Rational &rightSide)
     int newDenomin = this->denominator * rightSide.denominator;
 
     normalize(newNumer, newDenomin);
-    return Rational(newNumer, newDenomin);
+    return {newNumer, newDenomin};
 }
 //operator / overloading
 Rational Rational::operator/ (Rational &rightSide)
@@ -85,7 +85,7 @@ Rational Rational::operator/ (Rational &rightSide)
     int newDenomin = this->denominator * rightSide.numerator;
 
     normalize(newNumer, newDenomin);
-    return Rational(newNumer, newDenomin);
+    return {newNumer, newDenomin};
 }
 
 //operator > overloading

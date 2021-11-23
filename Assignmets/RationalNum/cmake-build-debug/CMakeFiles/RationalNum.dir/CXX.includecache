@@ -6,6 +6,22 @@
 
 #IncludeRegexTransform: 
 
+C:/PROG2100/CPPSourceCode/Assignmets/RationalNum/Rational.cpp
+iostream
+-
+string
+-
+regex
+-
+vector
+-
+sstream
+-
+algorithm
+-
+Rational.h
+C:/PROG2100/CPPSourceCode/Assignmets/RationalNum/Rational.h
+
 C:/PROG2100/CPPSourceCode/Assignmets/RationalNum/Rational.h
 string
 -

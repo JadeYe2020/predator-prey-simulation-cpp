@@ -10,7 +10,7 @@ int main() {
 
     do {
         cout << "\nRational Class Testing" << endl;
-        cout << "Begin testing." << endl;
+        cout << "Begin testing.\n" << endl;
 
         //instantiate a rational num using the default constructor
         Rational rnDefault;
@@ -22,11 +22,19 @@ int main() {
         Rational rnTwoArgs(9, -6);
         cout << rnTwoArgs;
 
-//        string frac1, frac2;
-//        cout << "Enter first fraction:";
-//        getline(cin, frac1);
+        string frac1, frac2;
+        cout << "\nEnter the first fraction:";
+        getline(cin, frac1);
         //instantiate 1st fraction using the constructor with a string
-//        Rational rn1(frac1);
+        Rational rn1(frac1);
+        cout << "The first rational number is: ";
+        cout << rn1;
+        cout << "\nEnter the second fraction:";
+        getline(cin, frac2);
+        //instantiate 1st fraction using the constructor with a string
+        Rational rn2(frac2);
+        cout << "The second rational number is: ";
+        cout << rn2;
 
 
         cout << "End testing." << endl;

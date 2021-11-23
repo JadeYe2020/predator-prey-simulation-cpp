@@ -6,7 +6,7 @@
 #include <regex>
 #include <vector>
 #include <sstream>
-#include <algorithm>
+#include <algorithm> //to get __gcd() method
 #include "Rational.h"
 using namespace std;
 
@@ -49,6 +49,13 @@ Rational::Rational(string fraction) {
 
     istringstream(fracNum[0]) >> numerator;
     istringstream(fracNum[1]) >> denominator;
+
+    normalize(numerator, denominator);
+
+    if(denominator < 0) {
+        numerator *= -1;
+        denominator *= -1;
+    }
 }
 
 //operator + overloading
@@ -57,6 +64,7 @@ Rational Rational::operator+ (Rational &rightSide)
     this->numerator = this->numerator * rightSide.denominator + rightSide.numerator * this->denominator;
     this->denominator = this->denominator * rightSide.denominator;
 
+    normalize(this->numerator, this->denominator);
     return *this;
 }
 //operator - overloading
@@ -65,6 +73,7 @@ Rational Rational::operator- (Rational &rightSide)
     this->numerator = this->numerator * rightSide.denominator - rightSide.numerator * this->denominator;
     this->denominator = this->denominator * rightSide.denominator;
 
+    normalize(this->numerator, this->denominator);
     return *this;
 }
 //operator * overloading
@@ -73,6 +82,7 @@ Rational Rational::operator* (Rational &rightSide)
     this->numerator = this->numerator * rightSide.numerator;
     this->denominator = this->denominator * rightSide.denominator;
 
+    normalize(this->numerator, this->denominator);
     return *this;
 }
 //operator / overloading
@@ -81,6 +91,7 @@ Rational Rational::operator/ (Rational &rightSide)
     this->numerator = this->numerator * rightSide.denominator;
     this->denominator = this->denominator * rightSide.numerator;
 
+    normalize(this->numerator, this->denominator);
     return *this;
 }
 
@@ -133,6 +144,7 @@ vector<string> split(string fraction) //source: https://stackoverflow.com/questi
 void normalize(int& numer, int& denomin)
 {
     //get the greatest common divisor of the numerator and denominator
+    //source: https://www.geeksforgeeks.org/stdgcd-c-inbuilt-function-finding-gcd/
     int gcd = __gcd(numer, denomin);
     //update the values accordingly
     numer = numer / gcd;

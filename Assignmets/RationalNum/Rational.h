@@ -24,9 +24,6 @@ class Rational
         //constructor with a string
         Rational(string fraction);
 
-        //normalization method
-        Rational normalize(int numer, int denomin);
-
         //operator + overloading
         Rational operator+ (Rational &rightSide);
         //operator - overloading

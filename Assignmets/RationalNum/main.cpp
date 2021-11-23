@@ -19,7 +19,7 @@ int main() {
         Rational rnOneArg(-7);
         cout << rnOneArg;
         //instantiate a rational num using the constructor with 2 args
-        Rational rnTwoArgs(5, -7);
+        Rational rnTwoArgs(9, -6);
         cout << rnTwoArgs;
 
 //        string frac1, frac2;

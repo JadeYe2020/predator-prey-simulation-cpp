@@ -6,10 +6,12 @@
 #include <regex>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 #include "Rational.h"
 using namespace std;
 
 vector<string> split(string fraction);
+void normalize(int& numer, int& denomin);
 
 //default constructor
 Rational::Rational(): numerator(0), denominator(1)
@@ -27,8 +29,16 @@ Rational::Rational(int wholeNum) {
 //constructor with two args
 Rational::Rational(int numer, int denomin) {
     cout << "{Constructor with 2 args Fired}" << endl;
-    numerator = numer;
-    denominator = denomin;
+    normalize(numer, denomin);
+
+    if(denomin > 0) {
+        numerator = numer;
+        denominator = denomin;
+    }
+    else {
+        numerator = numer * -1;
+        denominator = denomin * -1;
+    }
 }
 
 //constructor with a string
@@ -39,13 +49,6 @@ Rational::Rational(string fraction) {
 
     istringstream(fracNum[0]) >> numerator;
     istringstream(fracNum[1]) >> denominator;
-}
-
-//normalization method
-Rational Rational::normalize(int numer, int denomin) {
-    /////////////////////////////////
-    ///////////////////////////////////
-    return Rational(numer, denomin);
 }
 
 //operator + overloading
@@ -125,4 +128,13 @@ vector<string> split(string fraction) //source: https://stackoverflow.com/questi
             denomin;
 
     return vector<string> {numer, denomin};
+}
+
+void normalize(int& numer, int& denomin)
+{
+    //get the greatest common divisor of the numerator and denominator
+    int gcd = __gcd(numer, denomin);
+    //update the values accordingly
+    numer = numer / gcd;
+    denomin = denomin / gcd;
 }

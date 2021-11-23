@@ -50,6 +50,7 @@ Rational::Rational(string fraction) {
 //operator + overloading
 Rational Rational::operator+ (Rational &rightSide)
 {
+    cout << "{Overloaded + operator Fired}" << endl;
     int newNumer = this->numerator * rightSide.denominator + rightSide.numerator * this->denominator;
     int newDenomin = this->denominator * rightSide.denominator;
 
@@ -59,6 +60,7 @@ Rational Rational::operator+ (Rational &rightSide)
 //operator - overloading
 Rational Rational::operator- (Rational &rightSide)
 {
+    cout << "{Overloaded - operator Fired}" << endl;
     int newNumer = this->numerator * rightSide.denominator - rightSide.numerator * this->denominator;
     int newDenomin = this->denominator * rightSide.denominator;
 
@@ -68,25 +70,28 @@ Rational Rational::operator- (Rational &rightSide)
 //operator * overloading
 Rational Rational::operator* (Rational &rightSide)
 {
-    this->numerator = this->numerator * rightSide.numerator;
-    this->denominator = this->denominator * rightSide.denominator;
+    cout << "{Overloaded * operator Fired}" << endl;
+    int newNumer = this->numerator * rightSide.numerator;
+    int newDenomin = this->denominator * rightSide.denominator;
 
-    normalize(this->numerator, this->denominator);
-    return *this;
+    normalize(newNumer, newDenomin);
+    return Rational(newNumer, newDenomin);
 }
 //operator / overloading
 Rational Rational::operator/ (Rational &rightSide)
 {
-    this->numerator = this->numerator * rightSide.denominator;
-    this->denominator = this->denominator * rightSide.numerator;
+    cout << "{Overloaded / operator Fired}" << endl;
+    int newNumer = this->numerator * rightSide.denominator;
+    int newDenomin = this->denominator * rightSide.numerator;
 
-    normalize(this->numerator, this->denominator);
-    return *this;
+    normalize(newNumer, newDenomin);
+    return Rational(newNumer, newDenomin);
 }
 
 //operator > overloading
 bool Rational::operator> (Rational &rightSide)
 {
+    cout << "{Overloaded > operator Fired}" << endl;
     if(this->numerator * rightSide.denominator > rightSide.numerator * this->denominator)
         return true;
     else
@@ -95,6 +100,7 @@ bool Rational::operator> (Rational &rightSide)
 //operator < overloading
 bool Rational::operator< (Rational &rightSide)
 {
+    cout << "{Overloaded < operator Fired}" << endl;
     if(this->numerator * rightSide.denominator < rightSide.numerator * this->denominator)
         return true;
     else
@@ -103,6 +109,7 @@ bool Rational::operator< (Rational &rightSide)
 //operator == overloading
 bool Rational::operator== (Rational &rightSide)
 {
+    cout << "{Overloaded == operator Fired}" << endl;
     if(this->numerator * rightSide.denominator == rightSide.numerator * this->denominator)
         return true;
     else

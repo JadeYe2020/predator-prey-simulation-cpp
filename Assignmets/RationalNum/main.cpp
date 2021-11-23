@@ -44,7 +44,33 @@ int main() {
         Rational rnSub = rn1 - rn2;
         cout << rnSub;
 
-        cout << "End testing." << endl;
+        cout << "\nrn1 * rn2 = ";
+        Rational rnMulti = rn1 * rn2;
+        cout << rnMulti;
+
+        cout << "\nrn1 / rn2 = ";
+        Rational rnDiv = rn1 / rn2;
+        cout << rnDiv;
+
+        cout << "\nResult of rn1 < rn2 is: ";
+        if(rn1 < rn2)
+            cout << "true";
+        else
+            cout << "false";
+
+        cout << "\nResult of rn1 > rn2 is: ";
+        if(rn1 > rn2)
+            cout << "true";
+        else
+            cout << "false";
+
+        cout << "\nResult of rn1 == rn2 is: ";
+        if(rn1 == rn2)
+            cout << "true";
+        else
+            cout << "false";
+
+        cout << "\nEnd testing." << endl;
         cout << "\nEnter 'Y' to restart, or any other key to exit:";
         getline(cin, restart);
     } while(restart == "Y"); //keep restarting the testing until the user typed "Y"

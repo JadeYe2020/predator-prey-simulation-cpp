@@ -5,6 +5,8 @@
 #include "Rational.h"
 using namespace std;
 
+string askForFraction();
+
 int main() {
     string restart; //to save user's input about whether to restart again.
 
@@ -24,13 +26,14 @@ int main() {
 
         string frac1, frac2;
         cout << "\nEnter the first fraction:";
-        getline(cin, frac1);
+        frac1 = askForFraction();
         //instantiate 1st fraction using the constructor with a string
         Rational rn1(frac1);
         cout << "The first rational number is: ";
         cout << rn1;
+
         cout << "\nEnter the second fraction:";
-        getline(cin, frac2);
+        frac2 = askForFraction();
         //instantiate 1st fraction using the constructor with a string
         Rational rn2(frac2);
         cout << "The second rational number is: ";
@@ -76,4 +79,23 @@ int main() {
     } while(restart == "Y"); //keep restarting the testing until the user typed "Y"
 
     return 0;
+}
+
+string askForFraction() {
+    string fraction;
+
+    getline(cin, fraction);
+
+    //regex pattern for valid fraction numbers (https://www.geeksforgeeks.org/regex-regular-expression-in-c/)
+    regex pattern("-?[0-9]+/-?[0-9]+");
+    regex divByZero("-?[0-9]+/-?0+");
+
+    if(!regex_match(fraction, pattern) || regex_match(fraction, divByZero)) {
+        cout << "This is not a valid fraction. Please enter again." << endl;
+        /*if it is not a valid fraction number, then call the function itself again to ask the user to re-enter another one
+         until an valid entry is input.*/
+        fraction = askForFraction();
+    }
+    else
+        return fraction;
 }

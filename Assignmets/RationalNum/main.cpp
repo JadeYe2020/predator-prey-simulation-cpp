@@ -87,10 +87,9 @@ string askForFraction() {
     getline(cin, fraction);
 
     //regex pattern for valid fraction numbers (https://www.geeksforgeeks.org/regex-regular-expression-in-c/)
-    regex pattern("-?[0-9]+/-?[0-9]+");
-    regex divByZero("-?[0-9]+/-?0+");
+    regex pattern("-?[0-9]+/-?([1-9]+[0-9]*|[0]*[1-9]+[0-9]*)");
 
-    if(!regex_match(fraction, pattern) || regex_match(fraction, divByZero)) {
+    if(!regex_match(fraction, pattern)) {
         cout << "This is not a valid fraction. Please enter again." << endl;
         /*if it is not a valid fraction number, then call the function itself again to ask the user to re-enter another one
          until an valid entry is input.*/

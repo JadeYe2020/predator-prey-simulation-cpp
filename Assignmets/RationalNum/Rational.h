@@ -28,23 +28,25 @@ class Rational
         int getNumerator();
 
         //operator + overloading
-        Rational operator+ (Rational &rightSide);
+        Rational operator+ (const Rational &rightSide);
         //operator - overloading
-        Rational operator- (Rational &rightSide);
+        Rational operator- (const Rational &rightSide);
         //operator * overloading
-        Rational operator* (Rational &rightSide);
+        Rational operator* (const Rational &rightSide);
         //operator / overloading
-        Rational operator/ (Rational &rightSide);
+        Rational operator/ (const Rational &rightSide);
+        //operator = overloading
+        Rational operator= (const Rational &rightSide);
 
         //operator > overloading
-        bool operator> (Rational &rightSide);
+        bool operator> (const Rational &rightSide);
         //operator < overloading
-        bool operator< (Rational &rightSide);
+        bool operator< (const Rational &rightSide);
         //operator == overloading
-        bool operator== (Rational &rightSide);
+        bool operator== (const Rational &rightSide);
 
         //output operater overloading
-        friend ostream& operator<< (ostream &output, Rational &rn);
+        friend ostream& operator<< (ostream &output, const Rational &rn);
 };
 
 #endif //RATIONALNUM_RATIONAL_H

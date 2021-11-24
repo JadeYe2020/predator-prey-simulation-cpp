@@ -60,44 +60,73 @@ int Rational::getNumerator() {
 }
 
 //operator + overloading
-Rational Rational::operator+ (Rational &rightSide)
+Rational Rational::operator+ (const Rational &rightSide)
 {
     int newNumer = this->numerator * rightSide.denominator + rightSide.numerator * this->denominator;
     int newDenomin = this->denominator * rightSide.denominator;
 
     normalize(newNumer, newDenomin);
-    return {newNumer, newDenomin};
+
+    Rational newRn;
+    newRn.numerator = newNumer;
+    newRn.denominator = newDenomin;
+
+    return newRn;
 }
 //operator - overloading
-Rational Rational::operator- (Rational &rightSide)
+Rational Rational::operator- (const Rational &rightSide)
 {
     int newNumer = this->numerator * rightSide.denominator - rightSide.numerator * this->denominator;
     int newDenomin = this->denominator * rightSide.denominator;
 
     normalize(newNumer, newDenomin);
-    return {newNumer, newDenomin};
+
+    Rational newRn;
+    newRn.numerator = newNumer;
+    newRn.denominator = newDenomin;
+
+    return newRn;
 }
 //operator * overloading
-Rational Rational::operator* (Rational &rightSide)
+Rational Rational::operator* (const Rational &rightSide)
 {
     int newNumer = this->numerator * rightSide.numerator;
     int newDenomin = this->denominator * rightSide.denominator;
 
     normalize(newNumer, newDenomin);
-    return {newNumer, newDenomin};
+
+    Rational newRn;
+    newRn.numerator = newNumer;
+    newRn.denominator = newDenomin;
+
+    return newRn;
 }
 //operator / overloading
-Rational Rational::operator/ (Rational &rightSide)
+Rational Rational::operator/ (const Rational &rightSide)
 {
     int newNumer = this->numerator * rightSide.denominator;
     int newDenomin = this->denominator * rightSide.numerator;
 
     normalize(newNumer, newDenomin);
-    return {newNumer, newDenomin};
+
+    Rational newRn;
+    newRn.numerator = newNumer;
+    newRn.denominator = newDenomin;
+
+    return newRn;
+}
+
+//operator = overloading
+Rational Rational::operator= (const Rational &rightSide)
+{
+    this->numerator = rightSide.numerator;
+    this->denominator = rightSide.denominator;
+
+    return *this;
 }
 
 //operator > overloading
-bool Rational::operator> (Rational &rightSide)
+bool Rational::operator> (const Rational &rightSide)
 {
     if(this->numerator * rightSide.denominator > rightSide.numerator * this->denominator)
         return true;
@@ -105,7 +134,7 @@ bool Rational::operator> (Rational &rightSide)
         return false;
 }
 //operator < overloading
-bool Rational::operator< (Rational &rightSide)
+bool Rational::operator< (const Rational &rightSide)
 {
     if(this->numerator * rightSide.denominator < rightSide.numerator * this->denominator)
         return true;
@@ -113,7 +142,7 @@ bool Rational::operator< (Rational &rightSide)
         return false;
 }
 //operator == overloading
-bool Rational::operator== (Rational &rightSide)
+bool Rational::operator== (const Rational &rightSide)
 {
     if(this->numerator * rightSide.denominator == rightSide.numerator * this->denominator)
         return true;
@@ -122,7 +151,7 @@ bool Rational::operator== (Rational &rightSide)
 }
 
 //output operator overloading
-ostream& operator<< (ostream &output, Rational &rn)
+ostream& operator<< (ostream &output, const Rational &rn)
 {
     //build a string for the rational number
     string str = to_string(rn.numerator) + "/" + to_string(rn.denominator);

@@ -12,74 +12,88 @@ int main() {
 
     do {
         cout << "\nRational Class Testing" << endl;
-        cout << "Begin testing.\n" << endl;
+        cout << "Begin testing." << endl;
 
+        cout << "\nThe result of the Default Contrustor: ";
         //instantiate a rational num using the default constructor
         Rational rnDefault;
         cout << rnDefault;
+
+        cout << "\nThe result of the Contrustor with 1 argument (whole number -7): ";
         //instantiate a rational num using the constructor with 1 int arg
         Rational rnOneArg(-7);
         cout << rnOneArg;
+
+        cout << "\nThe result of the Contrustor with 1 argument (numerator: 9, denominator: -6): ";
         //instantiate a rational num using the constructor with 2 args
         Rational rnTwoArgs(9, -6);
         cout << rnTwoArgs;
 
+        cout << "\n\nTest the constructor with a string argument and overloaded operators:\n";
+
         string frac1, frac2;
-        cout << "\nEnter the first fraction:";
+        cout << "Enter the first fraction:";
         frac1 = askForFraction();
         //instantiate 1st fraction using the constructor with a string
         Rational rn1(frac1);
-        cout << "The first rational number is: ";
-        cout << rn1;
 
-        cout << "\nEnter the second fraction:";
+        cout << "\tEnter the second fraction:";
         frac2 = askForFraction();
         //instantiate 1st fraction using the constructor with a string
         Rational rn2(frac2);
-        cout << "The second rational number is: ";
-        cout << rn2;
-
-        cout << "\nrn1 + rn2 = ";
-        Rational rnAdd = rn1 + rn2;
-        cout << rnAdd;
-
-        cout << "\nrn1 - rn2 = ";
-        Rational rnSub = rn1 - rn2;
-        cout << rnSub;
-
-        cout << "\nrn1 * rn2 = ";
-        Rational rnMulti = rn1 * rn2;
-        cout << rnMulti;
-
-        cout << "\nrn1 / rn2 = ";
-        while (rn2 == rnDefault) { //make sure rn2 is not 0/1, before doing the division calculation
+        //make sure rn2 does not equal to 0, before doing the division calculation
+        while (rn2.getNumerator() == 0) {
             cout << "The second rational number equals 0. Cannot perform division.\nPlease enter a new fraction:";
             frac2 = askForFraction();
             rn2 = Rational(frac2);
-            cout << "\nrn1 / rn2 = ";
         }
+
+        cout << "\nResult of the overloaded operator + :\n";
+        //calculate and print out the results accordingly
+        Rational rnAdd = rn1 + rn2;
+        cout << rn1;
+        cout << " + ";
+        cout << rn2;
+        cout << " = ";
+        cout << rnAdd;
+
+        cout << "\nResult of the overloaded operator - :\n";
+        Rational rnSub = rn1 - rn2;
+        cout << rn1;
+        cout << " - ";
+        cout << rn2;
+        cout << " = ";
+        cout << rnSub;
+
+        cout << "\nResult of the overloaded operator * :\n";
+        Rational rnMulti = rn1 * rn2;
+        cout << rn1;
+        cout << " * ";
+        cout << rn2;
+        cout << " = ";
+        cout << rnMulti;
+
+        cout << "\nResult of the overloaded operator - :\n";
         Rational rnDiv = rn1 / rn2;
+        cout << rn1;
+        cout << " / ";
+        cout << rn2;
+        cout << " = ";
         cout << rnDiv;
 
-        cout << "\nResult of rn1 < rn2 is: ";
-        if(rn1 < rn2)
-            cout << "true";
-        else
-            cout << "false";
-
-        cout << "\nResult of rn1 > rn2 is: ";
-        if(rn1 > rn2)
-            cout << "true";
-        else
-            cout << "false";
-
-        cout << "\nResult of rn1 == rn2 is: ";
+        cout << "\n\nResult of the comparison between the two rational numbers is: ";
+        cout << rn1;
+        //confirm the sign
         if(rn1 == rn2)
-            cout << "true";
-        else
-            cout << "false";
+            cout << " = ";
+        else if(rn1 < rn2)
+            cout << " < ";
+        else if(rn1 > rn2)
+            cout << " > ";
+        //print out the second ratioinal number
+        cout << rn2;
 
-        cout << "\nEnd testing." << endl;
+        cout << "\n\nEnd testing." << endl;
         cout << "\nEnter 'Q' to exit, or any other key to restart:";
         getline(cin, restart);
     } while(restart != "Q"); //keep restarting the testing until the user typed "Q"

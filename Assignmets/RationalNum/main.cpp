@@ -24,7 +24,7 @@ int main() {
         Rational rnOneArg(-7);
         cout << rnOneArg;
 
-        cout << "\nThe result of the Contrustor with 1 argument (numerator: 9, denominator: -6): ";
+        cout << "\nThe result of the Contrustor with 2 arguments (numerator: 9, denominator: -6): ";
         //instantiate a rational num using the constructor with 2 args
         Rational rnTwoArgs(9, -6);
         cout << rnTwoArgs;

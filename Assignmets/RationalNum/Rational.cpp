@@ -36,12 +36,22 @@ Rational::Rational(int numer, int denomin) {
 //constructor with a string
 Rational::Rational(string fraction) {
 
-    vector<string> fracNum = split(fraction);
+    if(fraction.find('/') != string::npos) //source: https://java2blog.com/check-if-string-contains-substring-cpp/
+    {   //when the user enter a fraction string instead of a whole number, we call the split function.
+        //source: https://stackoverflow.com/questions/9435385/split-a-string-using-c11
+        vector<string> fracNum = split(fraction);
 
-    istringstream(fracNum[0]) >> numerator;
-    istringstream(fracNum[1]) >> denominator;
+        istringstream(fracNum[0]) >> numerator;
+        istringstream(fracNum[1]) >> denominator;
 
-    normalize(numerator, denominator);
+        normalize(numerator, denominator);
+    }
+    else
+    {
+        //if the user enters a whole number then just put the number as the numerator and denominator should be 1.
+        istringstream(fraction) >> numerator;
+        denominator = 1;
+    }
 }
 
 //get method for numerator value
@@ -139,7 +149,7 @@ void normalize(int& numer, int& denomin)
     //update the values accordingly
     numer = numer / gcd;
     denomin = denomin / gcd;
-
+    //make sure the denominator is positive.
     if(denomin < 0) {
         numer *= -1;
         denomin *= -1;

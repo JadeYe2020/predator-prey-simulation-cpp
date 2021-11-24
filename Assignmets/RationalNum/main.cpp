@@ -107,12 +107,12 @@ string askForFraction() {
     getline(cin, fraction);
 
     //regex pattern for valid fraction numbers (https://www.geeksforgeeks.org/regex-regular-expression-in-c/)
-    regex pattern("-?[0-9]+/-?([1-9]+[0-9]*|[0]*[1-9]+[0-9]*)");
+    regex pattern("-?[0-9]+(/-?([1-9]+[0-9]*|[0]*[1-9]+[0-9]*))?");
 
     /*if it is not a valid fraction number, then ask the user to re-enter another one until a valid input is given.*/
     while(!regex_match(fraction, pattern))
     {
-        cout << "This is not a valid fraction. Please enter again." << endl;
+        cout << "This is not a valid fraction. Please enter again:";
         getline(cin, fraction);
     }
 

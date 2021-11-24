@@ -49,37 +49,39 @@ int main() {
         }
 
         cout << "\nResult of the overloaded operator + :\n";
+        //instantiate a new Rational object
+        Rational rnResult;
         //calculate and print out the results accordingly
-        Rational rnAdd = rn1 + rn2;
+        rnResult = rn1 + rn2;
         cout << rn1;
         cout << " + ";
         cout << rn2;
         cout << " = ";
-        cout << rnAdd;
+        cout << rnResult;
 
         cout << "\nResult of the overloaded operator - :\n";
-        Rational rnSub = rn1 - rn2;
+        rnResult = rn1 - rn2;
         cout << rn1;
         cout << " - ";
         cout << rn2;
         cout << " = ";
-        cout << rnSub;
+        cout << rnResult;
 
         cout << "\nResult of the overloaded operator * :\n";
-        Rational rnMulti = rn1 * rn2;
+        rnResult = rn1 * rn2;
         cout << rn1;
         cout << " * ";
         cout << rn2;
         cout << " = ";
-        cout << rnMulti;
+        cout << rnResult;
 
-        cout << "\nResult of the overloaded operator - :\n";
-        Rational rnDiv = rn1 / rn2;
+        cout << "\nResult of the overloaded operator / :\n";
+        rnResult = rn1 / rn2;
         cout << rn1;
         cout << " / ";
         cout << rn2;
         cout << " = ";
-        cout << rnDiv;
+        cout << rnResult;
 
         cout << "\n\nResult of the comparison between the two rational numbers is: ";
         cout << rn1;

@@ -119,6 +119,7 @@ Rational Rational::operator/ (const Rational &rightSide)
 //operator = overloading
 Rational Rational::operator= (const Rational &rightSide)
 {
+    cout << "{overloaded = operator fired}\t";
     this->numerator = rightSide.numerator;
     this->denominator = rightSide.denominator;
 

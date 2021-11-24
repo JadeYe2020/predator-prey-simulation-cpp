@@ -24,6 +24,9 @@ class Rational
         //constructor with a string
         Rational(string fraction);
 
+        //get method for numerator value
+        int getNumerator();
+
         //operator + overloading
         Rational operator+ (Rational &rightSide);
         //operator - overloading

@@ -16,19 +16,17 @@ void normalize(int& numer, int& denomin);
 //default constructor
 Rational::Rational(): numerator(0), denominator(1)
 {
-    cout << "{Default Constructor Fired}" << endl;
+
 }
 
 //constructor with one arg
 Rational::Rational(int wholeNum) {
-    cout << "{Constructor with 1 arg Fired}" << endl;
     numerator = wholeNum;
     denominator = 1;
 }
 
 //constructor with two args
 Rational::Rational(int numer, int denomin) {
-    cout << "{Constructor with 2 args Fired}" << endl;
     normalize(numer, denomin);
 
     numerator = numer;
@@ -37,7 +35,6 @@ Rational::Rational(int numer, int denomin) {
 
 //constructor with a string
 Rational::Rational(string fraction) {
-    cout << "{Constructor with a string Fired}" << endl;
 
     vector<string> fracNum = split(fraction);
 
@@ -47,10 +44,14 @@ Rational::Rational(string fraction) {
     normalize(numerator, denominator);
 }
 
+//get method for numerator value
+int Rational::getNumerator() {
+    return numerator;
+}
+
 //operator + overloading
 Rational Rational::operator+ (Rational &rightSide)
 {
-    cout << "{Overloaded + operator Fired}" << endl;
     int newNumer = this->numerator * rightSide.denominator + rightSide.numerator * this->denominator;
     int newDenomin = this->denominator * rightSide.denominator;
 
@@ -60,7 +61,6 @@ Rational Rational::operator+ (Rational &rightSide)
 //operator - overloading
 Rational Rational::operator- (Rational &rightSide)
 {
-    cout << "{Overloaded - operator Fired}" << endl;
     int newNumer = this->numerator * rightSide.denominator - rightSide.numerator * this->denominator;
     int newDenomin = this->denominator * rightSide.denominator;
 
@@ -70,7 +70,6 @@ Rational Rational::operator- (Rational &rightSide)
 //operator * overloading
 Rational Rational::operator* (Rational &rightSide)
 {
-    cout << "{Overloaded * operator Fired}" << endl;
     int newNumer = this->numerator * rightSide.numerator;
     int newDenomin = this->denominator * rightSide.denominator;
 
@@ -80,7 +79,6 @@ Rational Rational::operator* (Rational &rightSide)
 //operator / overloading
 Rational Rational::operator/ (Rational &rightSide)
 {
-    cout << "{Overloaded / operator Fired}" << endl;
     int newNumer = this->numerator * rightSide.denominator;
     int newDenomin = this->denominator * rightSide.numerator;
 
@@ -91,7 +89,6 @@ Rational Rational::operator/ (Rational &rightSide)
 //operator > overloading
 bool Rational::operator> (Rational &rightSide)
 {
-    cout << "{Overloaded > operator Fired}" << endl;
     if(this->numerator * rightSide.denominator > rightSide.numerator * this->denominator)
         return true;
     else
@@ -100,7 +97,6 @@ bool Rational::operator> (Rational &rightSide)
 //operator < overloading
 bool Rational::operator< (Rational &rightSide)
 {
-    cout << "{Overloaded < operator Fired}" << endl;
     if(this->numerator * rightSide.denominator < rightSide.numerator * this->denominator)
         return true;
     else
@@ -109,7 +105,6 @@ bool Rational::operator< (Rational &rightSide)
 //operator == overloading
 bool Rational::operator== (Rational &rightSide)
 {
-    cout << "{Overloaded == operator Fired}" << endl;
     if(this->numerator * rightSide.denominator == rightSide.numerator * this->denominator)
         return true;
     else
@@ -119,11 +114,10 @@ bool Rational::operator== (Rational &rightSide)
 //output operator overloading
 ostream& operator<< (ostream &output, Rational &rn)
 {
-    cout << "{<< operator fired}" << endl;
     //build a string for the rational number
     string str = to_string(rn.numerator) + "/" + to_string(rn.denominator);
     //put the string into the output stream
-    output << str << endl;
+    output << str;
     //return the output stream
     return output;
 }

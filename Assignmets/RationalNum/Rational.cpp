@@ -27,8 +27,6 @@ Rational::Rational(int wholeNum) {
 
 //constructor with two args
 Rational::Rational(int numer, int denomin) {
-    normalize(numer, denomin);
-
     numerator = numer;
     denominator = denomin;
 }
@@ -43,8 +41,6 @@ Rational::Rational(string fraction) {
 
         istringstream(fracNum[0]) >> numerator;
         istringstream(fracNum[1]) >> denominator;
-
-        normalize(numerator, denominator);
     }
     else
     {

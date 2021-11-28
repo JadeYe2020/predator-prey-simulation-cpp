@@ -12,11 +12,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="042ad7e9-0083-4528-876c-36437c5ac05b" name="Changes" comment="Test for splitting function.">
-      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/Rational.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/Rational.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/Rational.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/Rational.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignmets/RationalNum/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/RationalNum/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyComplexNum/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../MyComplexNum/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignmets/ZombieApocalypse/GameSpecs.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/ZombieApocalypse/GameSpecs.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignmets/ZombieApocalypse/cmake-build-debug/CMakeFiles/ZombieApocalypse.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/ZombieApocalypse/cmake-build-debug/CMakeFiles/ZombieApocalypse.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignmets/ZombieApocalypse/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/ZombieApocalypse/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,11 +46,6 @@
     <property name="cmake.loaded.for.project" value="true" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ForTesting" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ForTesting" TARGET_NAME="ForTesting" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ForTesting" RUN_TARGET_NAME="ForTesting">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -96,6 +90,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test for splitting function." />

@@ -3,20 +3,35 @@
 #include <regex>
 #include <sstream>
 #include <vector>
+#include <chrono>
+#include <thread>
 using namespace std;
 
+void ClearScreen()
+{
+    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+}
+
 int main() {
-    string str = "-7/8";
-    string numer, denomin;
 
-    regex token("/");
-    sregex_token_iterator first{str.begin(), str.end(), token, -1},
-            last;
+//    City *city = new City();
+    chrono:: milliseconds interval(900);
 
-    vector<string> fracNum = {first, last};
+    for(int i=0; i<10; i++) { //while both humans and zombies exist
+        this_thread::sleep_for(interval);
+        ClearScreen();
+//        city->move(); //includes all actions
 
-    cout << "1st: " << fracNum[0] << " 2nd: " << fracNum[1];
+        cout << "GENERATION " << (i+1) << endl;
 
+//        city->reset(); //resets moved flags
+//        city->countOrganisms(Z or H goes here);// run once for each type
+//        cout << *city; //prints city
+//        cout << "GENERATION " << city->getGeneration() << endl;
+//        cout << "HUMANS: " << city->countType(HUMAN_CH) << endl;
+//        cout << "ZOMBIES: " << city->countType(ZOMBIE_CH) << endl;
+    }//end while
+    cout << "Extinction Event - End Program" << endl;
 
     return 0;
 }

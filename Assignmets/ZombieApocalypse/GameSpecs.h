@@ -14,7 +14,7 @@ const int ZOMBIE_STARVE = 3; // steps until a Zombie starves and converts back
 const char HUMAN_CH = 111;//79 "o"// ascii Human
 const char SPACE_CH = 32; // " " ascii space
 const char ZOMBIE_CH = 90;//90 "Z"// ascii zombie
-const double PAUSE_SECONDS = .09; // pause between steps
+const int INTERVAL = 900; // pause between steps
 const int ITERATIONS = 1000; // max number of steps
 
 //Colors

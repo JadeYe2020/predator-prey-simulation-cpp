@@ -9,12 +9,13 @@
 
 class Zombie : public Organism
 {
-public:
-    Zombie();
-    Zombie( City *city, int width, int height );
-    virtual ~zombie();
+    public:
+        Zombie();
+        Zombie( City *city );
+        virtual ~zombie();
 
-    void move();
+        void move();
+        char getSpecies();
 };
 
 #endif //ZOMBIEAPOCALYPSE_ZOMBIE_H

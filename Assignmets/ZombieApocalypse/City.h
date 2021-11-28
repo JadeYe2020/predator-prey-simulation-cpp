@@ -14,20 +14,19 @@ class Organism;
 
 class City
 {
-protected:
-    Organism *grid[GRIDSIZE][GRIDSIZE];
+    protected:
+        Organism *grid[GRIDSIZE][GRIDSIZE];
 
-public:
-    City();
-    virtual ~City();
+    public:
+        City();
+        virtual ~City();
 
-    Organism *getOrganism( int x, int y );
-    void setOrganism( Organism *organism, int x, int y );
+        Organism *getOrganism( int x, int y );
+        void setOrganism( Organism *organism, int x, int y );
 
-    void move();
+        void move();
 
-    friend ostream& operator<<( ostream &output, World &world );
-
+        friend ostream& operator<<( ostream &output, City &city );
 };
 
 #endif //ZOMBIEAPOCALYPSE_CITY_H

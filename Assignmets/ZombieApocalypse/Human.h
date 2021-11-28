@@ -9,12 +9,13 @@
 
 class Human : public Organism
 {
-public:
-    Human();
-    Human( City *city, int width, int height );
-    virtual ~Human();
+    public:
+        Human();
+        Human( City *city );
+        virtual ~Human();
 
-    void move();
+        void move();
+        char getSpecies();
 };
 
 #endif //ZOMBIEAPOCALYPSE_HUMAN_H

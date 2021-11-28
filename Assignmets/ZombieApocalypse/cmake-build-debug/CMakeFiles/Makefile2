@@ -80,12 +80,12 @@ clean: CMakeFiles/ZombieApocalypse.dir/clean
 CMakeFiles/ZombieApocalypse.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ZombieApocalypse.dir\build.make CMakeFiles/ZombieApocalypse.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ZombieApocalypse.dir\build.make CMakeFiles/ZombieApocalypse.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\PROG2100\CPPSourceCode\Assignmets\ZombieApocalypse\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target ZombieApocalypse"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\PROG2100\CPPSourceCode\Assignmets\ZombieApocalypse\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6 "Built target ZombieApocalypse"
 .PHONY : CMakeFiles/ZombieApocalypse.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ZombieApocalypse.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\PROG2100\CPPSourceCode\Assignmets\ZombieApocalypse\cmake-build-debug\CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\PROG2100\CPPSourceCode\Assignmets\ZombieApocalypse\cmake-build-debug\CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/ZombieApocalypse.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\PROG2100\CPPSourceCode\Assignmets\ZombieApocalypse\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/ZombieApocalypse.dir/rule

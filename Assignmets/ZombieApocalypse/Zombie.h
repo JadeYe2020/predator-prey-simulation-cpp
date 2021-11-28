@@ -12,7 +12,7 @@ class Zombie : public Organism
     public:
         Zombie();
         Zombie( City *city );
-        virtual ~zombie();
+        virtual ~Zombie();
 
         void move();
         char getSpecies();

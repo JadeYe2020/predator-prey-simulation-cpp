@@ -152,6 +152,78 @@ City.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ZombieApocalypse.dir\build.make CMakeFiles/ZombieApocalypse.dir/City.cpp.s
 .PHONY : City.cpp.s
 
+Human.obj: Human.cpp.obj
+.PHONY : Human.obj
+
+# target to build an object file
+Human.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ZombieApocalypse.dir\build.make CMakeFiles/ZombieApocalypse.dir/Human.cpp.obj
+.PHONY : Human.cpp.obj
+
+Human.i: Human.cpp.i
+.PHONY : Human.i
+
+# target to preprocess a source file
+Human.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ZombieApocalypse.dir\build.make CMakeFiles/ZombieApocalypse.dir/Human.cpp.i
+.PHONY : Human.cpp.i
+
+Human.s: Human.cpp.s
+.PHONY : Human.s
+
+# target to generate assembly for a file
+Human.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ZombieApocalypse.dir\build.make CMakeFiles/ZombieApocalypse.dir/Human.cpp.s
+.PHONY : Human.cpp.s
+
+Organism.obj: Organism.cpp.obj
+.PHONY : Organism.obj
+
+# target to build an object file
+Organism.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ZombieApocalypse.dir\build.make CMakeFiles/ZombieApocalypse.dir/Organism.cpp.obj
+.PHONY : Organism.cpp.obj
+
+Organism.i: Organism.cpp.i
+.PHONY : Organism.i
+
+# target to preprocess a source file
+Organism.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ZombieApocalypse.dir\build.make CMakeFiles/ZombieApocalypse.dir/Organism.cpp.i
+.PHONY : Organism.cpp.i
+
+Organism.s: Organism.cpp.s
+.PHONY : Organism.s
+
+# target to generate assembly for a file
+Organism.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ZombieApocalypse.dir\build.make CMakeFiles/ZombieApocalypse.dir/Organism.cpp.s
+.PHONY : Organism.cpp.s
+
+Zombie.obj: Zombie.cpp.obj
+.PHONY : Zombie.obj
+
+# target to build an object file
+Zombie.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ZombieApocalypse.dir\build.make CMakeFiles/ZombieApocalypse.dir/Zombie.cpp.obj
+.PHONY : Zombie.cpp.obj
+
+Zombie.i: Zombie.cpp.i
+.PHONY : Zombie.i
+
+# target to preprocess a source file
+Zombie.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ZombieApocalypse.dir\build.make CMakeFiles/ZombieApocalypse.dir/Zombie.cpp.i
+.PHONY : Zombie.cpp.i
+
+Zombie.s: Zombie.cpp.s
+.PHONY : Zombie.s
+
+# target to generate assembly for a file
+Zombie.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ZombieApocalypse.dir\build.make CMakeFiles/ZombieApocalypse.dir/Zombie.cpp.s
+.PHONY : Zombie.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -188,6 +260,15 @@ help:
 	@echo ... City.obj
 	@echo ... City.i
 	@echo ... City.s
+	@echo ... Human.obj
+	@echo ... Human.i
+	@echo ... Human.s
+	@echo ... Organism.obj
+	@echo ... Organism.i
+	@echo ... Organism.s
+	@echo ... Zombie.obj
+	@echo ... Zombie.i
+	@echo ... Zombie.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

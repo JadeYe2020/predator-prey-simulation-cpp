@@ -89,10 +89,19 @@
 		<Unit filename="C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/GameSpecs.h">
 			<Option target="ZombieApocalypse"/>
 		</Unit>
+		<Unit filename="C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Human.cpp">
+			<Option target="ZombieApocalypse"/>
+		</Unit>
 		<Unit filename="C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Human.h">
 			<Option target="ZombieApocalypse"/>
 		</Unit>
+		<Unit filename="C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Organism.cpp">
+			<Option target="ZombieApocalypse"/>
+		</Unit>
 		<Unit filename="C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Organism.h">
+			<Option target="ZombieApocalypse"/>
+		</Unit>
+		<Unit filename="C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Zombie.cpp">
 			<Option target="ZombieApocalypse"/>
 		</Unit>
 		<Unit filename="C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Zombie.h">

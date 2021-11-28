@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/ZombieApocalypse.dir/City.cpp.obj"
   "CMakeFiles/ZombieApocalypse.dir/main.cpp.obj"
   "ZombieApocalypse.exe"
   "ZombieApocalypse.exe.manifest"

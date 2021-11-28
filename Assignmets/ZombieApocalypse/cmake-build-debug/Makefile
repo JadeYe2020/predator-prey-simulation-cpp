@@ -128,6 +128,30 @@ ZombieApocalypse/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ZombieApocalypse.dir\build.make CMakeFiles/ZombieApocalypse.dir/build
 .PHONY : ZombieApocalypse/fast
 
+City.obj: City.cpp.obj
+.PHONY : City.obj
+
+# target to build an object file
+City.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ZombieApocalypse.dir\build.make CMakeFiles/ZombieApocalypse.dir/City.cpp.obj
+.PHONY : City.cpp.obj
+
+City.i: City.cpp.i
+.PHONY : City.i
+
+# target to preprocess a source file
+City.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ZombieApocalypse.dir\build.make CMakeFiles/ZombieApocalypse.dir/City.cpp.i
+.PHONY : City.cpp.i
+
+City.s: City.cpp.s
+.PHONY : City.s
+
+# target to generate assembly for a file
+City.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ZombieApocalypse.dir\build.make CMakeFiles/ZombieApocalypse.dir/City.cpp.s
+.PHONY : City.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -161,6 +185,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... ZombieApocalypse
+	@echo ... City.obj
+	@echo ... City.i
+	@echo ... City.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

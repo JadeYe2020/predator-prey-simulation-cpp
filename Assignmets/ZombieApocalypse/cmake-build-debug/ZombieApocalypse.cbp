@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/City.cpp">
+			<Option target="ZombieApocalypse"/>
+		</Unit>
 		<Unit filename="C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/City.h">
 			<Option target="ZombieApocalypse"/>
 		</Unit>

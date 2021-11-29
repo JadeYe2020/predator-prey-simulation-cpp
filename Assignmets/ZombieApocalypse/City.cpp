@@ -24,18 +24,20 @@ City::City() {
     }
 }
 
-City::~City(){
-    //source: https://stackoverflow.com/questions/30720594/deleting-a-dynamically-allocated-2d-array/30720628
-    for(int i=0; i<GRIDSIZE; i++) {
-        for(int j=0; j<GRIDSIZE; j++) {
-            delete [] grid[i][j];
-        }
-        delete [] *grid[i];
-    }
-    delete [] **grid;
-    **grid = NULL;
-    cout << "{City's destructor fired}" << endl;
-}
+//City::~City(){
+
+//    //source: https://stackoverflow.com/questions/30720594/deleting-a-dynamically-allocated-2d-array/30720628
+//    for(int i=0; i<GRIDSIZE; i++) {
+//        for(int j=0; j<GRIDSIZE; j++) {
+//            delete [] grid[i][j];
+//        }
+//        delete [] *grid[i];
+//    }
+//    delete [] **grid;
+//    **grid = NULL;
+
+//    cout << "{City's destructor fired}" << endl;
+//}
 
 Organism* City::getOrganism( int x, int y )
 {

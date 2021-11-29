@@ -12,10 +12,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="042ad7e9-0083-4528-876c-36437c5ac05b" name="Changes" comment="Test for splitting function.">
-      <change beforePath="$PROJECT_DIR$/../Assignmets/ZombieApocalypse/GameSpecs.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/ZombieApocalypse/GameSpecs.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignmets/ZombieApocalypse/cmake-build-debug/CMakeFiles/ZombieApocalypse.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/ZombieApocalypse/cmake-build-debug/CMakeFiles/ZombieApocalypse.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignmets/ZombieApocalypse/Organism.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/ZombieApocalypse/Organism.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Assignmets/ZombieApocalypse/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignmets/ZombieApocalypse/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ForTesting.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ForTesting.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ForTesting.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ForTesting.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ForTesting.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ForTesting.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ForTesting.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/ForTesting.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1637621891293</updated>
       <workItem from="1637621893199" duration="678000" />
+      <workItem from="1638129814890" duration="1439000" />
     </task>
     <task id="LOCAL-00001" summary="Test for splitting function.">
       <created>1637621957977</created>

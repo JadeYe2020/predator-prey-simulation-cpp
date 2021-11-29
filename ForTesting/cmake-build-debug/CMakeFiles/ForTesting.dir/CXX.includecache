@@ -9,12 +9,8 @@
 C:/PROG2100/CPPSourceCode/ForTesting/main.cpp
 iostream
 -
-string
+windows.h
 -
-regex
--
-sstream
--
-vector
+conio.h
 -
 

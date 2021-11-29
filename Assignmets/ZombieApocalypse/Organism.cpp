@@ -21,7 +21,7 @@ Organism::Organism():x(0), y(0), moved(false) {
     species = '\0';
 }
 
-Organism::Organism( City *city):x(0), y(0), moved(false)
+Organism::Organism( City *city ):x(0), y(0), moved(false)
 {
     this->city = city;
     species = NULL;

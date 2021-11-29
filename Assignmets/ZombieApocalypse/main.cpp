@@ -26,7 +26,14 @@ int main() {
         ClearScreen();
         city->move(); //includes all actions
 
-        cout << "GENERATION " << (i+1) << endl;
+        // Alternate multi-pass version with each activity happening in its own
+// pass through the array. Lends itself to prototyping and testing:
+        //   city->humansMove();
+        //   city->zombiesMoveEat();
+        //   city->humansRecruit();
+        //   city->zombiesRecruit();
+        //   city->zombiesStarve();
+        //   city->countOrganisms(Z or H goes here);
 
         city->reset(); //resets moved flags
         city->countOrganisms(Z or H goes here);// run once for each type

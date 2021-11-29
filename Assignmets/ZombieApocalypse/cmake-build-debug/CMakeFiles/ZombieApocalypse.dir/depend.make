@@ -5,15 +5,27 @@ CMakeFiles/ZombieApocalypse.dir/City.cpp.obj: \
  ../City.cpp \
  ../City.h \
  ../GameSpecs.h \
- ../Organism.h
+ ../Human.h \
+ ../Organism.h \
+ ../Zombie.h
 CMakeFiles/ZombieApocalypse.dir/Human.cpp.obj: \
+ ../City.h \
+ ../GameSpecs.h \
  ../Human.cpp \
  ../Human.h \
- ../Organism.h
+ ../Organism.h \
+ ../Zombie.h
 CMakeFiles/ZombieApocalypse.dir/Organism.cpp.obj: \
+ ../City.h \
+ ../GameSpecs.h \
+ ../Human.h \
  ../Organism.cpp \
- ../Organism.h
+ ../Organism.h \
+ ../Zombie.h
 CMakeFiles/ZombieApocalypse.dir/Zombie.cpp.obj: \
+ ../City.h \
+ ../GameSpecs.h \
+ ../Human.h \
  ../Organism.h \
  ../Zombie.cpp \
  ../Zombie.h

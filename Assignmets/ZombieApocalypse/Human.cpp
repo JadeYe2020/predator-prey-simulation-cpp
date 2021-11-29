@@ -3,8 +3,11 @@
 //
 
 #include <iostream>
+#include "GameSpecs.h"
+#include "City.h"
 #include "Organism.h"
 #include "Human.h"
+#include "Zombie.h"
 using namespace std;
 
 class City;

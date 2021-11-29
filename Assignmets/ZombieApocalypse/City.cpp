@@ -16,12 +16,12 @@ class Human;
 class Zombie;
 
 City::City() {
-//    for(int i=0; i<GRIDSIZE; i++) {
-//        for(int j=0; j<GRIDSIZE; j++) {
-//            Human *ogn = new Human;
-//            grid[i][j] = (Organism*) ogn;
-//        }
-//    }
+    for(int i=0; i<GRIDSIZE; i++) {
+        for(int j=0; j<GRIDSIZE; j++) {
+            Human *ogn = new Human;
+            grid[i][j] = (Organism*) ogn;
+        }
+    }
 }
 
 City::~City(){
@@ -61,6 +61,7 @@ ostream& operator<<( ostream &output, City &city ){
         for(int j=0; j<GRIDSIZE; j++) {
             output << city.grid[i][j];
         }
+        output << "\n";
     }
 
     return output;

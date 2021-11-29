@@ -24,7 +24,7 @@ int main() {
     for(int i=0; i<10; i++) { //while both humans and zombies exist
         this_thread::sleep_for(interval);
         ClearScreen();
-        city->move(); //includes all actions
+//        city->move(); //includes all actions
 
         // Alternate multi-pass version with each activity happening in its own
 // pass through the array. Lends itself to prototyping and testing:
@@ -35,12 +35,13 @@ int main() {
         //   city->zombiesStarve();
         //   city->countOrganisms(Z or H goes here);
 
-        city->reset(); //resets moved flags
-        city->countOrganisms(Z or H goes here);// run once for each type
+//        city->reset(); //resets moved flags
+//        city->countOrganisms(Z or H goes here);// run once for each type
         cout << *city; //prints city
-        cout << "GENERATION " << city->getGeneration() << endl;
-        cout << "HUMANS: " << city->countType(HUMAN_CH) << endl;
-        cout << "ZOMBIES: " << city->countType(ZOMBIE_CH) << endl;
+        cout << "GENERATION " << (i+1) << endl;
+//        cout << "GENERATION " << city->getGeneration() << endl;
+//        cout << "HUMANS: " << city->countType(HUMAN_CH) << endl;
+//        cout << "ZOMBIES: " << city->countType(ZOMBIE_CH) << endl;
     }//end while
     cout << "Extinction Event - End Program" << endl;
 

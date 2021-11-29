@@ -14,13 +14,23 @@ class Organism;
 City::City() {
     for(int i=0; i<GRIDSIZE; i++) {
         for(int j=0; j<GRIDSIZE; j++) {
-            Organism or;
-            grid[i][j] = or;
+            Organism *ogn;
+            grid[i][j] = ogn;
         }
     }
 }
 
-City::~City(){}
+City::~City(){
+    for(int i=0; i<GRIDSIZE; i++) {
+        for(int j=0; j<GRIDSIZE; j++) {
+            delete [] grid[i][j];
+        }
+        delete [] *grid[i];
+    }
+    delete [] **grid;
+    **grid = NULL;
+    cout << "{City's destructor fired}" << endl;
+}
 
 Organism City::*getOrganism( int x, int y )
 {

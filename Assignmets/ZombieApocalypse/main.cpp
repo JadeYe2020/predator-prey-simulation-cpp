@@ -21,18 +21,19 @@ void ClearScreen()
 
 int main() {
 
-    vector<Organism*> vOrg(GRIDSIZE * GRIDSIZE);
-    //populate vector: 12 humans
-    for(int i=0; i<12; i++) {
+    vector<Organism*> vOrg(8); //should have 8 nullptrs
+    //populate vector: , 12 humans and 5 Zombies
+    for(int i=0; i<12; i++)
+    {
         Human *hm = new Human;
         vOrg.push_back((Organism*)hm);
-        vOrg.assign()
     }
-    //populate vector: 5 Zombies
-    for(int i=0; i<5; i++) {
+    for(int i=0; i<5; i++)
+    {
         Zombie *zb = new Zombie;
         vOrg.push_back((Organism*)zb);
     }
+
     //shuffle
     unsigned seed = chrono::system_clock::now().time_since_epoch().count();//create random seed using system clock
     shuffle(vOrg.begin(), vOrg.end(), default_random_engine(seed));

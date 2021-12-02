@@ -68,6 +68,12 @@ int main() {
 //        city->countOrganisms(Z or H goes here);// run once for each type
         cout << *city; //prints city
         cout << "GENERATION " << (i+1) << endl;
+
+        if(city->getOrganism(3, 3) != NULL)
+            cout << "The species of (3,3) is " << city->getOrganism(3, 3)->getSpecies() << endl;
+        else
+            cout << "The species of (3,3) is an empty space." << endl;
+
 //        cout << "GENERATION " << city->getGeneration() << endl;
 //        cout << "HUMANS: " << city->countType(HUMAN_CH) << endl;
 //        cout << "ZOMBIES: " << city->countType(ZOMBIE_CH) << endl;

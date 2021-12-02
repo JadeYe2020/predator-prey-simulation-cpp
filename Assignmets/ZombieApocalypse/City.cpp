@@ -70,6 +70,20 @@ void City::reset() {
     }
 }
 
+int City::countType(char species) {
+    int count = 0;
+
+    for(int i=0; i<GRIDSIZE; i++) {
+        for(int j=0; j<GRIDSIZE; j++) {
+            if(grid[i][j] != NULL) {
+                if(grid[i][j]->getSpecies() == species)
+                    count ++;
+            }
+        }
+    }
+    return count;
+}
+
 ostream& operator<<( ostream &output, City &city ){
     for(int i=0; i<GRIDSIZE; i++) {
         for(int j=0; j<GRIDSIZE; j++) {

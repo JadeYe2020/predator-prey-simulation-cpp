@@ -30,6 +30,7 @@ class City
 
         void move();
         void reset();
+        int countType(char species);
 
         friend ostream& operator<<( ostream &output, City &city );
 };

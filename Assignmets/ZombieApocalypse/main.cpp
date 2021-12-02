@@ -24,9 +24,9 @@ int main() {
 
     City *city = new City();
 
-    vector<Organism*> vOrg(GRIDSIZE * GRIDSIZE - 9 - 4); //should have 8 nullptrs
+    vector<Organism*> vOrg(GRIDSIZE * GRIDSIZE - 8 - 4); //should have 8 nullptrs
     //populate vector: , 9 humans and 4 Zombies
-    for(int i=0; i<9; i++)
+    for(int i=0; i<8; i++)
     {
         Human *hm = new Human(city);
         vOrg.push_back((Organism*)hm);
@@ -72,18 +72,15 @@ int main() {
         city->reset(); //resets moved flags
 //        city->countOrganisms(Z or H goes here);// run once for each type
         cout << *city; //prints city
-        cout << "GENERATION " << (i+1) << endl;
+        cout << "GENERATION " << (i+1) << "\t";
+        cout << "HUMANS: " << city->countType(HUMAN_CH) << "\t";
+        cout << "ZOMBIES: " << city->countType(ZOMBIE_CH) << endl;
 
-        if(city->getOrganism(3, 3) != NULL)
-            cout << "The species of (3,3) is " << city->getOrganism(3, 3)->getSpecies() << endl;
-        else
-            cout << "The species of (3,3) is an empty space." << endl;
 
         city->move();
 
 //        cout << "GENERATION " << city->getGeneration() << endl;
-//        cout << "HUMANS: " << city->countType(HUMAN_CH) << endl;
-//        cout << "ZOMBIES: " << city->countType(ZOMBIE_CH) << endl;
+
     }//end while
     cout << "Extinction Event - End Program" << endl;
 

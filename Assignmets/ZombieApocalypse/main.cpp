@@ -21,14 +21,14 @@ void ClearScreen()
 
 int main() {
 
-    vector<Organism*> vOrg(8); //should have 8 nullptrs
-    //populate vector: , 12 humans and 5 Zombies
-    for(int i=0; i<12; i++)
+    vector<Organism*> vOrg(GRIDSIZE * GRIDSIZE - 9 - 4); //should have 8 nullptrs
+    //populate vector: , 9 humans and 4 Zombies
+    for(int i=0; i<9; i++)
     {
         Human *hm = new Human;
         vOrg.push_back((Organism*)hm);
     }
-    for(int i=0; i<5; i++)
+    for(int i=0; i<4; i++)
     {
         Zombie *zb = new Zombie;
         vOrg.push_back((Organism*)zb);

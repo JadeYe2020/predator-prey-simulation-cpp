@@ -52,11 +52,11 @@ ostream& operator<<( ostream &output, Organism *organism )
     else
     {
         switch (organism->species) {
-            case 'H':
+            case char(HUMAN_CH):
                 Col(HUMAN_COLOR);
                 output << char(HUMAN_CH);
                 break;
-            case 'Z':
+            case char(ZOMBIE_CH):
                 Col(ZOMBIE_COLOR);
                 output << char(ZOMBIE_CH);
                 break;

@@ -19,6 +19,15 @@ void ClearScreen()
 int main() {
 
     City *city = new City();
+    //populate the city with creatures
+    for(int i=0; i<GRIDSIZE; i++) {
+        for(int j=0; j<GRIDSIZE; j++) {
+            Human *hm = new Human;
+
+            city->setOrganism((Organism*)hm, i, j);
+        }
+    }
+
     chrono:: milliseconds interval(INTERVAL);
 
     for(int i=0; i<5; i++) { //while both humans and zombies exist

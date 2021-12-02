@@ -19,6 +19,7 @@ City::City() {
     for(int i=0; i<GRIDSIZE; i++) {
         for(int j=0; j<GRIDSIZE; j++) {
 //            Human *ogn = new Human;
+            //a grid of null pointer
             Organism *ogn = NULL;
             grid[i][j] = (Organism*) ogn;
         }

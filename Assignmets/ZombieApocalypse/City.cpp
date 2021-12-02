@@ -61,6 +61,15 @@ void City::move()
     }
 }
 
+void City::reset() {
+    for(int i=0; i<GRIDSIZE; i++) {
+        for(int j=0; j<GRIDSIZE; j++) {
+            if(grid[i][j] != NULL)
+                grid[i][j]->endTurn();
+        }
+    }
+}
+
 ostream& operator<<( ostream &output, City &city ){
     for(int i=0; i<GRIDSIZE; i++) {
         for(int j=0; j<GRIDSIZE; j++) {

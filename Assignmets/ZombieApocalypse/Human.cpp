@@ -32,13 +32,22 @@ Human::~Human()
 
 void Human::move()
 {
-    if( x>0 && city->getOrganism(x-1, y) == NULL ) {
-        //put the human to the new position
-        city->setOrganism(this, x-1, y);
-        //put an empty space to the previous position;
-        city->setOrganism(NULL, x, y);
-        //update the human's new position args
-        x -= 1;
+    if(!moved)
+    {
+        if( x>0 && city->getOrganism(x-1, y) == NULL ) {
+            //put the human to the new position
+            city->setOrganism(this, x-1, y);
+            //put an empty space to the previous position;
+            city->setOrganism(NULL, x, y);
+            //update the human's properties
+            x -= 1;
+        }
+        else if(y < GRIDSIZE && city->getOrganism(x, y+1) == NULL) {
+            city->setOrganism(this, x, y+1);
+            city->setOrganism(NULL, x, y);
+            y = y+1;
+        }
+        moved = true;
     }
 }
 

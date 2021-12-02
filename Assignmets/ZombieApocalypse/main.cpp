@@ -69,7 +69,7 @@ int main() {
         //   city->zombiesStarve();
         //   city->countOrganisms(Z or H goes here);
 
-//        city->reset(); //resets moved flags
+        city->reset(); //resets moved flags
 //        city->countOrganisms(Z or H goes here);// run once for each type
         cout << *city; //prints city
         cout << "GENERATION " << (i+1) << endl;

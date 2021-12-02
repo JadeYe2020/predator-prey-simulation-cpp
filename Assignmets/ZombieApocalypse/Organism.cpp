@@ -39,7 +39,8 @@ void Organism::setPosition( int x, int y )
 }
 void Organism::endTurn()
 {
-    moved = true;
+    //reset moved value
+    moved = false;
 }
 
 ostream& operator<<( ostream &output, Organism *organism )

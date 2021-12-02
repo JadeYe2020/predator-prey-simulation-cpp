@@ -1,6 +1,9 @@
 // Reference: Example main.cpp created by W0068332 on 11/21/2021.
 
 #include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
 #include <chrono>
 #include <thread>
 #include "GameSpecs.h"
@@ -18,13 +21,29 @@ void ClearScreen()
 
 int main() {
 
+    vector<Organism*> vOrg(GRIDSIZE * GRIDSIZE);
+    //populate vector: 12 humans
+    for(int i=0; i<12; i++) {
+        Human *hm = new Human;
+        vOrg.push_back((Organism*)hm);
+        vOrg.assign()
+    }
+    //populate vector: 5 Zombies
+    for(int i=0; i<5; i++) {
+        Zombie *zb = new Zombie;
+        vOrg.push_back((Organism*)zb);
+    }
+    //shuffle
+    unsigned seed = chrono::system_clock::now().time_since_epoch().count();//create random seed using system clock
+    shuffle(vOrg.begin(), vOrg.end(), default_random_engine(seed));
+
     City *city = new City();
     //populate the city with creatures
+    int k = 0;
     for(int i=0; i<GRIDSIZE; i++) {
         for(int j=0; j<GRIDSIZE; j++) {
-            Human *hm = new Human;
-
-            city->setOrganism((Organism*)hm, i, j);
+            city->setOrganism(vOrg[k], i, j);
+            k++;
         }
     }
 

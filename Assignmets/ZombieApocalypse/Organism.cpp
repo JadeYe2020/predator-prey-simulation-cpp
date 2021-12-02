@@ -47,18 +47,18 @@ ostream& operator<<( ostream &output, Organism *organism )
     if(!organism)
     {
         Col(DEFAULT_COLOR);
-        output << char(SPACE_CH);
+        output << ' ' << SPACE_CH << ' ';
     }
     else
     {
         switch (organism->species) {
             case HUMAN_CH:
                 Col(HUMAN_COLOR);
-                output << HUMAN_CH;
+                output << ' ' << HUMAN_CH << ' ';
                 break;
             case ZOMBIE_CH:
                 Col(ZOMBIE_COLOR);
-                output << ZOMBIE_CH;
+                output << ' ' << ZOMBIE_CH << ' ';
                 break;
 //            default:
 //                Col(DEFAULT_COLOR);

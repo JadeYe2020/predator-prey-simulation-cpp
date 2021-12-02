@@ -14,12 +14,12 @@ class City;
 
 Zombie::Zombie()
 {
-    species = char(ZOMBIE_CH);
+    species = ZOMBIE_CH;
 }
 
 Zombie::Zombie( City *city )
 {
-    species = char(ZOMBIE_CH);
+    species = ZOMBIE_CH;
 }
 
 Zombie::~Zombie()

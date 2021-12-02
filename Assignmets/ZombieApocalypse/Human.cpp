@@ -14,12 +14,12 @@ class City;
 
 Human::Human()
 {
-    species = char(HUMAN_CH);
+    species = HUMAN_CH;
 }
 
 Human::Human( City *city )
 {
-    species = char(HUMAN_CH);
+    species = HUMAN_CH;
 }
 
 Human::~Human()

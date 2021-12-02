@@ -52,13 +52,13 @@ ostream& operator<<( ostream &output, Organism *organism )
     else
     {
         switch (organism->species) {
-            case char(HUMAN_CH):
+            case HUMAN_CH:
                 Col(HUMAN_COLOR);
-                output << char(HUMAN_CH);
+                output << HUMAN_CH;
                 break;
-            case char(ZOMBIE_CH):
+            case ZOMBIE_CH:
                 Col(ZOMBIE_COLOR);
-                output << char(ZOMBIE_CH);
+                output << ZOMBIE_CH;
                 break;
 //            default:
 //                Col(DEFAULT_COLOR);

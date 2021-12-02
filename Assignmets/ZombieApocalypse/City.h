@@ -23,7 +23,7 @@ class City
 
     public:
         City();
-        virtual ~City() = default;
+        virtual ~City();
 
         Organism *getOrganism( int x, int y );
         void setOrganism( Organism *organism, int x, int y );

@@ -44,19 +44,27 @@ void Organism::endTurn()
 
 ostream& operator<<( ostream &output, Organism *organism )
 {
-    switch (organism->species) {
-        case 'H':
-            Col(HUMAN_COLOR);
-            output << "H";
-            break;
-        case 'Z':
-            Col(ZOMBIE_COLOR);
-            output << "Z";
-            break;
-        default:
-            Col(DEFAULT_COLOR);
-            output << "-";
-            break;
+    if(!organism)
+    {
+        Col(DEFAULT_COLOR);
+        output << char(SPACE_CH);
+    }
+    else
+    {
+        switch (organism->species) {
+            case 'H':
+                Col(HUMAN_COLOR);
+                output << char(HUMAN_CH);
+                break;
+            case 'Z':
+                Col(ZOMBIE_COLOR);
+                output << char(ZOMBIE_CH);
+                break;
+//            default:
+//                Col(DEFAULT_COLOR);
+//                output << char(SPACE_CH);
+//                break;
+        }
     }
 
     return output;

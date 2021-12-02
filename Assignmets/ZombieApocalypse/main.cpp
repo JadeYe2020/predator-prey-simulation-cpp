@@ -16,21 +16,24 @@ using namespace std;
 
 void ClearScreen()
 {
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+//    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    cout << "\n\n";
 }
 
 int main() {
+
+    City *city = new City();
 
     vector<Organism*> vOrg(GRIDSIZE * GRIDSIZE - 9 - 4); //should have 8 nullptrs
     //populate vector: , 9 humans and 4 Zombies
     for(int i=0; i<9; i++)
     {
-        Human *hm = new Human;
+        Human *hm = new Human(city);
         vOrg.push_back((Organism*)hm);
     }
     for(int i=0; i<4; i++)
     {
-        Zombie *zb = new Zombie;
+        Zombie *zb = new Zombie(city);
         vOrg.push_back((Organism*)zb);
     }
 
@@ -38,12 +41,14 @@ int main() {
     unsigned seed = chrono::system_clock::now().time_since_epoch().count();//create random seed using system clock
     shuffle(vOrg.begin(), vOrg.end(), default_random_engine(seed));
 
-    City *city = new City();
     //populate the city with creatures
     int k = 0;
     for(int i=0; i<GRIDSIZE; i++) {
         for(int j=0; j<GRIDSIZE; j++) {
-            city->setOrganism(vOrg[k], i, j);
+            city->setOrganism(vOrg[k], j, i);
+            if(vOrg[k] != NULL)
+                vOrg[k]->setPosition(j, i);
+
             k++;
         }
     }
@@ -73,6 +78,8 @@ int main() {
             cout << "The species of (3,3) is " << city->getOrganism(3, 3)->getSpecies() << endl;
         else
             cout << "The species of (3,3) is an empty space." << endl;
+
+        city->move();
 
 //        cout << "GENERATION " << city->getGeneration() << endl;
 //        cout << "HUMANS: " << city->countType(HUMAN_CH) << endl;

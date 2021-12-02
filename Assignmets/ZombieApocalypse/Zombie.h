@@ -16,6 +16,7 @@ class Zombie : public Organism
 
         void move();
         char getSpecies();
+//        void getPosition()
 };
 
 #endif //ZOMBIEAPOCALYPSE_ZOMBIE_H

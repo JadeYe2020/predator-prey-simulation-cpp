@@ -16,6 +16,7 @@ class Human : public Organism
 
         void move();
         char getSpecies();
+//        void getPosition()
 };
 
 #endif //ZOMBIEAPOCALYPSE_HUMAN_H

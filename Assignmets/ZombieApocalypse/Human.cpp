@@ -20,6 +20,7 @@ Human::Human()
 Human::Human( City *city )
 {
     species = HUMAN_CH;
+    this->city = city;
 }
 
 Human::~Human()
@@ -31,10 +32,20 @@ Human::~Human()
 
 void Human::move()
 {
-    x -= 1;
-    y -= 1;
+    if( x>0 && city->getOrganism(x-1, y) == NULL ) {
+        //put the human to the new position
+        city->setOrganism(this, x-1, y);
+        //put an empty space to the previous position;
+        city->setOrganism(NULL, x, y);
+        //update the human's new position args
+        x -= 1;
+    }
 }
 
 char Human::getSpecies(){
     return species;
 }
+
+//void Human::getPosition() {
+//
+//}

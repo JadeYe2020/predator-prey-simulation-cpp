@@ -33,7 +33,7 @@ class Organism
         virtual void move() = 0;
         //virtual void spawn() = 0;
         virtual char getSpecies() = 0; //this could also be coded concrete here
-        //virtual void getPosition() = 0;
+//        virtual void getPosition() = 0;
 
         void setPosition( int x, int y );
         void endTurn();

@@ -20,6 +20,7 @@ Zombie::Zombie()
 Zombie::Zombie( City *city )
 {
     species = ZOMBIE_CH;
+    this->city = city;
 }
 
 Zombie::~Zombie()

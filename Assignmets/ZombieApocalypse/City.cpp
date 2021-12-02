@@ -43,19 +43,20 @@ City::~City(){
 
 Organism* City::getOrganism( int x, int y )
 {
-    return grid[x][y];
+    return grid[y][x];
 }
 
 void City::setOrganism( Organism *organism, int  x, int y )
 {
-    grid[x][y] = organism;
+    grid[y][x] = organism;
 }
 
 void City::move()
 {
     for(int i=0; i<GRIDSIZE; i++) {
         for(int j=0; j<GRIDSIZE; j++) {
-            grid[i][j]->move();
+            if(grid[i][j] != NULL)
+                grid[i][j]->move();
         }
     }
 }

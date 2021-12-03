@@ -22,19 +22,7 @@ C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Zombie.h
 
 C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/GameSpecs.h
 
-C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Human.h
-Organism.h
-C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Organism.h
-
-C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Organism.h
-iostream
--
-
-C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Zombie.h
-Organism.h
-C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Organism.h
-
-C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/main.cpp
+C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Human.cpp
 iostream
 -
 vector
@@ -45,16 +33,26 @@ random
 -
 chrono
 -
-thread
--
 GameSpecs.h
 C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/GameSpecs.h
-Organism.h
-C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Organism.h
 City.h
 C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/City.h
+Organism.h
+C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Organism.h
 Human.h
 C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Human.h
 Zombie.h
 C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Zombie.h
+
+C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Human.h
+Organism.h
+C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Organism.h
+
+C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Organism.h
+iostream
+-
+
+C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Zombie.h
+Organism.h
+C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/Organism.h
 

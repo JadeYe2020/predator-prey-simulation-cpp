@@ -48,7 +48,9 @@ Organism* City::getOrganism( int x, int y )
 
 void City::setOrganism( Organism *organism, int  x, int y )
 {
-    grid[y][x] = organism;
+    grid[y][x] = organism; //add the organism or a nullptr into the grid
+    if(organism != NULL)
+        organism->setPosition(x, y); //update the organism's properties
 }
 
 void City::move()

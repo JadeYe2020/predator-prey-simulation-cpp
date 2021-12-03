@@ -45,9 +45,10 @@ int main() {
     int k = 0;
     for(int i=0; i<GRIDSIZE; i++) {
         for(int j=0; j<GRIDSIZE; j++) {
-            city->setOrganism(vOrg[k], j, i);
             if(vOrg[k] != NULL)
-                vOrg[k]->setPosition(j, i);
+                city->setOrganism(vOrg[k], j, i);
+//            if(vOrg[k] != NULL)
+//                vOrg[k]->setPosition(j, i);
 
             k++;
         }

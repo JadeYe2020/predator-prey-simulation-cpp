@@ -10,11 +10,13 @@
 class Human : public Organism
 {
     public:
-        enum direction { WEST, NORTH, EAST, SOUTH };
+        enum direction { WEST, NORTH, EAST, SOUTH, STAY };
 
         Human();
         Human( City *city );
         virtual ~Human();
+
+        direction getNextStep();
 
         void move();
         char getSpecies();

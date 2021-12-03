@@ -12,7 +12,7 @@ using namespace std;
 
 class City;
 
-void Col(int c)
+void Col(int c) //method to change the color of the "pen"
 {
     HANDLE  hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -41,6 +41,8 @@ void Organism::endTurn()
 {
     //set the moved flag to true
     moved = true;
+    //increment the numOfSteps
+    numOfSteps ++;
 }
 
 void Organism::waitForTurn()

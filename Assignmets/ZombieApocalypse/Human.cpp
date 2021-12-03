@@ -27,9 +27,10 @@ Human::Human( City *city )
 
 Human::~Human()
 {
-    if(city != NULL) //non-null test
-        delete []city;
-    city = NULL; //assign null
+//    if(this != NULL) //non-null test
+//        delete []this;
+//    *this = NULL; //assign null
+//    cout << "{Human Destructor Fired}" << endl;
 }
 
 Human::direction Human::getNextStep() {
@@ -118,36 +119,6 @@ Human::direction Human::getNextStep() {
             }
             break;
     } // end switch(x)
-
-//    if(x == 0) {
-//        if(city->getOrganism(x+1, y) == NULL)
-//            emptySp.push_back(EAST);
-//    }
-//    else if(x == GRIDSIZE-1) {
-//        if(city->getOrganism(x+-1, y) == NULL)
-//            emptySp.push_back(WEST);
-//    }
-//    else {
-//        if(city->getOrganism(x+1, y) == NULL)
-//            emptySp.push_back(EAST);
-//        if(city->getOrganism(x+-1, y) == NULL)
-//            emptySp.push_back(WEST);
-//    }
-//
-//    if(y == 0) {
-//        if(city->getOrganism(x, y+1) == NULL)
-//            emptySp.push_back(SOUTH);
-//    }
-//    else if(y == GRIDSIZE-1) {
-//        if(city->getOrganism(x, y+-1) == NULL)
-//            emptySp.push_back(NORTH);
-//    }
-//    else {
-//        if(city->getOrganism(x, y+1) == NULL)
-//            emptySp.push_back(SOUTH);
-//        if(city->getOrganism(x, y+-1) == NULL)
-//            emptySp.push_back(NORTH);
-//    }
 
     if(emptySp.size() > 0) {
         //shuffle vector

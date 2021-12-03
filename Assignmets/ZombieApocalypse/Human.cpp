@@ -3,6 +3,10 @@
 //
 
 #include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <chrono>
 #include "GameSpecs.h"
 #include "City.h"
 #include "Organism.h"
@@ -34,19 +38,23 @@ void Human::move()
 {
     if(!moved)
     {
-        if( x>0 && city->getOrganism(x-1, y) == NULL ) {
+        if( x>0 && city->getOrganism(x+WEST, y) == NULL ) {
             //put the human to the new position
-            city->setOrganism(this, x-1, y);
+            city->setOrganism(this, x+WEST, y);
             //put an empty space to the previous position;
             city->setOrganism(NULL, x, y);
             //update the human's properties
-            x -= 1;
+            x += WEST;
         }
-        else if(y < GRIDSIZE && city->getOrganism(x, y+1) == NULL) {
-            city->setOrganism(this, x, y+1);
+        else if(y < GRIDSIZE && city->getOrganism(x, y+SOUTH) == NULL) {
+            city->setOrganism(this, x, y+SOUTH);
             city->setOrganism(NULL, x, y);
-            y = y+1;
+            y = y+SOUTH;
         }
+//        vector<Organism*> emptySp;
+//        if(x == 0 && y == 0) {
+//
+//        }
         moved = true;
     }
 }

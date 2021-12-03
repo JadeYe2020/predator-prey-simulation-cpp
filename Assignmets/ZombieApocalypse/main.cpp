@@ -70,16 +70,15 @@ int main() {
         //   city->countOrganisms(Z or H goes here);
 
         city->reset(); //resets moved flags
-//        city->countOrganisms(Z or H goes here);// run once for each type
+
         cout << *city; //prints city
+//        cout << "GENERATION " << city->getGeneration() << endl;
         cout << "GENERATION " << (i+1) << "\t";
         cout << "HUMANS: " << city->countType(HUMAN_CH) << "\t";
         cout << "ZOMBIES: " << city->countType(ZOMBIE_CH) << endl;
 
-
         city->move();
 
-//        cout << "GENERATION " << city->getGeneration() << endl;
 
     }//end while
     cout << "Extinction Event - End Program" << endl;

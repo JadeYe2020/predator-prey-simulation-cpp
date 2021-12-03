@@ -9,14 +9,26 @@
 
 class Zombie : public Organism
 {
+    private:
+        int breedCount;
+        int starveCount;
+
     public:
-        enum direction { WEST, NORTH, EAST, SOUTH, NW, NE, SW, SE };
+        enum direction { WEST, NORTH, EAST, SOUTH, NW, NE, SW, SE, STAY };
 
         Zombie();
         Zombie( City *city );
         virtual ~Zombie();
 
+        direction getNextEat();
+        direction getNextMove();
+
+        void breed();
+        void starve();
+
         void move();
+        void eat();
+
         char getSpecies();
 //        void getPosition()
 };

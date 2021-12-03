@@ -54,6 +54,12 @@ int main() {
         }
     }
 
+    cout << *city; //prints city
+//        cout << "GENERATION " << city->getGeneration() << endl;
+    cout << "GENERATION " << (0) << "\t";
+    cout << "HUMANS: " << city->countType(HUMAN_CH) << "\t";
+    cout << "ZOMBIES: " << city->countType(ZOMBIE_CH) << endl;
+
     chrono:: milliseconds interval(INTERVAL);
 
     for(int i=0; i<6; i++) { //while both humans and zombies exist

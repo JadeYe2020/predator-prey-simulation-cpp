@@ -19,12 +19,12 @@ void Col(int c)
     SetConsoleTextAttribute(hConsole, c);
 }
 
-Organism::Organism():x(0), y(0), moved(false) {
+Organism::Organism():x(0), y(0), moved(false), numOfSteps(0) {
     city = NULL;
     species = '\0';
 }
 
-Organism::Organism( City *city ):x(0), y(0), moved(false)
+Organism::Organism( City *city ):x(0), y(0), moved(false), numOfSteps(0)
 {
     this->city = city;
     species = '\0';
@@ -38,6 +38,12 @@ void Organism::setPosition( int x, int y )
     this->y = y;
 }
 void Organism::endTurn()
+{
+    //set the moved flag to true
+    moved = true;
+}
+
+void Organism::waitForTurn()
 {
     //reset moved value
     moved = false;

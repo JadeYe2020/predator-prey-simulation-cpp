@@ -109,10 +109,8 @@ void Human::move()
                     y -= 1;
                     break;
             }
-        }
+        } //end if(emptySp.size() > 0)
     } //end of if(!moved)
-    //change the moved status
-    moved = true;
 }
 
 char Human::getSpecies(){

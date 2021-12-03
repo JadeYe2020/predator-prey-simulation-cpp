@@ -55,8 +55,11 @@ void City::move()
 {
     for(int i=0; i<GRIDSIZE; i++) {
         for(int j=0; j<GRIDSIZE; j++) {
-            if(grid[i][j] != NULL)
-                grid[i][j]->move();
+            if(grid[i][j] != NULL) {
+                Organism *picked = grid[i][j];
+                picked->move();
+                picked->endTurn();
+            }
         }
     }
 }
@@ -65,7 +68,7 @@ void City::reset() {
     for(int i=0; i<GRIDSIZE; i++) {
         for(int j=0; j<GRIDSIZE; j++) {
             if(grid[i][j] != NULL)
-                grid[i][j]->endTurn();
+                grid[i][j]->waitForTurn();
         }
     }
 }

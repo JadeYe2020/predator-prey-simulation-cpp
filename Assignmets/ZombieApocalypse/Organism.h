@@ -23,6 +23,7 @@ class Organism
         char species;
 
 //        enum { WEST, NORTH, EAST, SOUTH, NUM_DIRECTIONS };
+        int numOfSteps;
 
     public:
         Organism();
@@ -38,6 +39,7 @@ class Organism
         void setPosition( int x, int y );
         void endTurn();
 //        bool isTurn(); ????
+        void waitForTurn();
 
         friend ostream& operator<<( ostream &output, Organism *organism );
 };

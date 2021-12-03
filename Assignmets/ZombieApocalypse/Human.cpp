@@ -110,9 +110,9 @@ void Human::move()
                     break;
             }
         }
-        //change the moved status
-        moved = true;
-    }
+    } //end of if(!moved)
+    //change the moved status
+    moved = true;
 }
 
 char Human::getSpecies(){

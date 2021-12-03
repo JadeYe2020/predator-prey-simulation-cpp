@@ -22,7 +22,7 @@ class Organism
         City *city;
         char species;
 
-        enum { WEST = -1, NORTH = -1, EAST = 1, SOUTH = 1, NUM_DIRECTIONS };
+//        enum { WEST, NORTH, EAST, SOUTH, NUM_DIRECTIONS };
 
     public:
         Organism();

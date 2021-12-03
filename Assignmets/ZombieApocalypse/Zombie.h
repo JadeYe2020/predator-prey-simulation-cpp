@@ -10,6 +10,8 @@
 class Zombie : public Organism
 {
     public:
+        enum direction { WEST, NORTH, EAST, SOUTH, NW, NE, SW, SE };
+
         Zombie();
         Zombie( City *city );
         virtual ~Zombie();

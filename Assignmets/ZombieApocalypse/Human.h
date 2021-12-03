@@ -10,6 +10,8 @@
 class Human : public Organism
 {
     public:
+        enum direction { WEST, NORTH, EAST, SOUTH };
+
         Human();
         Human( City *city );
         virtual ~Human();

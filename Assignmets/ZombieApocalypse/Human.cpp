@@ -38,23 +38,79 @@ void Human::move()
 {
     if(!moved)
     {
-        if( x>0 && city->getOrganism(x+WEST, y) == NULL ) {
-            //put the human to the new position
-            city->setOrganism(this, x+WEST, y);
-            //put an empty space to the previous position;
-            city->setOrganism(NULL, x, y);
-            //update the human's properties
-            x += WEST;
+        vector<direction> emptySp;
+        if(x == 0) {
+            if(city->getOrganism(x+1, y) == NULL)
+                emptySp.push_back(EAST);
         }
-        else if(y < GRIDSIZE && city->getOrganism(x, y+SOUTH) == NULL) {
-            city->setOrganism(this, x, y+SOUTH);
-            city->setOrganism(NULL, x, y);
-            y = y+SOUTH;
+        else if(x == GRIDSIZE-1) {
+            if(city->getOrganism(x+-1, y) == NULL)
+                emptySp.push_back(WEST);
         }
-//        vector<Organism*> emptySp;
-//        if(x == 0 && y == 0) {
-//
-//        }
+        else {
+            if(city->getOrganism(x+1, y) == NULL)
+                emptySp.push_back(EAST);
+            if(city->getOrganism(x+-1, y) == NULL)
+                emptySp.push_back(WEST);
+        }
+
+        if(y == 0) {
+            if(city->getOrganism(x, y+1) == NULL)
+                emptySp.push_back(SOUTH);
+        }
+        else if(y == GRIDSIZE-1) {
+            if(city->getOrganism(x, y+-1) == NULL)
+                emptySp.push_back(NORTH);
+        }
+        else {
+            if(city->getOrganism(x, y+1) == NULL)
+                emptySp.push_back(SOUTH);
+            if(city->getOrganism(x, y+-1) == NULL)
+                emptySp.push_back(NORTH);
+        }
+
+        if(emptySp.size() > 0)
+        {
+            //shuffle vector
+            unsigned seed = chrono::system_clock::now().time_since_epoch().count();//create random seed using system clock
+            shuffle(emptySp.begin(), emptySp.end(), default_random_engine(seed));
+
+            switch (emptySp[0]) {
+                case EAST:
+                    //put the human to the new position
+                    city->setOrganism(this, x+1, y);
+                    //put an empty space to the previous position;
+                    city->setOrganism(NULL, x, y);
+                    //update the human's properties
+                    x += 1;
+                    break;
+                case WEST:
+                    //put the human to the new position
+                    city->setOrganism(this, x-1, y);
+                    //put an empty space to the previous position;
+                    city->setOrganism(NULL, x, y);
+                    //update the human's properties
+                    x -= 1;
+                    break;
+                case SOUTH:
+                    //put the human to the new position
+                    city->setOrganism(this, x, y+1);
+                    //put an empty space to the previous position;
+                    city->setOrganism(NULL, x, y);
+                    //update the human's properties
+                    y += 1;
+                    break;
+                case NORTH:
+                    //put the human to the new position
+                    city->setOrganism(this, x, y-1);
+                    //put an empty space to the previous position;
+                    city->setOrganism(NULL, x, y);
+                    //update the human's properties
+                    y -= 1;
+                    break;
+            }
+        }
+        //change the moved status
         moved = true;
     }
 }

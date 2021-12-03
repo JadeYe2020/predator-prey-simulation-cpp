@@ -32,8 +32,7 @@ Zombie::~Zombie()
 
 void Zombie::move()
 {
-    x += 1;
-    y += 1;
+
 }
 
 char Zombie::getSpecies()

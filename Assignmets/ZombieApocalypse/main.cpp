@@ -58,7 +58,7 @@ int main() {
     for(int i=0; i<5; i++) { //while both humans and zombies exist
         this_thread::sleep_for(interval);
         ClearScreen();
-//        city->move(); //includes all actions
+        city->move(); //includes all actions
 
         // Alternate multi-pass version with each activity happening in its own
 // pass through the array. Lends itself to prototyping and testing:
@@ -77,7 +77,7 @@ int main() {
         cout << "HUMANS: " << city->countType(HUMAN_CH) << "\t";
         cout << "ZOMBIES: " << city->countType(ZOMBIE_CH) << endl;
 
-        city->move();
+
 
 
     }//end while

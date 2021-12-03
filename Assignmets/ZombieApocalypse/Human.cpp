@@ -16,11 +16,7 @@ using namespace std;
 
 class City;
 
-Human::Human()
-{
-    species = HUMAN_CH;
-    recruitCount = 0;
-}
+Human::Human() {}
 
 Human::Human( City *city )
 {
@@ -40,35 +36,118 @@ Human::direction Human::getNextStep() {
 
     vector<direction> emptySp;
 
-    if(x == 0) {
-        if(city->getOrganism(x+1, y) == NULL)
-            emptySp.push_back(EAST);
-    }
-    else if(x == GRIDSIZE-1) {
-        if(city->getOrganism(x+-1, y) == NULL)
-            emptySp.push_back(WEST);
-    }
-    else {
-        if(city->getOrganism(x+1, y) == NULL)
-            emptySp.push_back(EAST);
-        if(city->getOrganism(x+-1, y) == NULL)
-            emptySp.push_back(WEST);
-    }
+    switch (x) {
+        case 0:
+            switch(y) {
+                case 0: //check east, south
+                    if(city->getOrganism(x+1, y) == NULL)
+                        emptySp.push_back(EAST);
+                    if(city->getOrganism(x, y+1) == NULL)
+                        emptySp.push_back(SOUTH);
+                    break;
+                case GRIDSIZE-1: //check east, north
+                    if(city->getOrganism(x+1, y) == NULL)
+                        emptySp.push_back(EAST);
+                    if(city->getOrganism(x, y-1) == NULL)
+                        emptySp.push_back(NORTH);
+                    break;
+                default:
+                    //check east, north, south
+                    if(city->getOrganism(x+1, y) == NULL)
+                        emptySp.push_back(EAST);
+                    if(city->getOrganism(x, y-1) == NULL)
+                        emptySp.push_back(NORTH);
+                    if(city->getOrganism(x, y+1) == NULL)
+                        emptySp.push_back(SOUTH);
+                    break;
+            }
+            break;
+        case GRIDSIZE-1:
+            switch(y) {
+                case 0: //check west, south
+                    if(city->getOrganism(x-1, y) == NULL)
+                        emptySp.push_back(WEST);
+                    if(city->getOrganism(x, y+1) == NULL)
+                        emptySp.push_back(SOUTH);
+                    break;
+                case GRIDSIZE-1: //check west, north
+                    if(city->getOrganism(x-1, y) == NULL)
+                        emptySp.push_back(WEST);
+                    if(city->getOrganism(x, y-1) == NULL)
+                        emptySp.push_back(NORTH);
+                    break;
+                default: //check west, north, south
+                    if(city->getOrganism(x-1, y) == NULL)
+                        emptySp.push_back(WEST);
+                    if(city->getOrganism(x, y-1) == NULL)
+                        emptySp.push_back(NORTH);
+                    if(city->getOrganism(x, y+1) == NULL)
+                        emptySp.push_back(SOUTH);
+                    break;
+            }
+            break;
+        default:
+            switch(y) {
+                case 0: //check east, west, south
+                    if(city->getOrganism(x+1, y) == NULL)
+                        emptySp.push_back(EAST);
+                    if(city->getOrganism(x-1, y) == NULL)
+                        emptySp.push_back(WEST);
+                    if(city->getOrganism(x, y+1) == NULL)
+                        emptySp.push_back(SOUTH);
+                    break;
+                case GRIDSIZE-1: //check east, west, north
+                    if(city->getOrganism(x+1, y) == NULL)
+                        emptySp.push_back(EAST);
+                    if(city->getOrganism(x-1, y) == NULL)
+                        emptySp.push_back(WEST);
+                    if(city->getOrganism(x, y-1) == NULL)
+                        emptySp.push_back(NORTH);
+                    break;
+                default: //check all 4 directions
+                    if(city->getOrganism(x+1, y) == NULL)
+                        emptySp.push_back(EAST);
+                    if(city->getOrganism(x-1, y) == NULL)
+                        emptySp.push_back(WEST);
+                    if(city->getOrganism(x, y-1) == NULL)
+                        emptySp.push_back(NORTH);
+                    if(city->getOrganism(x+1, y-1) == NULL)
+                    if(city->getOrganism(x, y+1) == NULL)
+                        emptySp.push_back(SOUTH);
+                    break;
+            }
+            break;
+    } // end switch(x)
 
-    if(y == 0) {
-        if(city->getOrganism(x, y+1) == NULL)
-            emptySp.push_back(SOUTH);
-    }
-    else if(y == GRIDSIZE-1) {
-        if(city->getOrganism(x, y+-1) == NULL)
-            emptySp.push_back(NORTH);
-    }
-    else {
-        if(city->getOrganism(x, y+1) == NULL)
-            emptySp.push_back(SOUTH);
-        if(city->getOrganism(x, y+-1) == NULL)
-            emptySp.push_back(NORTH);
-    }
+//    if(x == 0) {
+//        if(city->getOrganism(x+1, y) == NULL)
+//            emptySp.push_back(EAST);
+//    }
+//    else if(x == GRIDSIZE-1) {
+//        if(city->getOrganism(x+-1, y) == NULL)
+//            emptySp.push_back(WEST);
+//    }
+//    else {
+//        if(city->getOrganism(x+1, y) == NULL)
+//            emptySp.push_back(EAST);
+//        if(city->getOrganism(x+-1, y) == NULL)
+//            emptySp.push_back(WEST);
+//    }
+//
+//    if(y == 0) {
+//        if(city->getOrganism(x, y+1) == NULL)
+//            emptySp.push_back(SOUTH);
+//    }
+//    else if(y == GRIDSIZE-1) {
+//        if(city->getOrganism(x, y+-1) == NULL)
+//            emptySp.push_back(NORTH);
+//    }
+//    else {
+//        if(city->getOrganism(x, y+1) == NULL)
+//            emptySp.push_back(SOUTH);
+//        if(city->getOrganism(x, y+-1) == NULL)
+//            emptySp.push_back(NORTH);
+//    }
 
     if(emptySp.size() > 0) {
         //shuffle vector
@@ -92,27 +171,18 @@ void Human::recruit() {
             case EAST:
                 //put a new human to the east side
                 city->setOrganism(newH, x+1, y);
-                //update its properties
-//                newH->x = x+1;
-//                newH->y = y;
                 break;
             case WEST:
                 //put a new human to the west side
                 city->setOrganism(newH, x-1, y);
-//                newH->x = x-1;
-//                newH->y = y;
                 break;
             case SOUTH:
                 //put a new human to the south side
                 city->setOrganism(newH, x, y+1);
-//                newH->x = x;
-//                newH->y = y+1;
                 break;
             case NORTH:
                 //put a new human to the north side
                 city->setOrganism(newH, x, y-1);
-//                newH->x = x;
-//                newH->y = y-1;
                 break;
         } //end switch
     } //end if(!= STAY)
@@ -136,32 +206,24 @@ void Human::move()
                 city->setOrganism(this, x+1, y);
                 //put an empty space to the previous position;
                 city->setOrganism(NULL, x-1, y);
-                //update the human's properties
-//                x += 1;
                 break;
             case WEST:
                 //put the human to the new position
                 city->setOrganism(this, x-1, y);
                 //put an empty space to the previous position;
                 city->setOrganism(NULL, x+1, y);
-                //update the human's properties
-//                x -= 1;
                 break;
             case SOUTH:
                 //put the human to the new position
                 city->setOrganism(this, x, y+1);
                 //put an empty space to the previous position;
                 city->setOrganism(NULL, x, y-1);
-                //update the human's properties
-//                y += 1;
                 break;
             case NORTH:
                 //put the human to the new position
                 city->setOrganism(this, x, y-1);
                 //put an empty space to the previous position;
                 city->setOrganism(NULL, x, y+1);
-                //update the human's properties
-//                y -= 1;
                 break;
             case STAY:
                 break;

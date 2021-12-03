@@ -23,7 +23,7 @@ class Organism
         char species;
 
 //        enum { WEST, NORTH, EAST, SOUTH, NUM_DIRECTIONS };
-        int numOfSteps;
+//        int numOfSteps;
 
     public:
         Organism();

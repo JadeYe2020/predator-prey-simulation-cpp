@@ -19,12 +19,12 @@ void Col(int c) //method to change the color of the "pen"
     SetConsoleTextAttribute(hConsole, c);
 }
 
-Organism::Organism():x(0), y(0), moved(false), numOfSteps(0) {
+Organism::Organism():x(0), y(0), moved(false) {
     city = NULL;
     species = '\0';
 }
 
-Organism::Organism( City *city ):x(0), y(0), moved(false), numOfSteps(0)
+Organism::Organism( City *city ):x(0), y(0), moved(false)
 {
     this->city = city;
     species = '\0';
@@ -41,8 +41,9 @@ void Organism::endTurn()
 {
     //set the moved flag to true
     moved = true;
+
     //increment the numOfSteps
-    numOfSteps ++;
+//    numOfSteps ++;
 }
 
 void Organism::waitForTurn()

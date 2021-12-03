@@ -19,11 +19,13 @@ class City;
 Human::Human()
 {
     species = HUMAN_CH;
+    recruitCount = 0;
 }
 
 Human::Human( City *city )
 {
     species = HUMAN_CH;
+    recruitCount = 0;
     this->city = city;
 }
 
@@ -78,10 +80,54 @@ Human::direction Human::getNextStep() {
         return STAY;
 }
 
+void Human::recruit() {
+    direction next = this->getNextStep();
+
+    if(next != STAY) {
+        //create a new human
+        Human *newH = new Human(city);
+        newH->endTurn(); //set the moved value to true so that it cannot move this time
+
+        switch (next) {
+            case EAST:
+                //put a new human to the east side
+                city->setOrganism(newH, x+1, y);
+                //update its properties
+                newH->x = x+1;
+                newH->y = y;
+                break;
+            case WEST:
+                //put a new human to the west side
+                city->setOrganism(newH, x-1, y);
+                newH->x = x-1;
+                newH->y = y;
+                break;
+            case SOUTH:
+                //put a new human to the south side
+                city->setOrganism(newH, x, y+1);
+                newH->x = x;
+                newH->y = y+1;
+                break;
+            case NORTH:
+                //put a new human to the north side
+                city->setOrganism(newH, x, y-1);
+                newH->x = x;
+                newH->y = y-1;
+                break;
+        } //end switch
+    } //end if(!= STAY)
+
+    //no matter recruit successful or not, reset step counter to zero
+    this->recruitCount = 0;
+}
+
 void Human::move()
 {
     if(!moved)
     {
+        //increment step counter
+        this->recruitCount ++;
+
         direction next = this->getNextStep();
 
         switch (next) {
@@ -120,6 +166,9 @@ void Human::move()
             case STAY:
                 break;
         } //end switch
+
+        if(this->recruitCount == 3)
+            this->recruit();
     } //end of if(!moved)
 }
 

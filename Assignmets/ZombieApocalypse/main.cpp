@@ -55,7 +55,7 @@ int main() {
 
     chrono:: milliseconds interval(INTERVAL);
 
-    for(int i=0; i<5; i++) { //while both humans and zombies exist
+    for(int i=0; i<6; i++) { //while both humans and zombies exist
         this_thread::sleep_for(interval);
         ClearScreen();
         city->move(); //includes all actions

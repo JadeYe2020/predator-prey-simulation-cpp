@@ -58,7 +58,8 @@ void City::move()
             if(grid[i][j] != NULL) {
                 Organism *picked = grid[i][j];
                 picked->move();
-                picked->endTurn(); //flip the moved value to true and increment the numOfSteps
+
+                picked->endTurn(); //flip the moved value to true
             }
         }
     }

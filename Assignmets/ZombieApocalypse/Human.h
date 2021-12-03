@@ -9,6 +9,9 @@
 
 class Human : public Organism
 {
+    private:
+        int recruitCount;
+
     public:
         enum direction { WEST, NORTH, EAST, SOUTH, STAY };
 
@@ -18,7 +21,10 @@ class Human : public Organism
 
         direction getNextStep();
 
+        void recruit();
+
         void move();
+
         char getSpecies();
 //        void getPosition()
 };

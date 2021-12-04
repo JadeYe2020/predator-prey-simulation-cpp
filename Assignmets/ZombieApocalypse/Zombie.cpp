@@ -413,8 +413,10 @@ void Zombie::move()
                 Human *newH = new Human(city);
                 newH->endTurn(); //set the moved value to true so that it cannot move this time
                 city->setOrganism(newH, x, y);
-                //set this zombie's city to null
+                //set this zombie's city to null and reset counters
                 this->city = NULL;
+                this->breedCount = 0; //so it will not go to the breed routine
+                this->starveCount = 0;
             }
             else { //still alive then try to move
                 direction next = this->getNextMove();

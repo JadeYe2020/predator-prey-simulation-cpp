@@ -16,22 +16,21 @@ using namespace std;
 
 void ClearScreen()
 {
-//    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-    cout << "\n\n";
+    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 }
 
 int main() {
 
     City *city = new City();
 
-    vector<Organism*> vOrg(GRIDSIZE * GRIDSIZE - 8 - 4); //should have 8 nullptrs
+    vector<Organism*> vOrg(GRIDSIZE * GRIDSIZE - HUMAN_STARTCOUNT - ZOMBIE_STARTCOUNT); //should have 8 nullptrs
     //populate vector: , 9 humans and 4 Zombies
-    for(int i=0; i<8; i++)
+    for(int i=0; i<HUMAN_STARTCOUNT; i++)
     {
         Human *hm = new Human(city);
         vOrg.push_back((Organism*)hm);
     }
-    for(int i=0; i<4; i++)
+    for(int i=0; i<ZOMBIE_STARTCOUNT; i++)
     {
         Zombie *zb = new Zombie(city);
         vOrg.push_back((Organism*)zb);
@@ -47,48 +46,42 @@ int main() {
         for(int j=0; j<GRIDSIZE; j++) {
             if(vOrg[k] != NULL)
                 city->setOrganism(vOrg[k], j, i);
-//            if(vOrg[k] != NULL)
-//                vOrg[k]->setPosition(j, i);
-
             k++;
         }
     }
 
     cout << *city; //prints city
-//        cout << "GENERATION " << city->getGeneration() << endl;
-    cout << "GENERATION " << (0) << "\t";
-    cout << "HUMANS: " << city->countType(HUMAN_CH) << "\t";
-    cout << "ZOMBIES: " << city->countType(ZOMBIE_CH) << endl;
+    int genCount = 0;
+    int numOfH = city->countType(HUMAN_CH);
+    int numOfZ = city->countType(ZOMBIE_CH);
+    cout << "GENERATION " << genCount << "\t";
+    cout << "HUMANS: " << numOfH << "\t";
+    cout << "ZOMBIES: " << numOfZ << endl;
 
     chrono:: milliseconds interval(INTERVAL);
 
-    for(int i=0; i<12; i++) { //while both humans and zombies exist
+//    for(int i=0; i<12; i++) { //while both humans and zombies exist
+    do {
         this_thread::sleep_for(interval);
         ClearScreen();
+
         city->move(); //includes all actions
 
-        // Alternate multi-pass version with each activity happening in its own
-// pass through the array. Lends itself to prototyping and testing:
-        //   city->humansMove();
-        //   city->zombiesMoveEat();
-        //   city->humansRecruit();
-        //   city->zombiesRecruit();
-        //   city->zombiesStarve();
-        //   city->countOrganisms(Z or H goes here);
-
         city->reset(); //resets moved flags
+        genCount ++; //increment the generation counter
+        numOfH = city->countType(HUMAN_CH);
+        numOfZ = city->countType(ZOMBIE_CH);
 
         cout << *city; //prints city
-//        cout << "GENERATION " << city->getGeneration() << endl;
-        cout << "GENERATION " << (i+1) << "\t";
-        cout << "HUMANS: " << city->countType(HUMAN_CH) << "\t";
-        cout << "ZOMBIES: " << city->countType(ZOMBIE_CH) << endl;
+        cout << "GENERATION " << genCount << "\t";
+        cout << "HUMANS: " << numOfH << "\t";
+        cout << "ZOMBIES: " << numOfZ << endl;
+    } while( numOfH > 0 && numOfZ > 0 && genCount < ITERATIONS);
 
-
-
-
-    }//end while
-    cout << "Extinction Event - End Program" << endl;
+    if(genCount != ITERATIONS)
+        cout << "Extinction Event - End Program" << endl;
+    else
+        cout << "1000 iterations finished - End Program" << endl;
 
     return 0;
 }

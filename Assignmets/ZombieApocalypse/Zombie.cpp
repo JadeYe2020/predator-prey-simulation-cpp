@@ -26,7 +26,10 @@ Zombie::Zombie( City *city )
     starveCount = 0;
 }
 
-Zombie::~Zombie() {}
+Zombie::~Zombie() {
+//    if(this->city != NULL)
+//        this->city = NULL;
+}
 
 Zombie::direction Zombie::getNextEat() {
 
@@ -399,21 +402,24 @@ void Zombie::move()
         //increment breed counter
         this->breedCount ++;
 
-        if(this->getNextEat() == STAY) { //it has nothing to each
+        direction next = this->getNextEat();
+
+        if(next == STAY) { //it has nothing to each
             //increment starve counter
             this->starveCount ++;
 
-            if(starveCount == 3) { //too starved to live
-//                delete this;
-                //declare new variables to save the location info
-                int xValue = x;
-                int yValue = y;
-
-                delete city->getOrganism(x, y);
-                city->setOrganism(NULL, xValue, yValue);
+            if(starveCount == 3) { //too starved to be a zombie anymore
+                //set a new Human on the same location
+                Human *newH = new Human(city);
+                newH->endTurn(); //set the moved value to true so that it cannot move this time
+                city->setOrganism(newH, x, y);
+                //set this zombie's city to null
+                this->city = NULL;
             }
             else { //still alive then try to move
-                switch (this->getNextMove()) {
+                direction next = this->getNextMove();
+
+                switch (next) {
                     case EAST:
                         //put the zombie to the new position
                         city->setOrganism(this, x+1, y);
@@ -456,7 +462,7 @@ void Zombie::move()
         else { //Go to eat
             this->starveCount = 0; //reset stave counter
 
-            switch (this->getNextEat()) {
+            switch (next) {
                 case EAST:
                     //delete the human
                     delete city->getOrganism(x+1, y);
@@ -500,6 +506,44 @@ void Zombie::move()
                     city->setOrganism(this, x-1, y+1);
                     city->setOrganism(NULL, x+1, y-1);
                     break;
+            } //end switch
+        } //end eat routine
+
+        if (this->breedCount >= 8) { //breed routine after eat/move
+            direction next = this->getNextEat(); //look for a human
+
+            if(next != STAY) {
+                //create a new Zombie
+                Zombie *newZ = new Zombie(city);
+                newZ->endTurn(); //set the moved value to true so that it cannot move this time
+
+                switch (next) {
+                    case EAST:
+                        //put the new zombie to that new position
+                        city->setOrganism(newZ, x + 1, y);
+                        break;
+                    case WEST:
+                        city->setOrganism(newZ, x - 1, y);
+                        break;
+                    case SOUTH:
+                        city->setOrganism(newZ, x, y + 1);
+                        break;
+                    case NORTH:
+                        city->setOrganism(newZ, x, y - 1);
+                        break;
+                    case NE:
+                        city->setOrganism(newZ, x + 1, y - 1);
+                        break;
+                    case NW:
+                        city->setOrganism(newZ, x - 1, y - 1);
+                        break;
+                    case SE:
+                        city->setOrganism(newZ, x + 1, y + 1);
+                        break;
+                    case SW:
+                        city->setOrganism(newZ, x - 1, y + 1);
+                        break;
+                } //end switch
             }
         }
     } //end if(!moved)

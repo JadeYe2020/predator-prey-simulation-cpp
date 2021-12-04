@@ -25,13 +25,7 @@ Human::Human( City *city )
     this->city = city;
 }
 
-Human::~Human()
-{
-//    if(this != NULL) //non-null test
-//        delete []this;
-//    *this = NULL; //assign null
-//    cout << "{Human Destructor Fired}" << endl;
-}
+Human::~Human() {}
 
 Human::direction Human::getNextStep() {
 

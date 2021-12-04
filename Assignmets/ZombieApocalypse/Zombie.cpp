@@ -408,7 +408,7 @@ void Zombie::move()
             //increment starve counter
             this->starveCount ++;
 
-            if(starveCount == 3) { //too starved to be a zombie anymore
+            if(starveCount == ZOMBIE_STARVE) { //too starved to be a zombie anymore
                 //set a new Human on the same location
                 Human *newH = new Human(city);
                 newH->endTurn(); //set the moved value to true so that it cannot move this time
@@ -511,7 +511,7 @@ void Zombie::move()
             } //end switch
         } //end eat routine
 
-        if (this->breedCount >= 8) { //breed routine after eat/move
+        if (this->breedCount >= ZOMBIE_BREED) { //breed routine after eat/move
             direction next = this->getNextEat(); //look for a human
 
             if(next != STAY) {

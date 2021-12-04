@@ -194,7 +194,7 @@ void Human::move()
                 break;
         } //end switch
 
-        if(this->recruitCount == 3)
+        if(this->recruitCount == HUMAN_BREED)
             this->recruit();
     } //end of if(!moved)
 }

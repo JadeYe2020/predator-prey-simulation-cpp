@@ -70,12 +70,10 @@ ostream& operator<<( ostream &output, Organism *organism )
                 Col(ZOMBIE_COLOR);
                 output << ' ' << ZOMBIE_CH << ' ';
                 break;
-//            default:
-//                Col(DEFAULT_COLOR);
-//                output << char(SPACE_CH);
-//                break;
         }
     }
+    //reset the color
+    Col(DEFAULT_COLOR);
 
     return output;
 }

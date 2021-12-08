@@ -220,6 +220,9 @@ void Zombie::move()
                 this->city = NULL;
                 this->breedCount = 0; //so it will not go to the breed routine
                 this->starveClock = 0;
+                this->x = 0;
+                this->y = 0;
+                this->species = '\0';
             }
             else { //is still alive then try to move
                 direction next = this->getNextMove();

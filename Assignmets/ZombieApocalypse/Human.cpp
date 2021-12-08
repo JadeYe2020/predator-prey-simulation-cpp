@@ -48,7 +48,7 @@ Human::direction Human::getNextStep() {
             emptySp.push_back(SOUTH);
     }
 
-    if(emptySp.size() > 0) {
+    if(!emptySp.empty()) {
         //shuffle vector when it's not empty
         unsigned seed = chrono::system_clock::now().time_since_epoch().count();
         shuffle(emptySp.begin(), emptySp.end(), default_random_engine(seed));

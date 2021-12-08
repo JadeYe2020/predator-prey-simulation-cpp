@@ -9,9 +9,6 @@
 #include <chrono>
 #include "GameSpecs.h"
 #include "City.h"
-#include "Organism.h"
-#include "Human.h"
-#include "Zombie.h"
 using namespace std;
 
 class City;
@@ -26,246 +23,77 @@ Zombie::Zombie( City *city )
     starveClock = 0;
 }
 
-Zombie::~Zombie() {
-//    if(this->city != NULL)
-//        this->city = NULL;
-}
+Zombie::~Zombie() {}
 
 Zombie::direction Zombie::getNextEat() {
-
+    //create a vector to store the available spaces
     vector<direction> spCanEat;
-    //look for spaces with humans
-    switch (x) {
-        case 0:
-            switch(y) {
-                case 0: //check east, south and SE
-                    if(city->getOrganism(x+1, y) != NULL) {
-                        if(city->getOrganism(x+1, y)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(EAST);
-                    }
+    //look for spaces with humans in
+    if(x != GRIDSIZE - 1) { //when it is not at the east end, check east
+        if(city->getOrganism(x+1, y) != NULL) { //check if there's an organism
+            //check if the organism is human
+            if(city->getOrganism(x+1, y)->getSpecies() == HUMAN_CH)
+                spCanEat.push_back(EAST);
+        }
+    }
 
-                    if(city->getOrganism(x, y+1) != NULL) {
-                        if(city->getOrganism(x, y+1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(SOUTH);
-                    }
+    if(x != 0) { //when it is not at the west end, check west
+        if(city->getOrganism(x-1, y) != NULL) {
+            if(city->getOrganism(x-1, y)->getSpecies() == HUMAN_CH)
+                spCanEat.push_back(WEST);
+        }
+    }
 
-                    if(city->getOrganism(x+1, y+1) != NULL) {
-                        if(city->getOrganism(x+1, y+1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(SE);
-                    }
-                    break;
-                case GRIDSIZE-1: //check east, north and NE
-                    if(city->getOrganism(x+1, y) != NULL) {
-                        if(city->getOrganism(x+1, y)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(EAST);
-                    }
+    if(y != GRIDSIZE - 1) { //when it is not at the south end, check south
+        if(city->getOrganism(x, y+1) != NULL) {
+            if(city->getOrganism(x, y+1)->getSpecies() == HUMAN_CH)
+                spCanEat.push_back(SOUTH);
+        }
+    }
 
-                    if(city->getOrganism(x, y-1) != NULL) {
-                        if(city->getOrganism(x, y-1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(NORTH);
-                    }
+    if(y != 0) { //when it is not at the north end, check north
+        if(city->getOrganism(x, y-1) != NULL) {
+            if(city->getOrganism(x, y-1)->getSpecies() == HUMAN_CH)
+                spCanEat.push_back(NORTH);
+        }
+    }
 
-                    if(city->getOrganism(x+1, y-1) != NULL) {
-                        if(city->getOrganism(x+1, y-1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(NE);
-                    }
-                    break;
-                default: //check east, north, south, NE, SE
-                    if(city->getOrganism(x+1, y) != NULL) {
-                        if(city->getOrganism(x+1, y)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(EAST);
-                    }
+    if(x != 0 && y != 0) { //when it is not at the north-west end, check north-west
+        if(city->getOrganism(x-1, y-1) != NULL) {
+            if(city->getOrganism(x-1, y-1)->getSpecies() == HUMAN_CH)
+                spCanEat.push_back(NW);
+        }
+    }
 
-                    if(city->getOrganism(x, y-1) != NULL) {
-                        if(city->getOrganism(x, y-1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(NORTH);
-                    }
+    if(x != 0 && y != GRIDSIZE - 1) { //when it is not at the south-west end, check south-west
+        if(city->getOrganism(x-1, y+1) != NULL) {
+            if(city->getOrganism(x-1, y+1)->getSpecies() == HUMAN_CH)
+                spCanEat.push_back(SW);
+        }
+    }
 
-                    if(city->getOrganism(x+1, y-1) != NULL) {
-                        if(city->getOrganism(x+1, y-1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(NE);
-                    }
+    if(x != GRIDSIZE - 1 && y != GRIDSIZE - 1) { //when it is not at the south-east end, check south-east
+        if(city->getOrganism(x+1, y+1) != NULL) {
+            if(city->getOrganism(x+1, y+1)->getSpecies() == HUMAN_CH)
+                spCanEat.push_back(SE);
+        }
+    }
 
-                    if(city->getOrganism(x, y+1) != NULL) {
-                        if(city->getOrganism(x, y+1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(SOUTH);
-                    }
+    if(x != GRIDSIZE - 1 && y != 0) { //when it is not at the north-east end, check north-east
+        if(city->getOrganism(x+1, y-1) != NULL) {
+            if(city->getOrganism(x+1, y-1)->getSpecies() == HUMAN_CH)
+                spCanEat.push_back(NE);
+        }
+    }
 
-                    if(city->getOrganism(x+1, y+1) != NULL) {
-                        if(city->getOrganism(x+1, y+1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(SE);
-                    }
-                    break;
-            }
-            break;
-        case GRIDSIZE-1:
-            switch(y) {
-                case 0: //check west, south, SW
-                    if(city->getOrganism(x-1, y) != NULL) {
-                        if(city->getOrganism(x-1, y)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(WEST);
-                    }
-
-                    if(city->getOrganism(x, y+1) != NULL) {
-                        if(city->getOrganism(x, y+1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(SOUTH);
-                    }
-
-                    if(city->getOrganism(x-1, y+1) != NULL) {
-                        if(city->getOrganism(x-1, y+1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(SW);
-                    }
-                    break;
-                case GRIDSIZE-1: //check west, north, NW
-                    if(city->getOrganism(x-1, y) != NULL) {
-                        if(city->getOrganism(x-1, y)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(WEST);
-                    }
-
-                    if(city->getOrganism(x, y-1) != NULL) {
-                        if(city->getOrganism(x, y-1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(NORTH);
-                    }
-
-                    if(city->getOrganism(x-1, y-1) != NULL) {
-                        if(city->getOrganism(x-1, y-1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(NW);
-                    }
-                    break;
-                default: //check west, north, south, NW, SW
-                    if(city->getOrganism(x-1, y) != NULL) {
-                        if(city->getOrganism(x-1, y)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(WEST);
-                    }
-
-                    if(city->getOrganism(x, y-1) != NULL) {
-                        if(city->getOrganism(x, y-1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(NORTH);
-                    }
-
-                    if(city->getOrganism(x-1, y-1) != NULL) {
-                        if(city->getOrganism(x-1, y-1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(NW);
-                    }
-
-                    if(city->getOrganism(x, y+1) != NULL) {
-                        if(city->getOrganism(x, y+1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(SOUTH);
-                    }
-
-                    if(city->getOrganism(x-1, y+1) != NULL) {
-                        if(city->getOrganism(x-1, y+1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(SW);
-                    }
-                    break;
-            }
-            break;
-        default:
-            switch(y) {
-                case 0: //check east, west, south, SE, SW
-                    if(city->getOrganism(x+1, y) != NULL) {
-                        if(city->getOrganism(x+1, y)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(EAST);
-                    }
-
-                    if(city->getOrganism(x-1, y) != NULL) {
-                        if(city->getOrganism(x-1, y)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(WEST);
-                    }
-
-                    if(city->getOrganism(x, y+1) != NULL) {
-                        if(city->getOrganism(x, y+1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(SOUTH);
-                    }
-
-                    if(city->getOrganism(x+1, y+1) != NULL) {
-                        if(city->getOrganism(x+1, y+1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(SE);
-                    }
-
-                    if(city->getOrganism(x-1, y+1) != NULL) {
-                        if(city->getOrganism(x-1, y+1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(SW);
-                    }
-                    break;
-                case GRIDSIZE-1: //check east, west, north, NE, NW
-                    if(city->getOrganism(x+1, y) != NULL) {
-                        if(city->getOrganism(x+1, y)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(EAST);
-                    }
-
-                    if(city->getOrganism(x-1, y) != NULL) {
-                        if(city->getOrganism(x-1, y)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(WEST);
-                    }
-
-                    if(city->getOrganism(x, y-1) != NULL) {
-                        if(city->getOrganism(x, y-1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(NORTH);
-                    }
-
-                    if(city->getOrganism(x-1, y-1) != NULL) {
-                        if(city->getOrganism(x-1, y-1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(NW);
-                    }
-
-                    if(city->getOrganism(x+1, y-1) != NULL) {
-                        if(city->getOrganism(x+1, y-1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(NE);
-                    }
-                    break;
-                default: //check all 8 directions
-                    if(city->getOrganism(x+1, y) != NULL) {
-                        if(city->getOrganism(x+1, y)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(EAST);
-                    }
-
-                    if(city->getOrganism(x-1, y) != NULL) {
-                        if(city->getOrganism(x-1, y)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(WEST);
-                    }
-
-                    if(city->getOrganism(x, y-1) != NULL) {
-                        if(city->getOrganism(x, y-1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(NORTH);
-                    }
-
-                    if(city->getOrganism(x+1, y-1) != NULL) {
-                        if(city->getOrganism(x+1, y-1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(NE);
-                    }
-
-                    if(city->getOrganism(x-1, y-1) != NULL) {
-                        if(city->getOrganism(x-1, y-1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(NW);
-                    }
-
-                    if(city->getOrganism(x, y+1) != NULL) {
-                        if(city->getOrganism(x, y+1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(SOUTH);
-                    }
-
-                    if(city->getOrganism(x+1, y+1) != NULL) {
-                        if(city->getOrganism(x+1, y+1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(SE);
-                    }
-
-                    if(city->getOrganism(x-1, y+1) != NULL) {
-                        if(city->getOrganism(x-1, y+1)->getSpecies() == HUMAN_CH)
-                            spCanEat.push_back(SW);
-                    }
-                    break;
-            }
-            break;
-    } // end switch(x)
-
-    if(spCanEat.size() > 0) {
-        //shuffle vector
+    if(!spCanEat.empty()) {
+        //shuffle vector when it's not empty
         unsigned seed = chrono::system_clock::now().time_since_epoch().count();
         shuffle(spCanEat.begin(), spCanEat.end(), default_random_engine(seed));
+        //get the first direction of the shuffled vector
         return spCanEat[0];
     }
-    else
+    else //otherwise return STAY
         return STAY;
 }
 
@@ -273,123 +101,51 @@ Zombie::direction Zombie::getNextMove() {
 
     vector<direction> spCanMove;
     //look for empty spaces
-    switch (x) {
-        case 0:
-            switch(y) {
-                case 0: //check east, south and SE
-                    if(city->getOrganism(x+1, y) == NULL)
-                        spCanMove.push_back(EAST);
-                    if(city->getOrganism(x, y+1) == NULL)
-                        spCanMove.push_back(SOUTH);
-                    if(city->getOrganism(x+1, y+1) == NULL)
-                        spCanMove.push_back(SE);
-                    break;
-                case GRIDSIZE-1: //check east, north and NE
-                    if(city->getOrganism(x+1, y) == NULL)
-                        spCanMove.push_back(EAST);
-                    if(city->getOrganism(x, y-1) == NULL)
-                        spCanMove.push_back(NORTH);
-                    if(city->getOrganism(x+1, y-1) == NULL)
-                        spCanMove.push_back(NE);
-                    break;
-                default: //check east, north, south, NE, SE
-                    if(city->getOrganism(x+1, y) == NULL)
-                        spCanMove.push_back(EAST);
-                    if(city->getOrganism(x, y-1) == NULL)
-                        spCanMove.push_back(NORTH);
-                    if(city->getOrganism(x+1, y-1) == NULL)
-                        spCanMove.push_back(NE);
-                    if(city->getOrganism(x, y+1) == NULL)
-                        spCanMove.push_back(SOUTH);
-                    if(city->getOrganism(x+1, y+1) == NULL)
-                        spCanMove.push_back(SE);
-                    break;
-            }
-            break;
-        case GRIDSIZE-1:
-            switch(y) {
-                case 0: //check west, south, SW
-                    if(city->getOrganism(x-1, y) == NULL)
-                        spCanMove.push_back(WEST);
-                    if(city->getOrganism(x, y+1) == NULL)
-                        spCanMove.push_back(SOUTH);
-                    if(city->getOrganism(x-1, y+1) == NULL)
-                        spCanMove.push_back(SW);
-                    break;
-                case GRIDSIZE-1: //check west, north, NW
-                    if(city->getOrganism(x-1, y) == NULL)
-                        spCanMove.push_back(WEST);
-                    if(city->getOrganism(x, y-1) == NULL)
-                        spCanMove.push_back(NORTH);
-                    if(city->getOrganism(x-1, y-1) == NULL)
-                        spCanMove.push_back(NW);
-                    break;
-                default: //check west, north, south, NW, SW
-                    if(city->getOrganism(x-1, y) == NULL)
-                        spCanMove.push_back(WEST);
-                    if(city->getOrganism(x, y-1) == NULL)
-                        spCanMove.push_back(NORTH);
-                    if(city->getOrganism(x-1, y-1) == NULL)
-                        spCanMove.push_back(NW);
-                    if(city->getOrganism(x, y+1) == NULL)
-                        spCanMove.push_back(SOUTH);
-                    if(city->getOrganism(x-1, y+1) == NULL)
-                        spCanMove.push_back(SW);
-                    break;
-            }
-            break;
-        default:
-            switch(y) {
-                case 0: //check east, west, south, SE, SW
-                    if(city->getOrganism(x+1, y) == NULL)
-                        spCanMove.push_back(EAST);
-                    if(city->getOrganism(x-1, y) == NULL)
-                        spCanMove.push_back(WEST);
-                    if(city->getOrganism(x, y+1) == NULL)
-                        spCanMove.push_back(SOUTH);
-                    if(city->getOrganism(x+1, y+1) == NULL)
-                        spCanMove.push_back(SE);
-                    if(city->getOrganism(x-1, y+1) == NULL)
-                        spCanMove.push_back(SW);
-                    break;
-                case GRIDSIZE-1: //check east, west, north, NE, NW
-                    if(city->getOrganism(x+1, y) == NULL)
-                        spCanMove.push_back(EAST);
-                    if(city->getOrganism(x-1, y) == NULL)
-                        spCanMove.push_back(WEST);
-                    if(city->getOrganism(x, y-1) == NULL)
-                        spCanMove.push_back(NORTH);
-                    if(city->getOrganism(x+1, y-1) == NULL)
-                        spCanMove.push_back(NE);
-                    if(city->getOrganism(x-1, y-1) == NULL)
-                        spCanMove.push_back(NW);
-                    break;
-                default: //check all 8 directions
-                    if(city->getOrganism(x+1, y) == NULL)
-                        spCanMove.push_back(EAST);
-                    if(city->getOrganism(x-1, y) == NULL)
-                        spCanMove.push_back(WEST);
-                    if(city->getOrganism(x, y-1) == NULL)
-                        spCanMove.push_back(NORTH);
-                    if(city->getOrganism(x+1, y-1) == NULL)
-                        spCanMove.push_back(NE);
-                    if(city->getOrganism(x-1, y-1) == NULL)
-                        spCanMove.push_back(NW);
-                    if(city->getOrganism(x, y+1) == NULL)
-                        spCanMove.push_back(SOUTH);
-                    if(city->getOrganism(x+1, y+1) == NULL)
-                        spCanMove.push_back(SE);
-                    if(city->getOrganism(x-1, y+1) == NULL)
-                        spCanMove.push_back(SW);
-                    break;
-            }
-            break;
-    } // end switch(x)
+    if(x != GRIDSIZE - 1) { //when it is not at the east end, check east
+        if (city->getOrganism(x + 1, y) == NULL)
+            spCanMove.push_back(EAST);
+    }
 
-    if(spCanMove.size() > 0) {
-        //shuffle vector
+    if(x != 0) { //when it is not at the west end, check west
+        if (city->getOrganism(x - 1, y) == NULL)
+            spCanMove.push_back(WEST);
+    }
+
+    if(y != GRIDSIZE - 1) { //when it is not at the south end, check south
+        if (city->getOrganism(x, y + 1) == NULL)
+            spCanMove.push_back(SOUTH);
+    }
+
+    if(y != 0) { //when it is not at the north end, check north
+        if (city->getOrganism(x, y - 1) == NULL)
+            spCanMove.push_back(NORTH);
+    }
+
+    if(x != 0 && y != 0) { //when it is not at the north-west end, check north-west
+        if (city->getOrganism(x - 1, y - 1) == NULL)
+            spCanMove.push_back(NW);
+    }
+
+    if(x != 0 && y != GRIDSIZE - 1) { //when it is not at the south-west end, check south-west
+        if (city->getOrganism(x - 1, y + 1) == NULL)
+            spCanMove.push_back(SW);
+    }
+
+    if(x != GRIDSIZE - 1 && y != GRIDSIZE - 1) { //when it is not at the south-east end, check south-east
+        if (city->getOrganism(x + 1, y + 1) == NULL)
+            spCanMove.push_back(SE);
+    }
+
+    if(x != GRIDSIZE - 1 && y != 0) { //when it is not at the north-east end, check north-east
+        if (city->getOrganism(x + 1, y - 1) == NULL)
+            spCanMove.push_back(NE);
+    }
+
+    if(!spCanMove.empty()) {
+        //shuffle vector when it's not empty
         unsigned seed = chrono::system_clock::now().time_since_epoch().count();
         shuffle(spCanMove.begin(), spCanMove.end(), default_random_engine(seed));
+        //get the first direction of the shuffled vector
         return spCanMove[0];
     }
     else

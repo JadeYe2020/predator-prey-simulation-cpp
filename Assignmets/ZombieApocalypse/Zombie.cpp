@@ -152,6 +152,53 @@ Zombie::direction Zombie::getNextMove() {
         return STAY;
 }
 
+void Zombie::breed(direction next) {
+    if(next != STAY) {
+        //create a new Zombie
+        Zombie *newZ = new Zombie(city);
+        newZ->endTurn(); //set the moved value to true so that it cannot move this time
+
+        switch (next) {
+            case EAST:
+                //delete the human
+                delete city->getOrganism(x + 1, y);
+                //put the new zombie to that new position
+                city->setOrganism(newZ, x + 1, y);
+                break;
+            case WEST:
+                delete city->getOrganism(x - 1, y);
+                city->setOrganism(newZ, x - 1, y);
+                break;
+            case SOUTH:
+                delete city->getOrganism(x, y + 1);
+                city->setOrganism(newZ, x, y + 1);
+                break;
+            case NORTH:
+                delete city->getOrganism(x, y - 1);
+                city->setOrganism(newZ, x, y - 1);
+                break;
+            case NE:
+                delete city->getOrganism(x + 1, y - 1);
+                city->setOrganism(newZ, x + 1, y - 1);
+                break;
+            case NW:
+                delete city->getOrganism(x - 1, y - 1);
+                city->setOrganism(newZ, x - 1, y - 1);
+                break;
+            case SE:
+                delete city->getOrganism(x + 1, y + 1);
+                city->setOrganism(newZ, x + 1, y + 1);
+                break;
+            case SW:
+                delete city->getOrganism(x - 1, y + 1);
+                city->setOrganism(newZ, x - 1, y + 1);
+                break;
+        } //end switch
+    } //end if(next != STAY)
+}
+
+//void starve(direction);
+
 void Zombie::move()
 {
     if(!moved) {
@@ -270,48 +317,7 @@ void Zombie::move()
         if (this->breedCount >= ZOMBIE_BREED) { //breed routine after eat/move
             direction next = this->getNextEat(); //look for a human
 
-            if(next != STAY) {
-                //create a new Zombie
-                Zombie *newZ = new Zombie(city);
-                newZ->endTurn(); //set the moved value to true so that it cannot move this time
-
-                switch (next) {
-                    case EAST:
-                        //delete the human
-                        delete city->getOrganism(x + 1, y);
-                        //put the new zombie to that new position
-                        city->setOrganism(newZ, x + 1, y);
-                        break;
-                    case WEST:
-                        delete city->getOrganism(x - 1, y);
-                        city->setOrganism(newZ, x - 1, y);
-                        break;
-                    case SOUTH:
-                        delete city->getOrganism(x, y + 1);
-                        city->setOrganism(newZ, x, y + 1);
-                        break;
-                    case NORTH:
-                        delete city->getOrganism(x, y - 1);
-                        city->setOrganism(newZ, x, y - 1);
-                        break;
-                    case NE:
-                        delete city->getOrganism(x + 1, y - 1);
-                        city->setOrganism(newZ, x + 1, y - 1);
-                        break;
-                    case NW:
-                        delete city->getOrganism(x - 1, y - 1);
-                        city->setOrganism(newZ, x - 1, y - 1);
-                        break;
-                    case SE:
-                        delete city->getOrganism(x + 1, y + 1);
-                        city->setOrganism(newZ, x + 1, y + 1);
-                        break;
-                    case SW:
-                        delete city->getOrganism(x - 1, y + 1);
-                        city->setOrganism(newZ, x - 1, y + 1);
-                        break;
-                } //end switch
-            }
+            this->breed(next);
         }
     } //end if(!moved)
 }

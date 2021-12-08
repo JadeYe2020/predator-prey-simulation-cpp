@@ -159,8 +159,7 @@ void Zombie::move()
         this->breedCount ++;
 
         direction next = this->getNextEat();
-
-        if(next == STAY) { //it has nothing to each
+        if(next == STAY) { //if it has nothing to eat
             //increment starve counter
             this->starveClock ++;
 
@@ -169,12 +168,13 @@ void Zombie::move()
                 Human *newH = new Human(city);
                 newH->endTurn(); //set the moved value to true so that it cannot move this time
                 city->setOrganism(newH, x, y);
+
                 //set this zombie's city to null and reset counters
                 this->city = NULL;
                 this->breedCount = 0; //so it will not go to the breed routine
                 this->starveClock = 0;
             }
-            else { //still alive then try to move
+            else { //is still alive then try to move
                 direction next = this->getNextMove();
 
                 switch (next) {
@@ -217,14 +217,14 @@ void Zombie::move()
                 } //end switch
             } //end else
         } //end if nothing to eat
-        else { //Go to eat
+        else { //when it has a human to eat
             this->starveClock = 0; //reset stave counter
 
             switch (next) {
                 case EAST:
                     //delete the human
                     delete city->getOrganism(x+1, y);
-                    //put the zombie to that new position
+                    //put the zombie to that position
                     city->setOrganism(this, x+1, y);
                     //put an empty space to the previous position;
                     city->setOrganism(NULL, x-1, y);
@@ -277,28 +277,37 @@ void Zombie::move()
 
                 switch (next) {
                     case EAST:
+                        //delete the human
+                        delete city->getOrganism(x + 1, y);
                         //put the new zombie to that new position
                         city->setOrganism(newZ, x + 1, y);
                         break;
                     case WEST:
+                        delete city->getOrganism(x - 1, y);
                         city->setOrganism(newZ, x - 1, y);
                         break;
                     case SOUTH:
+                        delete city->getOrganism(x, y + 1);
                         city->setOrganism(newZ, x, y + 1);
                         break;
                     case NORTH:
+                        delete city->getOrganism(x, y - 1);
                         city->setOrganism(newZ, x, y - 1);
                         break;
                     case NE:
+                        delete city->getOrganism(x + 1, y - 1);
                         city->setOrganism(newZ, x + 1, y - 1);
                         break;
                     case NW:
+                        delete city->getOrganism(x - 1, y - 1);
                         city->setOrganism(newZ, x - 1, y - 1);
                         break;
                     case SE:
+                        delete city->getOrganism(x + 1, y + 1);
                         city->setOrganism(newZ, x + 1, y + 1);
                         break;
                     case SW:
+                        delete city->getOrganism(x - 1, y + 1);
                         city->setOrganism(newZ, x - 1, y + 1);
                         break;
                 } //end switch

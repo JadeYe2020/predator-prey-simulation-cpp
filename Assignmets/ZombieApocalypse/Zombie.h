@@ -23,14 +23,12 @@ class Zombie : public Organism
         direction getNextEat();
         direction getNextMove();
 
-//        void breed();
-//        void starve();
+        void breed(direction);
 
         void move();
-//        void eat();
 
         char getSpecies();
-//        void getPosition()
+
 };
 
 #endif //ZOMBIEAPOCALYPSE_ZOMBIE_H

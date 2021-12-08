@@ -54,7 +54,7 @@ void City::move()
             if(grid[i][j] != NULL) {
                 Organism *picked = grid[i][j];
 
-                picked->move(); //the organism will do everything they can do
+                picked->move(); //late binding, the organism will do everything they can do
                 picked->endTurn(); //flip the moved value to true
             }
         }

@@ -23,7 +23,7 @@ Zombie::Zombie( City *city )
     species = ZOMBIE_CH;
     this->city = city;
     breedCount = 0;
-    starveCount = 0;
+    starveClock = 0;
 }
 
 Zombie::~Zombie() {
@@ -406,9 +406,9 @@ void Zombie::move()
 
         if(next == STAY) { //it has nothing to each
             //increment starve counter
-            this->starveCount ++;
+            this->starveClock ++;
 
-            if(starveCount == ZOMBIE_STARVE) { //too starved to be a zombie anymore
+            if(starveClock == ZOMBIE_STARVE) { //too starved to be a zombie anymore
                 //set a new Human on the same location
                 Human *newH = new Human(city);
                 newH->endTurn(); //set the moved value to true so that it cannot move this time
@@ -416,7 +416,7 @@ void Zombie::move()
                 //set this zombie's city to null and reset counters
                 this->city = NULL;
                 this->breedCount = 0; //so it will not go to the breed routine
-                this->starveCount = 0;
+                this->starveClock = 0;
             }
             else { //still alive then try to move
                 direction next = this->getNextMove();
@@ -462,7 +462,7 @@ void Zombie::move()
             } //end else
         } //end if nothing to eat
         else { //Go to eat
-            this->starveCount = 0; //reset stave counter
+            this->starveClock = 0; //reset stave counter
 
             switch (next) {
                 case EAST:

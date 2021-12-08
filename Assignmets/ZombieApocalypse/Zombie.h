@@ -11,7 +11,7 @@ class Zombie : public Organism
 {
     private:
         int breedCount;
-        int starveCount;
+        int starveClock;
 
     public:
         enum direction { WEST, NORTH, EAST, SOUTH, NW, NE, SW, SE, STAY };
@@ -23,11 +23,11 @@ class Zombie : public Organism
         direction getNextEat();
         direction getNextMove();
 
-        void breed();
-        void starve();
+//        void breed();
+//        void starve();
 
         void move();
-        void eat();
+//        void eat();
 
         char getSpecies();
 //        void getPosition()

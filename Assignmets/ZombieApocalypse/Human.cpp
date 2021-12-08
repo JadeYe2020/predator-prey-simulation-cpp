@@ -2,16 +2,13 @@
 // Created by JadeYe on 11/28/2021.
 //
 
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <random>
 #include <chrono>
 #include "GameSpecs.h"
 #include "City.h"
-#include "Organism.h"
-#include "Human.h"
-#include "Zombie.h"
+
 using namespace std;
 
 class City;
@@ -28,91 +25,111 @@ Human::Human( City *city )
 Human::~Human() {}
 
 Human::direction Human::getNextStep() {
-
+    //create a vector to store the available spaces
     vector<direction> emptySp;
 
-    switch (x) {
-        case 0:
-            switch(y) {
-                case 0: //check east, south
-                    if(city->getOrganism(x+1, y) == NULL)
-                        emptySp.push_back(EAST);
-                    if(city->getOrganism(x, y+1) == NULL)
-                        emptySp.push_back(SOUTH);
-                    break;
-                case GRIDSIZE-1: //check east, north
-                    if(city->getOrganism(x+1, y) == NULL)
-                        emptySp.push_back(EAST);
-                    if(city->getOrganism(x, y-1) == NULL)
-                        emptySp.push_back(NORTH);
-                    break;
-                default:
-                    //check east, north, south
-                    if(city->getOrganism(x+1, y) == NULL)
-                        emptySp.push_back(EAST);
-                    if(city->getOrganism(x, y-1) == NULL)
-                        emptySp.push_back(NORTH);
-                    if(city->getOrganism(x, y+1) == NULL)
-                        emptySp.push_back(SOUTH);
-                    break;
-            }
-            break;
-        case GRIDSIZE-1:
-            switch(y) {
-                case 0: //check west, south
-                    if(city->getOrganism(x-1, y) == NULL)
-                        emptySp.push_back(WEST);
-                    if(city->getOrganism(x, y+1) == NULL)
-                        emptySp.push_back(SOUTH);
-                    break;
-                case GRIDSIZE-1: //check west, north
-                    if(city->getOrganism(x-1, y) == NULL)
-                        emptySp.push_back(WEST);
-                    if(city->getOrganism(x, y-1) == NULL)
-                        emptySp.push_back(NORTH);
-                    break;
-                default: //check west, north, south
-                    if(city->getOrganism(x-1, y) == NULL)
-                        emptySp.push_back(WEST);
-                    if(city->getOrganism(x, y-1) == NULL)
-                        emptySp.push_back(NORTH);
-                    if(city->getOrganism(x, y+1) == NULL)
-                        emptySp.push_back(SOUTH);
-                    break;
-            }
-            break;
-        default:
-            switch(y) {
-                case 0: //check east, west, south
-                    if(city->getOrganism(x+1, y) == NULL)
-                        emptySp.push_back(EAST);
-                    if(city->getOrganism(x-1, y) == NULL)
-                        emptySp.push_back(WEST);
-                    if(city->getOrganism(x, y+1) == NULL)
-                        emptySp.push_back(SOUTH);
-                    break;
-                case GRIDSIZE-1: //check east, west, north
-                    if(city->getOrganism(x+1, y) == NULL)
-                        emptySp.push_back(EAST);
-                    if(city->getOrganism(x-1, y) == NULL)
-                        emptySp.push_back(WEST);
-                    if(city->getOrganism(x, y-1) == NULL)
-                        emptySp.push_back(NORTH);
-                    break;
-                default: //check all 4 directions
-                    if(city->getOrganism(x+1, y) == NULL)
-                        emptySp.push_back(EAST);
-                    if(city->getOrganism(x-1, y) == NULL)
-                        emptySp.push_back(WEST);
-                    if(city->getOrganism(x, y-1) == NULL)
-                        emptySp.push_back(NORTH);
-                    if(city->getOrganism(x+1, y-1) == NULL)
-                    if(city->getOrganism(x, y+1) == NULL)
-                        emptySp.push_back(SOUTH);
-                    break;
-            }
-            break;
-    } // end switch(x)
+    if(x != 0) {
+        if(city->getOrganism(x+1, y) == NULL)
+            emptySp.push_back(EAST);
+    }
+
+    if(x != GRIDSIZE - 1) {
+        if(city->getOrganism(x-1, y) == NULL)
+            emptySp.push_back(WEST);
+    }
+
+    if(y != 0) {
+        if(city->getOrganism(x, y-1) == NULL)
+            emptySp.push_back(NORTH);
+    }
+
+    if(y != GRIDSIZE - 1) {
+        if(city->getOrganism(x, y+1) == NULL)
+            emptySp.push_back(SOUTH);
+    }
+
+//    switch (x) {
+//        case 0: //when the human is at the west end of the city
+//            switch(y) {
+//                case 0: //when the human is at the north-west corner, check only east and south
+//                    if(city->getOrganism(x+1, y) == NULL)
+//                        emptySp.push_back(EAST);
+//                    if(city->getOrganism(x, y+1) == NULL)
+//                        emptySp.push_back(SOUTH);
+//                    break;
+//                case GRIDSIZE-1: //when the human is at the south-west corner, check only east and north
+//                    if(city->getOrganism(x+1, y) == NULL)
+//                        emptySp.push_back(EAST);
+//                    if(city->getOrganism(x, y-1) == NULL)
+//                        emptySp.push_back(NORTH);
+//                    break;
+//                default:
+//                    //check east, north and south
+//                    if(city->getOrganism(x+1, y) == NULL)
+//                        emptySp.push_back(EAST);
+//                    if(city->getOrganism(x, y-1) == NULL)
+//                        emptySp.push_back(NORTH);
+//                    if(city->getOrganism(x, y+1) == NULL)
+//                        emptySp.push_back(SOUTH);
+//                    break;
+//            }
+//            break;
+//        case GRIDSIZE-1: //when the human is at the east end of the city
+//            switch(y) {
+//                case 0: //when the human is at the north-east corner, check only west and south
+//                    if(city->getOrganism(x-1, y) == NULL)
+//                        emptySp.push_back(WEST);
+//                    if(city->getOrganism(x, y+1) == NULL)
+//                        emptySp.push_back(SOUTH);
+//                    break;
+//                case GRIDSIZE-1: //when the human is at the south-east corner, check only west and north
+//                    if(city->getOrganism(x-1, y) == NULL)
+//                        emptySp.push_back(WEST);
+//                    if(city->getOrganism(x, y-1) == NULL)
+//                        emptySp.push_back(NORTH);
+//                    break;
+//                default: //check west, north and south
+//                    if(city->getOrganism(x-1, y) == NULL)
+//                        emptySp.push_back(WEST);
+//                    if(city->getOrganism(x, y-1) == NULL)
+//                        emptySp.push_back(NORTH);
+//                    if(city->getOrganism(x, y+1) == NULL)
+//                        emptySp.push_back(SOUTH);
+//                    break;
+//            }
+//            break;
+//        default:
+//            switch(y) {
+//                case 0: //when the human is at the north end of the city, check only east, west and south
+//                    if(city->getOrganism(x+1, y) == NULL)
+//                        emptySp.push_back(EAST);
+//                    if(city->getOrganism(x-1, y) == NULL)
+//                        emptySp.push_back(WEST);
+//                    if(city->getOrganism(x, y+1) == NULL)
+//                        emptySp.push_back(SOUTH);
+//                    break;
+//                case GRIDSIZE-1: //when at the south end of the city, check only east, west and north
+//                    if(city->getOrganism(x+1, y) == NULL)
+//                        emptySp.push_back(EAST);
+//                    if(city->getOrganism(x-1, y) == NULL)
+//                        emptySp.push_back(WEST);
+//                    if(city->getOrganism(x, y-1) == NULL)
+//                        emptySp.push_back(NORTH);
+//                    break;
+//                default: //check all 4 directions
+//                    if(city->getOrganism(x+1, y) == NULL)
+//                        emptySp.push_back(EAST);
+//                    if(city->getOrganism(x-1, y) == NULL)
+//                        emptySp.push_back(WEST);
+//                    if(city->getOrganism(x, y-1) == NULL)
+//                        emptySp.push_back(NORTH);
+//                    if(city->getOrganism(x+1, y-1) == NULL)
+//                    if(city->getOrganism(x, y+1) == NULL)
+//                        emptySp.push_back(SOUTH);
+//                    break;
+//            }
+//            break;
+//    } // end switch
 
     if(emptySp.size() > 0) {
         //shuffle vector

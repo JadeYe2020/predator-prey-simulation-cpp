@@ -5,9 +5,6 @@
 #include <windows.h>
 #include "GameSpecs.h"
 #include "City.h"
-#include "Organism.h"
-#include "Human.h"
-#include "Zombie.h"
 using namespace std;
 
 class City;
@@ -19,13 +16,13 @@ void Col(int c) //method to change the color of the "pen"
     SetConsoleTextAttribute(hConsole, c);
 }
 
-Organism::Organism():x(0), y(0), moved(false) {
-    city = NULL;
-    species = '\0';
-}
+Organism::Organism() {}
 
-Organism::Organism( City *city ):x(0), y(0), moved(false)
+Organism::Organism( City *city )
 {
+    x = 0;
+    y = 0;
+    moved = false;
     this->city = city;
     species = '\0';
 }
@@ -37,29 +34,27 @@ void Organism::setPosition( int x, int y )
     this->x = x;
     this->y = y;
 }
+
 void Organism::endTurn()
 {
     //set the moved flag to true
     moved = true;
-
-    //increment the numOfSteps
-//    numOfSteps ++;
 }
 
 void Organism::waitForTurn()
 {
-    //reset moved value
+    //reset moved value to false
     moved = false;
 }
 
 ostream& operator<<( ostream &output, Organism *organism )
 {
-    if(!organism)
+    if(!organism) //if it's a nullptr, then print a "space"
     {
         Col(DEFAULT_COLOR);
         output << ' ' << SPACE_CH << ' ';
     }
-    else
+    else //otherwise print the organism's character with the right color
     {
         switch (organism->species) {
             case HUMAN_CH:
@@ -72,7 +67,7 @@ ostream& operator<<( ostream &output, Organism *organism )
                 break;
         }
     }
-    //reset the color
+    //reset the color to the default
     Col(DEFAULT_COLOR);
 
     return output;

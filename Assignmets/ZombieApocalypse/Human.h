@@ -10,7 +10,7 @@
 class Human : public Organism
 {
     private:
-        int recruitCount;
+        int recruitClock;
 
     public:
         enum direction { WEST, NORTH, EAST, SOUTH, STAY };
@@ -26,7 +26,6 @@ class Human : public Organism
         void move();
 
         char getSpecies();
-//        void getPosition()
 };
 
 #endif //ZOMBIEAPOCALYPSE_HUMAN_H

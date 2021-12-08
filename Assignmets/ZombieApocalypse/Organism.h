@@ -16,30 +16,21 @@ class Organism
     protected:
         int x;
         int y;
-//        int width;
-//        int height;
         bool moved;
         City *city;
         char species;
 
-//        enum { WEST, NORTH, EAST, SOUTH, NUM_DIRECTIONS };
-//        int numOfSteps;
-
     public:
         Organism();
-//        Organism( City *city, int width, int height );
         Organism( City *city);
         virtual ~Organism();
 
         virtual void move() = 0;
-        //virtual void spawn() = 0;
-        virtual char getSpecies() = 0; //this could also be coded concrete here
-//        virtual void getPosition() = 0;
+        virtual char getSpecies() = 0;
 
         void setPosition( int x, int y );
-        void endTurn();
-//        bool isTurn(); ????
-        void waitForTurn();
+        void endTurn(); //to set moved value to true
+        void waitForTurn(); //to set moved value to false
 
         friend ostream& operator<<( ostream &output, Organism *organism );
 };

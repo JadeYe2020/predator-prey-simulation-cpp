@@ -14,7 +14,7 @@ const int ZOMBIE_STARVE = 3; // steps until a Zombie starves and converts back
 const char HUMAN_CH = 72;//"H"// ascii Human
 const char SPACE_CH = 45; // "-" ascii space
 const char ZOMBIE_CH = 90;//90 "Z"// ascii zombie
-const int INTERVAL = 900; // pause between steps
+const int INTERVAL = 900; // pause between steps in millisecond
 const int ITERATIONS = 1000; // max number of steps
 
 //Colors
@@ -27,7 +27,7 @@ const int ITERATIONS = 1000; // max number of steps
 //6  = yellow				//15 = bright white
 //7  = white regular		//16+ = solid blocks
 //8  = white pale
-const int DEFAULT_COLOR = 0;
+const int DEFAULT_COLOR = 0; //black
 const int HUMAN_COLOR = 3; // turquoise
 const int ZOMBIE_COLOR = 12; // bright red
 

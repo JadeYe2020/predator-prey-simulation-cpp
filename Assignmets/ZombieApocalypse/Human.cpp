@@ -21,7 +21,7 @@ Human::Human() {}
 Human::Human( City *city )
 {
     species = HUMAN_CH;
-    recruitCount = 0;
+    recruitClock = 0;
     this->city = city;
 }
 
@@ -153,7 +153,7 @@ void Human::recruit() {
     } //end if(!= STAY)
 
     //no matter recruit successful or not, reset step counter to zero
-    this->recruitCount = 0;
+    this->recruitClock = 0;
 }
 
 void Human::move()
@@ -161,7 +161,7 @@ void Human::move()
     if(!moved)
     {
         //increment step counter
-        this->recruitCount ++;
+        this->recruitClock ++;
 
         direction next = this->getNextStep();
 
@@ -194,7 +194,7 @@ void Human::move()
                 break;
         } //end switch
 
-        if(this->recruitCount == HUMAN_BREED)
+        if(this->recruitClock == HUMAN_BREED)
             this->recruit();
     } //end of if(!moved)
 }

@@ -3,4 +3,4 @@ project(ZombieApocalypse)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(ZombieApocalypse main.cpp GameSpecs.h City.h Organism.h Human.h Zombie.h City.cpp Organism.cpp Human.cpp Zombie.cpp)
+add_executable(ZombieApocalypse src/main.cpp src/GameSpecs.h src/City.h src/Organism.h src/Human.h src/Zombie.h src/City.cpp src/Organism.cpp src/Human.cpp src/Zombie.cpp)

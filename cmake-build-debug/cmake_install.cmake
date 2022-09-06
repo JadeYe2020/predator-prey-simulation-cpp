@@ -1,4 +1,4 @@
-# Install script for directory: C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse
+# Install script for directory: C:/Portfolio/predator-prey-simulation-cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/PROG2100/CPPSourceCode/Assignmets/ZombieApocalypse/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Portfolio/predator-prey-simulation-cpp/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

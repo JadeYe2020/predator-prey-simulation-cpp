@@ -1,3 +1,0 @@
-C:/PROG2100/CPPSourceCode/Assignmets/RationalNum/cmake-build-debug/CMakeFiles/RationalNum.dir
-C:/PROG2100/CPPSourceCode/Assignmets/RationalNum/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/PROG2100/CPPSourceCode/Assignmets/RationalNum/cmake-build-debug/CMakeFiles/rebuild_cache.dir

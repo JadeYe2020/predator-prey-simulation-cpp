@@ -1,3 +1,0 @@
-C:/PROG2100/CPPSourceCode/EpicPoemPointers/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/PROG2100/CPPSourceCode/EpicPoemPointers/cmake-build-debug/CMakeFiles/EpicPoemPointers.dir
-C:/PROG2100/CPPSourceCode/EpicPoemPointers/cmake-build-debug/CMakeFiles/edit_cache.dir

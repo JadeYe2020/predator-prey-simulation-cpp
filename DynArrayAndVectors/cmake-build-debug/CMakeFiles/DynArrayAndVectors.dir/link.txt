@@ -1,3 +1,0 @@
-C:\Users\jayde\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5080.54\bin\cmake\win\bin\cmake.exe -E rm -f CMakeFiles\DynArrayAndVectors.dir/objects.a
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ar.exe cr CMakeFiles\DynArrayAndVectors.dir/objects.a @CMakeFiles\DynArrayAndVectors.dir\objects1.rsp
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\DynArrayAndVectors.dir/objects.a -Wl,--no-whole-archive -o DynArrayAndVectors.exe -Wl,--out-implib,libDynArrayAndVectors.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\DynArrayAndVectors.dir\linklibs.rsp

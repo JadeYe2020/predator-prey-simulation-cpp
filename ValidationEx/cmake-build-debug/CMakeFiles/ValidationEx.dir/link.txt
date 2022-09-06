@@ -1,3 +1,0 @@
-C:\Users\jayde\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5080.54\bin\cmake\win\bin\cmake.exe -E rm -f CMakeFiles\ValidationEx.dir/objects.a
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ar.exe cr CMakeFiles\ValidationEx.dir/objects.a @CMakeFiles\ValidationEx.dir\objects1.rsp
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\ValidationEx.dir/objects.a -Wl,--no-whole-archive -o ValidationEx.exe -Wl,--out-implib,libValidationEx.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\ValidationEx.dir\linklibs.rsp

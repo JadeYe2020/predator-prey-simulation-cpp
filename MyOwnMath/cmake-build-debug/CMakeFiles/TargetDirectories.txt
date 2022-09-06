@@ -1,3 +1,0 @@
-C:/PROG2100/CPPSourceCode/MyOwnMath/cmake-build-debug/CMakeFiles/MyOwnMath.dir
-C:/PROG2100/CPPSourceCode/MyOwnMath/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/PROG2100/CPPSourceCode/MyOwnMath/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,3 +1,0 @@
-C:/PROG2100/CPPSourceCode/Assignmets/Conversion/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/PROG2100/CPPSourceCode/Assignmets/Conversion/cmake-build-debug/CMakeFiles/Conversion.dir
-C:/PROG2100/CPPSourceCode/Assignmets/Conversion/cmake-build-debug/CMakeFiles/edit_cache.dir

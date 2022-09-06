@@ -1,3 +1,0 @@
-C:/PROG2100/CPPSourceCode/Passing2DArray/cmake-build-debug/CMakeFiles/Passing2DArray.dir
-C:/PROG2100/CPPSourceCode/Passing2DArray/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/PROG2100/CPPSourceCode/Passing2DArray/cmake-build-debug/CMakeFiles/rebuild_cache.dir

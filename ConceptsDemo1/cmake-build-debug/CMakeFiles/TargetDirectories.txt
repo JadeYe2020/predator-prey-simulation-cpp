@@ -1,3 +1,0 @@
-C:/PROG2100/CPPSourceCode/ConceptsDemo1/cmake-build-debug/CMakeFiles/ConceptsDemo1.dir
-C:/PROG2100/CPPSourceCode/ConceptsDemo1/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/PROG2100/CPPSourceCode/ConceptsDemo1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

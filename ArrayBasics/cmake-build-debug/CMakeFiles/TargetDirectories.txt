@@ -1,3 +1,0 @@
-C:/PROG2100/CPPSourceCode/ArrayBasics/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/PROG2100/CPPSourceCode/ArrayBasics/cmake-build-debug/CMakeFiles/ArrayBasics.dir
-C:/PROG2100/CPPSourceCode/ArrayBasics/cmake-build-debug/CMakeFiles/edit_cache.dir
